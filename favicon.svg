@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Hamza Shaikh HS monogram</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#163b91"/><stop offset="1" stop-color="#6126a8"/></linearGradient>
+    <linearGradient id="letters" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#37ddf4"/><stop offset=".55" stop-color="#70a7ff"/><stop offset="1" stop-color="#d6a5ff"/></linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="#080d1c"/>
+  <rect x="8" y="8" width="112" height="112" rx="25" fill="url(#bg)" stroke="#70b8ff" stroke-opacity=".65" stroke-width="2"/>
+  <path d="M28 91V36h13v21h22V36h13v55H63V69H41v22z" fill="url(#letters)"/>
+  <path d="M101 47c-5-5-11-7-19-7-14 0-22 7-22 18 0 10 7 14 21 17 7 1 9 3 9 6 0 4-4 6-10 6-7 0-13-3-18-8l-8 9c7 7 16 11 27 11 15 0 24-7 24-19 0-10-6-15-21-18-7-2-10-3-10-6 0-3 3-5 8-5 5 0 10 2 14 5z" fill="#f3f7ff"/>
+</svg>
