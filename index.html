@@ -1,0 +1,1414 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Hamza Shaikh | Software Developer & AI Builder</title>
+  <meta name="description" content="Hamza Shaikh (@HamzaShaikhAI) is an independent software developer building AI applications, open-source developer tools, systems software, and intelligent automation. Explore KeplerBridge, AgentForge, and Notion Block Engine.">
+  <meta name="keywords" content="Hamza Shaikh, HamzaShaikhAI, Software Developer, AI Developer, Open Source Developer, C++ Developer, Python Developer, TypeScript, AI Agents, DirectX 12, KeplerBridge, AgentForge, Notion Block Engine">
+  <meta name="author" content="Hamza Shaikh">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#080b14">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://hamzashaikhai.github.io/">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hamza Shaikh | Software Developer & AI Builder">
+  <meta property="og:description" content="Explore the projects, engineering work, and open-source software of Hamza Shaikh (@HamzaShaikhAI).">
+  <meta property="og:url" content="https://hamzashaikhai.github.io/">
+  <meta property="og:site_name" content="HamzaShaikhAI">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Hamza Shaikh | Developer Portfolio">
+  <meta name="twitter:description" content="Software development, AI applications, systems engineering, and open-source projects.">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Hamza Shaikh",
+    "alternateName": "HamzaShaikhAI",
+    "url": "https://hamzashaikhai.github.io/",
+    "image": "https://avatars.githubusercontent.com/u/171531844?v=4",
+    "sameAs": [
+      "https://github.com/HamzaShaikhAI",
+      "https://www.linkedin.com/in/hamzashaikhai/"
+    ],
+    "description": "Independent software developer exploring AI applications, systems software, intelligent automation, and open-source engineering.",
+    "knowsAbout": [
+      "Software Development",
+      "Artificial Intelligence",
+      "C++",
+      "Python",
+      "TypeScript",
+      "Flutter",
+      "AI Agents",
+      "Direct3D",
+      "Software Architecture",
+      "Open Source Software"
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #080b14;
+      --bg-soft: #0d1220;
+      --card: rgba(17, 24, 39, 0.82);
+      --border: rgba(148, 163, 184, 0.14);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --blue: #38bdf8;
+      --purple: #a78bfa;
+      --cyan: #22d3ee;
+      --green: #4ade80;
+      --radius: 18px;
+      --width: 1120px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(ellipse at 15% 8%, rgba(37, 99, 235, 0.13), transparent 35%),
+        radial-gradient(ellipse at 85% 35%, rgba(124, 58, 237, 0.11), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--width), calc(100% - 44px));
+      margin: auto;
+    }
+
+    .gradient-text {
+      background: linear-gradient(100deg, var(--cyan), var(--blue), var(--purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .section {
+      padding: 105px 0 25px;
+      scroll-margin-top: 85px;
+    }
+
+    .section-heading {
+      margin-bottom: 38px;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 0.79rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .section-heading h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      letter-spacing: -1.4px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 620px;
+      margin-top: 10px;
+    }
+
+    /* NAVIGATION */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 11, 20, 0.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.14rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #2563eb, #9333ea);
+      box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 690px;
+      display: flex;
+      align-items: center;
+      padding: 95px 0 65px;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 790px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background: rgba(15, 23, 42, 0.7);
+      color: #cbd5e1;
+      font-size: 0.82rem;
+      margin-bottom: 30px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 12px var(--green);
+    }
+
+    .hero h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(3rem, 7vw, 5.9rem);
+      line-height: 1.08;
+      letter-spacing: -4px;
+      margin-bottom: 23px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 2.4vw, 1.65rem);
+      font-weight: 500;
+      color: #cbd5e1;
+      margin-bottom: 20px;
+    }
+
+    .hero-description {
+      max-width: 670px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.9;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 12px 21px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: 0.25s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(105deg, #2563eb, #7c3aed);
+      border-color: transparent;
+      box-shadow: 0 8px 30px rgba(37, 99, 235, 0.19);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(124, 58, 237, 0.3);
+    }
+
+    .btn-secondary {
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      transform: translateY(-3px);
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 38px;
+    }
+
+    .tag {
+      padding: 7px 13px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: #cbd5e1;
+      background: rgba(15, 23, 42, 0.6);
+      font-size: 0.81rem;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      backdrop-filter: blur(12px);
+    }
+
+    .about-text {
+      color: #b8c4d6;
+      line-height: 1.9;
+    }
+
+    .about-text p + p {
+      margin-top: 15px;
+    }
+
+    .about-facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .fact {
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: rgba(15, 23, 42, 0.55);
+    }
+
+    .fact strong {
+      display: block;
+      color: var(--blue);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.25rem;
+      margin-bottom: 4px;
+    }
+
+    .fact span {
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+    /* PROJECTS */
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg, rgba(20, 30, 50, 0.94), rgba(12, 17, 31, 0.96));
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 325px;
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(56, 189, 248, 0.5);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.22);
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      right: -85px;
+      top: -90px;
+      border-radius: 50%;
+      background: rgba(59, 130, 246, 0.09);
+      filter: blur(25px);
+      pointer-events: none;
+    }
+
+    .project-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .project-icon {
+      width: 47px;
+      height: 47px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      font-size: 1.35rem;
+      background: rgba(59, 130, 246, 0.14);
+      border: 1px solid rgba(59, 130, 246, 0.23);
+    }
+
+    .project-status {
+      font-size: 0.7rem;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      color: var(--cyan);
+      border: 1px solid rgba(34, 211, 238, 0.22);
+      background: rgba(34, 211, 238, 0.07);
+      padding: 5px 10px;
+      border-radius: 20px;
+    }
+
+    .project-card h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.45rem;
+      margin-bottom: 5px;
+    }
+
+    .project-type {
+      color: var(--blue);
+      font-size: 0.87rem;
+      margin-bottom: 14px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+      line-height: 1.8;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 20px;
+      margin-bottom: 22px;
+    }
+
+    .project-tech span {
+      font-size: 0.73rem;
+      padding: 4px 9px;
+      border-radius: 6px;
+      color: #cbd5e1;
+      background: rgba(148, 163, 184, 0.09);
+    }
+
+    .project-link {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--blue);
+      font-size: 0.89rem;
+      font-weight: 600;
+    }
+
+    .project-link:hover {
+      color: var(--cyan);
+    }
+
+    .disclaimer {
+      font-size: 0.8rem !important;
+      color: #fbbf24 !important;
+      margin-top: 12px;
+    }
+
+    /* TECHNOLOGIES */
+
+    .tech-groups {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
+    .tech-group {
+      padding: 23px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+    }
+
+    .tech-group h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.05rem;
+      margin-bottom: 15px;
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tech-list span {
+      color: #cbd5e1;
+      background: rgba(148, 163, 184, 0.09);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 7px 10px;
+      font-size: 0.79rem;
+    }
+
+    /* FOCUS */
+
+    .focus-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 13px;
+    }
+
+    .focus-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 18px;
+      border-radius: 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
+    }
+
+    .focus-icon {
+      font-size: 1.3rem;
+    }
+
+    .focus-item strong {
+      display: block;
+      font-size: 0.96rem;
+    }
+
+    .focus-item small {
+      color: var(--muted);
+      font-size: 0.83rem;
+      display: block;
+      margin-top: 3px;
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      text-align: center;
+      padding: 55px 25px;
+      background:
+        radial-gradient(ellipse at top, rgba(37, 99, 235, 0.18), transparent 60%),
+        var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+    }
+
+    .contact-box h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 12px;
+    }
+
+    .contact-box p {
+      max-width: 540px;
+      color: var(--muted);
+      margin: 0 auto 25px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      margin-top: 95px;
+      padding: 27px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    .footer-links a:hover {
+      color: var(--blue);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 850px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tech-groups {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        gap: 17px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: min(100% - 30px, var(--width));
+      }
+
+      .nav-inner {
+        min-height: 68px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 20px 18px;
+        background: #0b1020;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 11px 5px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 90px 0 45px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2.5px;
+      }
+
+      .section {
+        padding-top: 78px;
+      }
+
+      .project-grid,
+      .focus-list,
+      .tech-groups {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        min-height: auto;
+      }
+
+      .hero-description {
+        font-size: 0.98rem;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <nav class="container nav-inner" aria-label="Main navigation">
+
+      <a href="#home" class="brand" aria-label="HamzaShaikhAI home">
+        <span class="brand-mark">HS</span>
+        <span>HamzaShaikh<span class="gradient-text">AI</span></span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="navLinks">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#technologies">Technologies</a></li>
+        <li><a href="#focus">Focus</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero container" id="home">
+      <div class="hero-content">
+
+        <div class="availability">
+          <span class="status-dot"></span>
+          Independent Developer · Open-Source Builder
+        </div>
+
+        <h1>
+          Hi, I'm <span class="gradient-text">Hamza Shaikh.</span>
+        </h1>
+
+        <h2>
+          Building software, exploring AI, and engineering ideas into reality.
+        </h2>
+
+        <p class="hero-description">
+          I'm <strong>Hamza Shaikh (@HamzaShaikhAI)</strong>, a developer
+          interested in artificial intelligence, systems software,
+          intelligent automation, and open-source engineering.
+
+          I enjoy turning ideas into practical software through
+          architecture, experimentation, implementation, and testing.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="btn btn-primary"
+             href="#projects">
+            Explore My Projects <span>↗</span>
+          </a>
+
+          <a class="btn btn-secondary"
+             href="https://github.com/HamzaShaikhAI"
+             target="_blank"
+             rel="noopener noreferrer">
+            GitHub Profile ↗
+          </a>
+
+          <a class="btn btn-secondary"
+             href="https://www.linkedin.com/in/hamzashaikhai/"
+             target="_blank"
+             rel="noopener noreferrer">
+            LinkedIn ↗
+          </a>
+        </div>
+
+        <div class="hero-tags">
+          <span class="tag">C++20</span>
+          <span class="tag">Python</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">AI Agents</span>
+          <span class="tag">Flutter</span>
+          <span class="tag">Systems Software</span>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="section container" id="about">
+
+      <div class="section-heading">
+        <span class="eyebrow">A little introduction</span>
+        <h2>About <span class="gradient-text">Me</span></h2>
+        <p>
+          Learning, building, experimenting, and continuously improving
+          through real-world software projects.
+        </p>
+      </div>
+
+      <div class="about-grid">
+
+        <div class="panel about-text">
+          <p>
+            I'm an independent developer passionate about software
+            engineering and emerging technologies. I enjoy exploring
+            problems across different areas of development, from
+            low-level systems and graphics programming to AI-powered
+            applications and developer productivity tools.
+          </p>
+
+          <p>
+            My approach is hands-on: understand the problem, design
+            the architecture, implement the solution, test it, and
+            document the results honestly.
+          </p>
+
+          <p>
+            Through my projects, I'm exploring modern C++, Python,
+            TypeScript, AI agents, application development, and
+            software architecture.
+          </p>
+        </div>
+
+        <div class="about-facts">
+
+          <div class="fact">
+            <strong>AI</strong>
+            <span>Artificial Intelligence & Automation</span>
+          </div>
+
+          <div class="fact">
+            <strong>C++</strong>
+            <span>Systems & Graphics Engineering</span>
+          </div>
+
+          <div class="fact">
+            <strong>Open Source</strong>
+            <span>Public software projects</span>
+          </div>
+
+          <div class="fact">
+            <strong>Build & Test</strong>
+            <span>Practical engineering workflow</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section class="section container" id="projects">
+
+      <div class="section-heading">
+        <span class="eyebrow">Things I've been building</span>
+        <h2>Featured <span class="gradient-text">Projects</span></h2>
+        <p>
+          A selection of software projects covering graphics
+          compatibility, AI agents, developer tooling, and application
+          engineering.
+        </p>
+      </div>
+
+      <div class="project-grid">
+
+        <!-- KEPLERBRIDGE -->
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-icon">🔷</div>
+            <span class="project-status">Release Candidate</span>
+          </div>
+
+          <h3>KeplerBridge</h3>
+
+          <div class="project-type">
+            Direct3D 12 → Direct3D 11 Compatibility Layer
+          </div>
+
+          <p>
+            An open-source C++20 project exploring graphics API and
+            shader translation for legacy NVIDIA Kepler GPUs.
+            It includes a bounded DXIL-to-DXBC translation pipeline,
+            runtime interception, and a Direct3D 11 execution backend.
+          </p>
+
+          <div class="project-tech">
+            <span>C++20</span>
+            <span>Direct3D 12</span>
+            <span>Direct3D 11</span>
+            <span>DXIL / DXBC</span>
+            <span>Windows x64</span>
+          </div>
+
+          <a class="project-link"
+             href="https://github.com/HamzaShaikhAI/KeplerBridge"
+             target="_blank"
+             rel="noopener noreferrer">
+            Explore repository ↗
+          </a>
+
+          <a class="project-link"
+             href="https://github.com/HamzaShaikhAI/KeplerBridge/releases/tag/v0.5.0-rc1"
+             target="_blank"
+             rel="noopener noreferrer">
+            Download v0.5.0-rc1 ↗
+          </a>
+
+          <p class="disclaimer">
+            Experimental release candidate. Compatibility is
+            workload-dependent and not universal.
+          </p>
+        </article>
+
+
+        <!-- AGENTFORGE -->
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-icon">🤖</div>
+            <span class="project-status">Development</span>
+          </div>
+
+          <h3>AgentForge</h3>
+
+          <div class="project-type">
+            AI Agent Integration & Workflow Platform
+          </div>
+
+          <p>
+            A local-first platform for Google Antigravity that brings
+            together MCP integrations, deterministic tool execution,
+            permission-controlled workflows, human approval checkpoints,
+            and credential isolation.
+          </p>
+
+          <div class="project-tech">
+            <span>TypeScript</span>
+            <span>Node.js</span>
+            <span>MCP</span>
+            <span>AI Agents</span>
+            <span>Automation</span>
+          </div>
+
+          <a class="project-link"
+             href="https://github.com/HamzaShaikhAI/AgentForge"
+             target="_blank"
+             rel="noopener noreferrer">
+            Explore repository ↗
+          </a>
+        </article>
+
+
+        <!-- NOTION BLOCK ENGINE -->
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-icon">⚡</div>
+            <span class="project-status">Open Source</span>
+          </div>
+
+          <h3>Notion Block Engine</h3>
+
+          <div class="project-type">
+            TypeScript Content Conversion Engine
+          </div>
+
+          <p>
+            A zero-dependency TypeScript library for bidirectional
+            conversion between Markdown, HTML, clipboard content,
+            and a Notion-style Block AST. Includes clipboard
+            sanitization and rich-text handling.
+          </p>
+
+          <div class="project-tech">
+            <span>TypeScript</span>
+            <span>Node.js</span>
+            <span>Markdown</span>
+            <span>HTML</span>
+            <span>AST</span>
+          </div>
+
+          <a class="project-link"
+             href="https://github.com/HamzaShaikhAI/notion-block-engine"
+             target="_blank"
+             rel="noopener noreferrer">
+            Explore repository ↗
+          </a>
+        </article>
+
+
+        <!-- VYDRIX -->
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-icon">📦</div>
+            <span class="project-status">Archived</span>
+          </div>
+
+          <h3>VYDRIX</h3>
+
+          <div class="project-type">
+            Windows Cloud-Backed Virtual Storage Experiment
+          </div>
+
+          <p>
+            An experimental systems-engineering project investigating
+            virtual storage, filesystem integration, caching, and
+            cloud-backed Windows workloads. Preserved with a technical
+            post-mortem documenting why the prototype did not meet
+            its core objective.
+          </p>
+
+          <div class="project-tech">
+            <span>C#</span>
+            <span>.NET</span>
+            <span>Windows</span>
+            <span>WinFsp</span>
+            <span>Storage</span>
+          </div>
+
+          <a class="project-link"
+             href="https://github.com/HamzaShaikhAI/VYDRIX"
+             target="_blank"
+             rel="noopener noreferrer">
+            Explore archive ↗
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- OTHER WORK -->
+    <section class="section container" id="other-work">
+
+      <div class="section-heading">
+        <span class="eyebrow">Experiments & application development</span>
+        <h2>Other <span class="gradient-text">Work</span></h2>
+        <p>
+          Additional projects exploring AI, mobile development,
+          accessibility, and creative technology.
+        </p>
+      </div>
+
+      <div class="project-grid">
+
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-icon">📖</div>
+            <span class="project-status">In Development</span>
+          </div>
+
+          <h3>Hifz Hero</h3>
+          <div class="project-type">Quran Memorization Application</div>
+
+          <p>
+            An AI-assisted Quran memorization application inspired
+            by Duolingo, exploring spaced repetition, structured
+            revision, gamification, progress tracking, and an
+            offline-first learning architecture.
+          </p>
+
+          <div class="project-tech">
+            <span>Flutter</span>
+            <span>Dart</span>
+            <span>Firebase</span>
+            <span>Riverpod</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-icon">👓</div>
+            <span class="project-status">Prototype</span>
+          </div>
+
+          <h3>VisionAI</h3>
+          <div class="project-type">AI-Powered Vision Assistant</div>
+
+          <p>
+            An experimental accessibility-focused project exploring
+            computer vision, intelligent assistance, and Raspberry
+            Pi-based AI hardware.
+          </p>
+
+          <div class="project-tech">
+            <span>Python</span>
+            <span>Computer Vision</span>
+            <span>Raspberry Pi</span>
+            <span>AI</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-icon">🧠</div>
+            <span class="project-status">Personal Project</span>
+          </div>
+
+          <h3>PS-O1</h3>
+          <div class="project-type">Personal AI Assistant</div>
+
+          <p>
+            A personal assistant project exploring local language
+            models, multilingual interaction, voice input, speech
+            output, and productivity automation.
+          </p>
+
+          <div class="project-tech">
+            <span>Python</span>
+            <span>Ollama</span>
+            <span>LLMs</span>
+            <span>Voice AI</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-icon">🎬</div>
+            <span class="project-status">Creative Work</span>
+          </div>
+
+          <h3>AI Creative Studio</h3>
+          <div class="project-type">AI Video & Digital Creativity</div>
+
+          <p>
+            Exploring AI-generated videos, digital storytelling,
+            motion graphics, creative automation, and visual
+            content production.
+          </p>
+
+          <div class="project-tech">
+            <span>AI Video</span>
+            <span>Motion Graphics</span>
+            <span>Creative Tools</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- TECHNOLOGIES -->
+    <section class="section container" id="technologies">
+
+      <div class="section-heading">
+        <span class="eyebrow">Tools of the trade</span>
+        <h2>Technologies & <span class="gradient-text">Skills</span></h2>
+        <p>
+          Languages, frameworks, platforms, and engineering areas
+          explored through my development projects.
+        </p>
+      </div>
+
+      <div class="tech-groups">
+
+        <div class="tech-group">
+          <h3>💻 Programming Languages</h3>
+          <div class="tech-list">
+            <span>C++20</span>
+            <span>Python</span>
+            <span>TypeScript</span>
+            <span>JavaScript</span>
+            <span>Dart</span>
+            <span>C#</span>
+          </div>
+        </div>
+
+        <div class="tech-group">
+          <h3>⚙️ Frameworks & Platforms</h3>
+          <div class="tech-list">
+            <span>Flutter</span>
+            <span>Node.js</span>
+            <span>.NET</span>
+            <span>Firebase</span>
+            <span>Riverpod</span>
+            <span>Ollama</span>
+          </div>
+        </div>
+
+        <div class="tech-group">
+          <h3>🤖 AI & Automation</h3>
+          <div class="tech-list">
+            <span>LLM Integration</span>
+            <span>AI Agents</span>
+            <span>MCP</span>
+            <span>Workflow Automation</span>
+            <span>API Integration</span>
+          </div>
+        </div>
+
+        <div class="tech-group">
+          <h3>🖥️ Systems Engineering</h3>
+          <div class="tech-list">
+            <span>Windows Development</span>
+            <span>Direct3D 11</span>
+            <span>Direct3D 12</span>
+            <span>DXIL / DXBC</span>
+            <span>CMake</span>
+          </div>
+        </div>
+
+        <div class="tech-group">
+          <h3>🧰 Developer Tools</h3>
+          <div class="tech-list">
+            <span>Git</span>
+            <span>GitHub</span>
+            <span>VS Code</span>
+            <span>Android Studio</span>
+            <span>Visual Studio</span>
+            <span>Antigravity</span>
+          </div>
+        </div>
+
+        <div class="tech-group">
+          <h3>🏗️ Engineering Interests</h3>
+          <div class="tech-list">
+            <span>Software Architecture</span>
+            <span>Compiler Design</span>
+            <span>Testing</span>
+            <span>Performance Analysis</span>
+            <span>Open Source</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CURRENT FOCUS -->
+    <section class="section container" id="focus">
+
+      <div class="section-heading">
+        <span class="eyebrow">Always learning</span>
+        <h2>Current <span class="gradient-text">Focus</span></h2>
+        <p>
+          Areas I'm actively exploring and improving through
+          hands-on development.
+        </p>
+      </div>
+
+      <div class="focus-list">
+
+        <div class="focus-item">
+          <span class="focus-icon">🚀</span>
+          <div>
+            <strong>KeplerBridge Development</strong>
+            <small>Improving compatibility, translation, validation, and documentation.</small>
+          </div>
+        </div>
+
+        <div class="focus-item">
+          <span class="focus-icon">🤖</span>
+          <div>
+            <strong>AI Agents & Automation</strong>
+            <small>Developing reliable AI workflows and tool integrations.</small>
+          </div>
+        </div>
+
+        <div class="focus-item">
+          <span class="focus-icon">⚡</span>
+          <div>
+            <strong>Systems Programming</strong>
+            <small>Exploring C++, compiler concepts, Windows APIs, and graphics engineering.</small>
+          </div>
+        </div>
+
+        <div class="focus-item">
+          <span class="focus-icon">📱</span>
+          <div>
+            <strong>Application Development</strong>
+            <small>Building useful cross-platform and AI-assisted applications.</small>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="section container" id="contact">
+
+      <div class="contact-box">
+        <span class="eyebrow">Let's connect</span>
+
+        <h2>
+          Have an idea? <span class="gradient-text">Let's build.</span>
+        </h2>
+
+        <p>
+          I'm interested in software engineering, open-source
+          collaboration, AI applications, systems development,
+          and learning from other developers.
+        </p>
+
+        <div class="contact-links">
+
+          <a class="btn btn-primary"
+             href="https://github.com/HamzaShaikhAI"
+             target="_blank"
+             rel="noopener noreferrer">
+            GitHub ↗
+          </a>
+
+          <a class="btn btn-secondary"
+             href="https://www.linkedin.com/in/hamzashaikhai/"
+             target="_blank"
+             rel="noopener noreferrer">
+            LinkedIn ↗
+          </a>
+
+          <a class="btn btn-secondary"
+             href="https://github.com/HamzaShaikhAI?tab=repositories"
+             target="_blank"
+             rel="noopener noreferrer">
+            All Repositories ↗
+          </a>
+
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+
+      <p>
+        © <span id="year">2026</span> Hamza Shaikh · @HamzaShaikhAI
+      </p>
+
+      <div class="footer-links">
+        <a href="#home">Back to Top ↑</a>
+        <a href="https://github.com/HamzaShaikhAI"
+           target="_blank"
+           rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/hamzashaikhai/"
+           target="_blank"
+           rel="noopener noreferrer">LinkedIn</a>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    // Close menu after navigation
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Automatic footer year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
