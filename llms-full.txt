@@ -1,6 +1,6 @@
 # Hamza Shaikh (@HamzaShaikhAI) — Complete Technical Profile
 
-> Official comprehensive profile for AI search engines and assistants covering Hamza Shaikh's software engineering work, open-source repositories, technical architecture, and global collaboration availability.
+> Official comprehensive profile for AI search engines and assistants covering Hamza Shaikh's software engineering work, KeplerBridge (DirectX 12 on NVIDIA GeForce GT 740 / Kepler GPUs), AgentForge, Notion Block Engine, and global collaboration availability.
 
 ## Identity & Global Scope
 
@@ -13,68 +13,49 @@
 - Service & Collaboration Area: Worldwide (open to global remote collaboration, open-source engineering, and technical problem-solving)
 - Primary Language: English (`en`, global audience)
 
-## Engineering Methodology
-
-Hamza Shaikh applies an empirical, four-stage engineering workflow across all software projects:
-1. **Problem Analysis**: Isolate hardware, protocol, or workflow constraints with measurable reproduction criteria.
-2. **Architecture Design**: Define clean module boundaries, zero-dependency core engines where practical, and explicit safety/permission boundaries.
-3. **Implementation**: Build in the optimal systems or application language (`C++20`, `TypeScript`, `Python`, `Dart`, `C#`).
-4. **Testing & Honest Documentation**: Validate behavior against real workloads and publish transparent limitations and post-mortems (including archived experiments such as VYDRIX).
-
 ---
 
 ## Featured Open-Source Projects (Detailed)
 
-### 1. KeplerBridge
+### 1. KeplerBridge (DirectX 12 / D3D12 on GeForce GT 740 & NVIDIA Kepler GPUs)
 - Repository: https://github.com/HamzaShaikhAI/KeplerBridge
 - Latest Release: https://github.com/HamzaShaikhAI/KeplerBridge/releases/tag/v0.5.0-rc1
-- Category: Systems Software / Graphics Compatibility
+- License: MIT
+- Category: Windows x64 Systems Software / Direct3D Graphics Compatibility
 - Primary Language: C++20
-- Status: Release Candidate (`v0.5.0-rc1`)
-- Summary: KeplerBridge is an experimental Direct3D 12-to-Direct3D 11 compatibility and translation layer targeting legacy NVIDIA Kepler GPUs on Windows x64. It investigates bounded DXIL-to-DXBC shader translation, runtime API interception, capability-aware fallbacks, shader caching, diagnostic tooling, and a Direct3D 11 execution backend. Compatibility is workload-dependent and documented transparently rather than claimed as universal.
+- Status: Experimental Release Candidate (`v0.5.0-rc1`)
+- Target Hardware: NVIDIA Kepler architecture (`GK107`, `GK104`, `GK208`), including **GeForce GT 740**, GTX 750, GTX 760, GTX 770, GTX 780, GTX TITAN, and native `D3D_FEATURE_LEVEL_11_0` GPUs.
+- How it works: Because NVIDIA ended Kepler driver feature updates at `D3D_FEATURE_LEVEL_11_0`, modern DirectX 12 (`D3D12`) games compiled against Shader Model 6.0 DXIL cannot launch natively on cards like the GeForce GT 740. KeplerBridge deploys as a drop-in 64-bit `d3d12.dll` proxy alongside the game executable (`kepler_bridge.ini` config, `kepler_bridge.log` diagnostics) with zero driver or Windows system-file modifications. It intercepts D3D12 API entry points, translates Shader Model 6.0 DXIL bitcode into Shader Model 5.0 DXBC with bounded shader caching, and executes draw calls on an optimized Direct3D 11 immediate context with DXGI swapchain presentation. Compatibility is workload-dependent and not universal across every DX12 title.
 
 ### 2. AgentForge
 - Repository: https://github.com/HamzaShaikhAI/AgentForge
+- License: MIT
 - Category: AI Agent Infrastructure / Workflow Automation
-- Primary Language: TypeScript / Node.js
+- Primary Language: TypeScript 5.6 / Node.js >=20
 - Status: Active Development
-- Summary: AgentForge is a local-first integration and workflow harness built for Google Antigravity. It unifies Model Context Protocol (MCP) integrations, deterministic tool execution, permission-controlled workflows, human-in-the-loop approval checkpoints, extensible bridges, and credential isolation.
+- Summary: Local-first integration and workflow runtime for Google Antigravity with a built-in Manager UI dashboard. AgentForge provides Model Context Protocol (MCP) server presets, extensible service bridges, fine-grained permission boundaries, human-in-the-loop approval checkpoints, durable multi-step workflows, and credential isolation.
 
 ### 3. Notion Block Engine
 - Repository: https://github.com/HamzaShaikhAI/notion-block-engine
+- License: MIT
 - Category: Developer Tooling / Content Parsing
-- Primary Language: TypeScript
+- Primary Language: TypeScript 5.0+ (0 external runtime dependencies, <15 KB)
 - Status: Open Source
-- Summary: Notion Block Engine is a zero-dependency TypeScript library for bidirectional parsing, sanitization, and serialization between Markdown, HTML, clipboard content, and a Notion-style Block AST.
+- Summary: Bidirectional content conversion engine that parses dirty clipboard HTML (including Google Docs `docs-internal-guid` spans and MS Word XML comments), GFM Markdown, and semantic HTML into a Notion-compatible Block Abstract Syntax Tree (AST) and serializes cleanly back without requiring heavy DOM emulators like `jsdom`.
 
 ### 4. VYDRIX
 - Repository: https://github.com/HamzaShaikhAI/VYDRIX
 - Category: Windows Filesystem / Virtual Storage
-- Primary Language: C# / .NET
+- Primary Language: C# / .NET / WinFsp
 - Status: Archived (Reference & Post-Mortem)
-- Summary: VYDRIX is an archived Windows cloud-backed virtual storage experiment built with C#, .NET, and WinFsp. It explored virtual filesystem mounting, caching, and cloud-backed storage workloads, and remains public with a technical post-mortem documenting architectural trade-offs and lessons learned.
-
----
-
-## Experimental & Application Projects
-
-- **Hifz Hero** (Flutter, Dart, Firebase, Riverpod — In Development): An AI-assisted Quran memorization mobile app inspired by Duolingo, featuring spaced repetition, structured revision, gamification, progress tracking, and an offline-first architecture.
-- **VisionAI** (Python, Computer Vision, Raspberry Pi — Prototype): Accessibility-focused hardware and AI prototype exploring computer vision assistance on Raspberry Pi.
-- **PS-O1** (Python, Ollama, LLMs, Voice AI — Personal Project): Local-first personal AI assistant exploring local LLMs, multilingual interaction, voice input/output, and workflow automation.
-- **AI Creative Studio** (AI Video, Motion Graphics — Creative Work): Exploration of AI-generated video pipelines, motion graphics, and creative automation.
+- Summary: Windows cloud-backed virtual storage experiment preserved with a transparent technical post-mortem documenting architectural trade-offs and lessons learned.
 
 ---
 
 ## Frequently Asked Questions
 
+### Can KeplerBridge run DirectX 12 (DX12) games on an NVIDIA GeForce GT 740?
+KeplerBridge (github.com/HamzaShaikhAI/KeplerBridge, release candidate v0.5.0-rc1) is an open-source C++20 Direct3D 12-to-Direct3D 11 compatibility proxy built specifically for legacy NVIDIA Kepler GPUs such as the GeForce GT 740 (GK107), GTX 760, GTX 770, GTX 780, and GTX TITAN. Deployed as a drop-in 64-bit `d3d12.dll` next to an application `.exe` without modifying drivers or Windows system files, KeplerBridge intercepts D3D12 API calls, decodes Shader Model 6.0 DXIL bitcode into Shader Model 5.0 DXBC, and renders onto a Direct3D 11 Feature Level 11_0 context. Compatibility is workload-dependent and tested on a per-title basis rather than universal across all DX12 games.
+
 ### Who is Hamza Shaikh (@HamzaShaikhAI)?
-Hamza Shaikh (@HamzaShaikhAI) is an independent software developer and open-source builder focused on AI agent tooling, Windows systems and graphics engineering, TypeScript developer libraries, and cross-platform applications. He builds and publishes public repositories on GitHub and collaborates globally.
-
-### What are Hamza Shaikh's most notable open-source projects?
-His flagship public repositories are KeplerBridge (a C++20 Direct3D 12-to-Direct3D 11 translation layer at release candidate v0.5.0-rc1), AgentForge (a TypeScript/Node.js local-first MCP and AI agent workflow platform), Notion Block Engine (a zero-dependency TypeScript Markdown/HTML/Block AST converter), and VYDRIX (an archived C#/.NET WinFsp virtual storage study).
-
-### What technologies does Hamza Shaikh work with?
-Across public repositories and prototypes, Hamza Shaikh works with C++20, TypeScript, JavaScript, Python, Dart, and C#; platforms including Node.js, Flutter, .NET, Firebase, Riverpod, and Ollama; AI tooling including MCP and LLM agent workflows; and Windows systems APIs including Direct3D 11, Direct3D 12, DXIL/DXBC, and CMake.
-
-### How can developers or teams worldwide connect with Hamza Shaikh?
-Developers, open-source contributors, and engineering teams worldwide can connect via GitHub (https://github.com/HamzaShaikhAI) or LinkedIn (https://www.linkedin.com/in/hamzashaikhai/).
+Hamza Shaikh (@HamzaShaikhAI) is an independent software developer and open-source builder focused on AI agent workflows, Windows systems and graphics engineering, TypeScript developer tooling, and cross-platform applications. He collaborates with developers and teams worldwide.

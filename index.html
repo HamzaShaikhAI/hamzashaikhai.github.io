@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#09090b">
 
   <title>Hamza Shaikh (@HamzaShaikhAI) | AI Systems &amp; Open-Source Developer</title>
-  <meta name="description" content="Official worldwide portfolio of Hamza Shaikh (@HamzaShaikhAI), an independent software developer building AI agent platforms (AgentForge), C++20 Direct3D translation layers (KeplerBridge), and TypeScript developer tooling (Notion Block Engine).">
+  <meta name="description" content="Official worldwide portfolio of Hamza Shaikh (@HamzaShaikhAI): KeplerBridge (DirectX 12 / D3D12-to-D3D11 compatibility layer for NVIDIA GeForce GT 740 &amp; Kepler GPUs), AgentForge (local-first MCP AI workflow runtime), and Notion Block Engine.">
   <meta name="author" content="Hamza Shaikh">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="distribution" content="global">
@@ -110,11 +110,12 @@
             "item": {
               "@type": "SoftwareSourceCode",
               "name": "KeplerBridge",
-              "description": "Experimental C++20 Direct3D 12-to-Direct3D 11 compatibility and translation layer for legacy NVIDIA Kepler GPUs featuring bounded DXIL-to-DXBC translation and diagnostic tooling.",
+              "description": "Open-source C++20 Direct3D 12-to-Direct3D 11 (d3d12.dll proxy) compatibility layer enabling DirectX 12 workloads on legacy NVIDIA Kepler GPUs including GeForce GT 740, GTX 760, GTX 770, GTX 780, and GTX TITAN (GK107, GK104, GK208, Feature Level 11_0) via Shader Model 6.0 DXIL-to-Shader Model 5.0 DXBC translation.",
               "codeRepository": "https://github.com/HamzaShaikhAI/KeplerBridge",
               "programmingLanguage": "C++20",
-              "runtimePlatform": "Windows x64",
+              "runtimePlatform": "Windows 10 / 11 x64",
               "softwareVersion": "v0.5.0-rc1",
+              "license": "https://opensource.org/licenses/MIT",
               "author": { "@id": "https://hamzashaikhai.github.io/#person" }
             }
           },
@@ -181,10 +182,10 @@
           },
           {
             "@type": "Question",
-            "name": "What is KeplerBridge and which GPUs does KeplerBridge target?",
+            "name": "Can KeplerBridge run DirectX 12 (DX12) games on an NVIDIA GeForce GT 740?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "KeplerBridge is an experimental open-source C++20 compatibility and translation layer targeting legacy NVIDIA Kepler GPUs running Direct3D 12 workloads on Windows x64, currently at release candidate v0.5.0-rc1 with bounded DXIL-to-DXBC shader translation and a Direct3D 11 execution backend."
+              "text": "Yes, for supported workloads: KeplerBridge (https://github.com/HamzaShaikhAI/KeplerBridge, release candidate v0.5.0-rc1) is an open-source C++20 Direct3D 12-to-Direct3D 11 compatibility proxy built specifically for legacy NVIDIA Kepler GPUs including the GeForce GT 740 (GK107), GTX 760, GTX 770, GTX 780, and GTX TITAN at Feature Level 11_0. Deployed as a drop-in 64-bit d3d12.dll alongside a game executable with zero driver edits, KeplerBridge translates Shader Model 6.0 DXIL bitcode into Shader Model 5.0 DXBC on a Direct3D 11 context. Compatibility is workload-dependent rather than universal."
             }
           },
           {
@@ -334,6 +335,7 @@
       <div class="lab-shell">
         <div class="lab-topbar">
           <div class="lab-modes" role="group" aria-label="Select 3D architecture scene">
+            <button type="button" class="lab-btn lab-mode-btn mono" data-scene="all" aria-pressed="false">00 All 3 Systems</button>
             <button type="button" class="lab-btn lab-mode-btn mono" data-scene="kepler" aria-pressed="true">01 KeplerBridge</button>
             <button type="button" class="lab-btn lab-mode-btn mono" data-scene="agentforge" aria-pressed="false">02 AgentForge</button>
             <button type="button" class="lab-btn lab-mode-btn mono" data-scene="notion" aria-pressed="false">03 Block AST</button>
@@ -342,24 +344,41 @@
             <button type="button" class="lab-btn lab-view-btn" data-view="overview" aria-pressed="true">Overview</button>
             <button type="button" class="lab-btn lab-view-btn" data-view="closeup" aria-pressed="false">Close-Up</button>
             <button type="button" class="lab-btn lab-view-btn" data-view="top" aria-pressed="false">Top</button>
-            <button type="button" class="lab-btn" id="labPauseBtn" aria-pressed="false">Pause Motion</button>
+            <button type="button" class="lab-btn" id="labExplodeBtn" aria-pressed="false">Exploded</button>
+            <button type="button" class="lab-btn" id="labWireBtn" aria-pressed="false">Wireframe</button>
+            <button type="button" class="lab-btn" id="labOrbitBtn" aria-pressed="false">Auto-Orbit</button>
+            <button type="button" class="lab-btn" id="labPauseBtn" aria-pressed="false">Pause</button>
             <button type="button" class="lab-btn" id="labResetBtn">Reset</button>
           </div>
         </div>
 
-        <div class="lab-stage" id="labStage">
-          <canvas id="labCanvas" aria-label="Interactive 3D engineering architecture viewer"></canvas>
-          <div class="lab-fallback">
-            WebGL 3D view is unavailable in this browser. Refer to the architectural diagrams and specification matrix below.
-          </div>
-          <div class="lab-hud">
-            <div class="lab-readout" aria-live="polite">
-              <div class="lab-readout-tag mono" id="labTag">ARCHITECTURE_01 // C++20 · DIRECT3D 12 → 11</div>
-              <h3 id="labTitle">KeplerBridge Shader &amp; API Translation Core</h3>
-              <p id="labDesc">Direct3D 12 workload (left) feeds DXIL bytecode through the bounded KeplerBridge translation core (center heatsink &amp; cache die) into a Direct3D 11 Kepler backend (right).</p>
+        <div class="lab-workspace">
+          <div class="lab-stage" id="labStage">
+            <canvas id="labCanvas" aria-label="Interactive 3D engineering architecture viewer"></canvas>
+            <div class="lab-fallback">
+              WebGL 3D view is unavailable in this browser. Refer to the component breakdown on the right and the specification matrix below.
             </div>
-            <div class="lab-legend mono">Drag to orbit · Three.js 0.180 PBR Studio</div>
+            <div class="lab-hud">
+              <div class="lab-readout" aria-live="polite">
+                <div class="lab-readout-tag mono" id="labTag">BLENDER_CAD_01 // C++20 · DIRECT3D 12 → 11</div>
+                <h3 id="labTitle">KeplerBridge Dual-Stage Translation Bench</h3>
+                <p id="labDesc">Select any component on the right—or click directly on a 3D mesh—to zoom in and see what happens inside each stage.</p>
+              </div>
+              <div class="lab-legend mono">Drag to orbit · Click mesh to inspect</div>
+            </div>
           </div>
+
+          <aside class="lab-inspector" aria-label="Detailed 3D component inspector">
+            <div class="lab-inspector-head">
+              <div class="lab-inspector-meta">
+                <span class="lab-inspector-badge mono" id="inspBadge">7 COMPONENTS · KEPLERBRIDGE</span>
+                <a class="lab-inspector-repo" id="inspRepo" href="https://github.com/HamzaShaikhAI/KeplerBridge" target="_blank" rel="noopener noreferrer">KeplerBridge Repo ↗</a>
+              </div>
+              <h3 id="inspTitle">KeplerBridge Dual-Stage Translation Bench</h3>
+              <p id="inspSummary">Drop-in 64-bit d3d12.dll proxy enabling DirectX 12 workloads on NVIDIA Kepler (GT 740 / GK107 / GTX 7xx) GPUs.</p>
+            </div>
+            <div class="lab-parts-list" id="labPartsList"></div>
+          </aside>
         </div>
       </div>
     </section>
@@ -457,10 +476,10 @@
               <span class="status mono">Release Candidate · v0.5.0-rc1</span>
             </div>
             <h3>KeplerBridge</h3>
-            <div class="project-type">Direct3D 12 → Direct3D 11 Compatibility Layer</div>
-            <p>KeplerBridge is an open-source C++20 compatibility layer for legacy NVIDIA Kepler GPUs on Windows x64. It implements runtime API interception, a bounded DXIL-to-DXBC shader translation pipeline, shader caching, diagnostic tooling, and a Direct3D 11 execution backend.</p>
+            <div class="project-type">DirectX 12 (D3D12) → Direct3D 11 Compatibility Layer for GT 740 &amp; Kepler</div>
+            <p>KeplerBridge is an open-source C++20 drop-in <code>d3d12.dll</code> proxy enabling DirectX 12 workloads on legacy NVIDIA Kepler GPUs—including GeForce GT 740 (GK107), GTX 760, GTX 770, GTX 780, and GTX TITAN (GK104/GK208, Feature Level 11_0). It decodes Shader Model 6.0 DXIL into Shader Model 5.0 DXBC with bounded shader caching and a Direct3D 11 execution backend.</p>
             <div class="project-tech">
-              <span class="mono">C++20</span><span class="mono">Direct3D 12</span><span class="mono">Direct3D 11</span><span class="mono">DXIL / DXBC</span><span class="mono">Windows x64</span>
+              <span class="mono">C++20</span><span class="mono">DirectX 12</span><span class="mono">GT 740 / Kepler</span><span class="mono">DXIL → DXBC</span><span class="mono">d3d12.dll</span>
             </div>
             <div class="project-links">
               <a href="https://github.com/HamzaShaikhAI/KeplerBridge" target="_blank" rel="noopener noreferrer">Repository ↗</a>
@@ -827,10 +846,10 @@
         </details>
 
         <details class="faq-item">
-          <summary><h3>What is KeplerBridge and which GPUs does KeplerBridge target?</h3></summary>
+          <summary><h3>Can KeplerBridge run DirectX 12 (DX12) games on an NVIDIA GeForce GT 740?</h3></summary>
           <div class="faq-answer">
-            <p>KeplerBridge is an experimental open-source C++20 compatibility and translation layer targeting legacy NVIDIA Kepler GPUs running Direct3D 12 workloads on Windows x64. Currently at public release candidate v0.5.0-rc1 on GitHub, KeplerBridge investigates how older hardware can run bounded Direct3D 12 pipelines over a Direct3D 11 backend.</p>
-            <p>First, KeplerBridge intercepts Direct3D 12 runtime API calls and translates supported DXIL shaders into DXBC bytecode through a bounded translation pipeline. Second, KeplerBridge incorporates capability-aware fallbacks, persistent shader caching, and diagnostic logging tools to measure workload behavior in practice. In real-world testing documented on GitHub, compatibility remains strictly workload-dependent rather than a universal DirectX 12 replacement.</p>
+            <p>KeplerBridge is an open-source C++20 Direct3D 12-to-Direct3D 11 compatibility proxy engineered specifically for legacy NVIDIA Kepler GPUs such as the GeForce GT 740 (GK107), GTX 750, GTX 760, GTX 770, GTX 780, and GTX TITAN (GK104 and GK208). Because NVIDIA capped Kepler drivers at Direct3D Feature Level 11_0, DirectX 12 games compiled against Shader Model 6.0 DXIL normally refuse to launch on a GT 740.</p>
+            <p>First, KeplerBridge deploys as a drop-in 64-bit d3d12.dll proxy and kepler_bridge.ini alongside a Windows x64 executable with 0 driver modifications and 0 Windows system-file edits. Second, KeplerBridge intercepts D3D12 API entry points, translates Shader Model 6.0 DXIL bitcode into Shader Model 5.0 DXBC with persistent shader caching, and executes draw calls on a Direct3D 11 context. According to public release candidate v0.5.0-rc1 notes on GitHub (github.com/HamzaShaikhAI/KeplerBridge), real-world compatibility remains workload-dependent rather than universal across every DX12 game.</p>
           </div>
         </details>
 
