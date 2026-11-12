@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#07080d">
+
+  <title>KeplerBridge — Run DirectX 12 (DX12) Games on NVIDIA GeForce GT 740 &amp; Kepler GPUs</title>
+  <meta name="description" content="KeplerBridge is an open-source C++20 Direct3D 12-to-Direct3D 11 compatibility layer (d3d12.dll proxy) for legacy NVIDIA Kepler GPUs including GeForce GT 740 (GK107), GTX 750–780, and GTX TITAN. Includes installation guide, DXIL-to-DXBC architecture, shader cache metrics, and game compatibility notes.">
+  <meta name="keywords" content="KeplerBridge, run DX12 on GT 740, DirectX 12 GT 740 fix, D3D12 to D3D11 wrapper, NVIDIA Kepler DX12, d3d12.dll proxy, GK107 DirectX 12, HamzaShaikhAI">
+  <meta name="author" content="Hamza Shaikh (@HamzaShaikhAI)">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <link rel="canonical" href="https://hamzashaikhai.github.io/keplerbridge/">
+  <link rel="alternate" hreflang="x-default" href="https://hamzashaikhai.github.io/keplerbridge/">
+  <link rel="alternate" hreflang="en" href="https://hamzashaikhai.github.io/keplerbridge/">
+  <link rel="alternate" type="text/plain" title="LLM Context Summary" href="https://hamzashaikhai.github.io/llms.txt">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/hs-mark.svg">
+
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="HamzaShaikhAI">
+  <meta property="og:title" content="KeplerBridge — Run DirectX 12 Games on NVIDIA GeForce GT 740 &amp; Kepler GPUs">
+  <meta property="og:description" content="Drop-in C++20 64-bit d3d12.dll compatibility proxy translating Shader Model 6.0 DXIL to SM 5.0 DXBC on Direct3D Feature Level 11_0 NVIDIA Kepler GPUs.">
+  <meta property="og:url" content="https://hamzashaikhai.github.io/keplerbridge/">
+  <meta property="og:image" content="https://hamzashaikhai.github.io/assets/social-preview.png">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="KeplerBridge — DirectX 12 Compatibility Layer for GT 740 &amp; Kepler">
+  <meta name="twitter:description" content="Open-source C++20 D3D12-to-D3D11 translation layer (d3d12.dll) with standalone LLVM 3.7 DXIL decoder and SHA-256 disk shader cache.">
+  <meta name="twitter:image" content="https://hamzashaikhai.github.io/assets/social-preview.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://hamzashaikhai.github.io/keplerbridge/#software",
+        "name": "KeplerBridge",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Direct3D 12 Compatibility Layer",
+        "operatingSystem": "Windows 10 x64, Windows 11 x64",
+        "softwareVersion": "0.5.0-rc1",
+        "license": "https://opensource.org/licenses/MIT",
+        "url": "https://hamzashaikhai.github.io/keplerbridge/",
+        "downloadUrl": "https://github.com/HamzaShaikhAI/KeplerBridge/releases/tag/v0.5.0-rc1",
+        "codeRepository": "https://github.com/HamzaShaikhAI/KeplerBridge",
+        "programmingLanguage": "C++20",
+        "description": "Open-source C++20 Direct3D 12-to-Direct3D 11 drop-in d3d12.dll compatibility proxy built for NVIDIA GeForce GT 740 (GK107), GTX 750, GTX 760, GTX 770, GTX 780, and GTX TITAN (Feature Level 11_0) GPUs.",
+        "author": {
+          "@type": "Person",
+          "name": "Hamza Shaikh",
+          "alternateName": "HamzaShaikhAI",
+          "url": "https://hamzashaikhai.github.io/"
+        }
+      },
+      {
+        "@type": "TechArticle",
+        "@id": "https://hamzashaikhai.github.io/keplerbridge/#article",
+        "headline": "How to Run DirectX 12 (DX12) Games on NVIDIA GeForce GT 740 & Kepler GPUs with KeplerBridge",
+        "description": "Architecture, drop-in installation steps, supported hardware matrix, SHA-256 disk shader cache benchmarks, and realistic compatibility boundaries for KeplerBridge.",
+        "datePublished": "2026-11-12",
+        "dateModified": "2026-11-12",
+        "inLanguage": "en",
+        "author": {
+          "@type": "Person",
+          "name": "Hamza Shaikh",
+          "url": "https://hamzashaikhai.github.io/"
+        },
+        "about": { "@id": "https://hamzashaikhai.github.io/keplerbridge/#software" }
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://hamzashaikhai.github.io/keplerbridge/#howto",
+        "name": "Install KeplerBridge d3d12.dll Proxy on a DirectX 12 Game",
+        "description": "Deploy KeplerBridge in user space alongside a 64-bit Windows game executable without modifying NVIDIA drivers or Windows system files.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Download v0.5.0-rc1 Release or Build from Source",
+            "text": "Download KeplerBridge v0.5.0-rc1 from GitHub (github.com/HamzaShaikhAI/KeplerBridge/releases/tag/v0.5.0-rc1) or compile with CMake in Release mode."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Place d3d12.dll Next to the Game Executable",
+            "text": "Copy the 64-bit d3d12.dll and kepler_bridge.ini files directly into the game folder alongside the application .exe."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Launch and Inspect Diagnostics",
+            "text": "Launch the title in offline/single-player mode. KeplerBridge intercepts D3D12CreateDevice automatically and records runtime diagnostics to kepler_bridge.log."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://hamzashaikhai.github.io/keplerbridge/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can KeplerBridge run DirectX 12 games on an NVIDIA GeForce GT 740?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, for supported workloads. KeplerBridge (github.com/HamzaShaikhAI/KeplerBridge, v0.5.0-rc1) is an open-source C++20 Direct3D 12-to-Direct3D 11 compatibility proxy engineered for legacy NVIDIA Kepler GPUs including the GeForce GT 740 (GK107/GK208), GTX 750, GTX 760, GTX 770, GTX 780, and GTX TITAN at Feature Level 11_0. Deployed as a drop-in 64-bit d3d12.dll beside the game executable with 0 Windows system edits, KeplerBridge translates Shader Model 6.0 DXIL into Shader Model 5.0 DXBC using a cleanroom LLVM 3.7 decoder and SHA-256 disk shader cache."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does KeplerBridge work on Unreal Engine 5 games requiring Tier 3 bindless or ray tracing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Workloads that strictly mandate Direct3D 12 Tier 3 bindless descriptor indexing, hardware ray tracing, or mesh shaders cannot execute via D3D11 translation on NVIDIA Kepler silicon. For example, Unreal Engine 5.1 titles such as Palworld must use their native -dx11 launch option rather than D3D12 translation."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Hamza Shaikh Portfolio", "item": "https://hamzashaikhai.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "KeplerBridge GT 740 Guide", "item": "https://hamzashaikhai.github.io/keplerbridge/" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="nav-wrap">
+    <nav class="navbar" aria-label="Guide Navigation">
+      <div class="nav-inner">
+        <a class="brand" href="/">
+          <img src="/assets/hs-mark.svg" alt="HS Logo" width="32" height="32">
+          <span>HamzaShaikh<span class="gradient-text">AI</span></span>
+        </a>
+        <div class="nav-right">
+          <ul class="nav-links" id="navLinks">
+            <li><a href="/">Portfolio</a></li>
+            <li><a href="/#lab-3d">3D Model</a></li>
+            <li><a href="#install">Install</a></li>
+            <li><a href="#compatibility">GPUs &amp; Games</a></li>
+            <li><a href="#kb-faq">FAQ</a></li>
+          </ul>
+          <div class="nav-controls">
+            <button type="button" class="theme-circle" id="themeToggle" aria-label="Switch theme" title="Toggle Dark/Light Theme">
+              <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <main id="main-content" class="container">
+    <section class="doc-hero">
+      <div class="doc-breadcrumb mono">
+        <a href="/">Portfolio</a><span>/</span><span>KeplerBridge GT 740 Guide</span>
+      </div>
+      <span class="eyebrow">Open-Source Systems Software · C++20 · Windows x64 · MIT</span>
+      <h1>Run DirectX 12 (DX12) on <span class="gradient-text">NVIDIA GT 740</span> &amp; Kepler GPUs</h1>
+      <p class="doc-lead">
+        KeplerBridge (<a href="https://github.com/HamzaShaikhAI/KeplerBridge" target="_blank" rel="noopener noreferrer" style="color:var(--blue-soft);text-decoration:underline;">github.com/HamzaShaikhAI/KeplerBridge</a>) is a drop-in 64-bit <code>d3d12.dll</code> compatibility layer that translates Direct3D 12 API calls and Shader Model 6.0 DXIL bitcode onto native Direct3D 11 Feature Level <code>11_0</code> (<code>0xB000</code>) NVIDIA Kepler GPUs—requiring zero driver patches and zero Windows system-file changes.
+      </p>
+      <div class="hero-actions" style="margin-bottom:14px;">
+        <a class="btn btn-primary" href="https://github.com/HamzaShaikhAI/KeplerBridge/releases/tag/v0.5.0-rc1" target="_blank" rel="noopener noreferrer">Download v0.5.0-rc1 ↗</a>
+        <a class="btn btn-secondary" href="https://github.com/HamzaShaikhAI/KeplerBridge" target="_blank" rel="noopener noreferrer">Source on GitHub ↗</a>
+        <a class="btn btn-secondary" href="/#lab-3d">Inspect 3D Architecture</a>
+      </div>
+
+      <div class="doc-metrics">
+        <div class="doc-metric"><strong>~1.12 ms → ~0.03 ms</strong><span>Warm SHA-256 disk shader cache (&gt;35x fixture speedup)</span></div>
+        <div class="doc-metric"><strong>86 Titles</strong><span>Catalogued in docs/GAME_COMPATIBILITY.md</span></div>
+        <div class="doc-metric"><strong>FL 11_0 (0xB000)</strong><span>Model A honest Kepler capability reporting</span></div>
+        <div class="doc-metric"><strong>0 System Edits</strong><span>User-space d3d12.dll beside the game .exe</span></div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:34px;">
+      <div class="doc-prose-grid">
+        <article class="doc-card">
+          <h3>What is KeplerBridge and why do GT 740 GPUs crash on DX12?</h3>
+          <p>KeplerBridge is an open-source ($0, MIT-licensed) C++20 Direct3D 12-to-Direct3D 11 translation layer authored by Hamza Shaikh (@HamzaShaikhAI) in 2026 to unlock compatible DX12 workloads on legacy NVIDIA Kepler cards. According to Microsoft Direct3D feature documentation and NVIDIA driver releases, Kepler GPUs—such as the GeForce GT 740 (GK107/GK208), GTX 750, GTX 760, GTX 770, GTX 780, and GTX TITAN—are capped at Feature Level 11_0 (0xB000), causing DX12 titles using Shader Model 6.0 DXIL to crash with DXGI_ERROR_UNSUPPORTED (0x887A0004).</p>
+          <p>In practice, KeplerBridge solves startup rejection in three user-space steps. Step 1: drop 64-bit d3d12.dll beside the game executable with 0% Windows system modification. Step 2: run the standalone LLVM 3.7 decoder to lower DXIL shaders into SM 5.0 DXBC bytecode. Step 3: serialize draw calls onto Direct3D 11 using Model A capability contracts across 86 catalogued PC titles.</p>
+        </article>
+
+        <article class="doc-card">
+          <h3>How fast is the DXIL-to-DXBC translator and shader cache?</h3>
+          <p>According to public KeplerBridge v0.5.0-rc1 benchmarks (November 2026), warm SHA-256 disk shader cache loading reduces shader startup overhead by 97.3%, dropping cold DXIL-to-DXBC translation latency from 1.12 ms down to 0.03 ms (over 35x faster) on synthetic test fixtures. For example, warm cache hits skip repeated LLVM 3.7 bitstream parsing during subsequent game launches.</p>
+          <p>First, straight-line Mem2Reg SSA promotion lowers scalar stack allocations into virtual registers without linking external Clang libraries. Second, synthetic critical-edge splitting and bounded natural loop lowering guarantee static termination across shader stages using 100% deterministic hashing. Third, compute shaders missing native Kepler wave intrinsics (such as WaveActiveSum) use fast parallel reduction trees in groupshared memory. Note that per-game FPS projections across all 86 titles are engineering estimates for a 4 GB GT 740 rather than universal guarantees.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="install" style="padding-top:52px;">
+      <div class="section-heading">
+        <span class="eyebrow">Step-by-Step Setup</span>
+        <h2>Drop-In <span class="gradient-text">Installation</span> (Windows x64)</h2>
+        <p>User-space proxy deployment requires zero Windows system-directory changes and zero NVIDIA driver modifications.</p>
+      </div>
+      <div class="doc-steps">
+        <div class="doc-card">
+          <div class="eyebrow">Step 01 · Obtain</div>
+          <h3>Release Binary or Source Build</h3>
+          <p>Download <code>KeplerBridge-0.5.0-rc1-Windows-x64.zip</code> from the <a href="https://github.com/HamzaShaikhAI/KeplerBridge/releases/tag/v0.5.0-rc1" target="_blank" rel="noopener noreferrer" style="color:var(--blue-soft)">GitHub Release page</a>, or compile locally using CMake and MSVC with C++20 enabled.</p>
+        </div>
+        <div class="doc-card">
+          <div class="eyebrow">Step 02 · Deploy</div>
+          <h3>Place Next to the Game <code>.exe</code></h3>
+          <p>Extract <code>d3d12.dll</code> and <code>kepler_bridge.ini</code> directly into the folder containing the 64-bit game executable. Never place proxy DLLs inside <code>C:\Windows\System32</code>.</p>
+        </div>
+        <div class="doc-card">
+          <div class="eyebrow">Step 03 · Verify</div>
+          <h3>Run &amp; Check Diagnostics</h3>
+          <p>Launch in offline single-player mode. Never inject into kernel anti-cheat multiplayer games. Inspect <code>kepler_bridge.log</code> next to the executable to verify DXIL translation and Feature Level 11_0 execution.</p>
+        </div>
+      </div>
+
+      <div class="cli-drawer" style="margin-top:20px;">
+        <div class="cli-head">
+          <div class="cli-tabs">
+            <span class="mono" style="font-size:0.82rem;color:var(--blue-soft);">CMake Build &amp; Verification (PowerShell)</span>
+          </div>
+          <button type="button" class="btn btn-secondary" id="copyKbBtn" style="padding:7px 14px;font-size:0.78rem;">Copy Commands</button>
+        </div>
+        <pre class="cli-code" id="kbCode">git clone https://github.com/HamzaShaikhAI/KeplerBridge.git
+cd KeplerBridge
+cmake -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build --config Release
+# Copy build\Release\d3d12.dll &amp; kepler_bridge.ini next to your offline DX12 game .exe</pre>
+      </div>
+    </section>
+
+    <section class="section" id="compatibility" style="padding-top:52px;">
+      <div class="section-heading">
+        <span class="eyebrow">Hardware &amp; Workloads</span>
+        <h2>Target Kepler GPUs &amp; <span class="gradient-text">Compatibility Matrix</span></h2>
+        <p>Verified target GPUs and spotlight compatibility notes documented in <a href="https://github.com/HamzaShaikhAI/KeplerBridge" target="_blank" rel="noopener noreferrer" style="color:var(--blue-soft)">HamzaShaikhAI/KeplerBridge</a>.</p>
+      </div>
+
+      <div class="table-wrap" style="margin-bottom:24px;">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>NVIDIA Kepler GPU</th>
+              <th>Silicon / Chip</th>
+              <th>Native Driver Limit</th>
+              <th>KeplerBridge Target Path</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>GeForce GT 740</strong> (1–4 GB)</td><td class="mono">GK107 / GK208</td><td class="mono">FL 11_0 (0xB000)</td><td>720p Low target presets; Conservative memory profile recommended for 2–4 GB DDR3 cards.</td></tr>
+            <tr><td><strong>GeForce GTX 760 / GTX 770</strong></td><td class="mono">GK104</td><td class="mono">FL 11_0 (0xB000)</td><td>GDDR5 bandwidth yields 4x–10x higher memory throughput over DDR3 GT 740 parts.</td></tr>
+            <tr><td><strong>GeForce GTX 780 / GTX TITAN</strong></td><td class="mono">GK110</td><td class="mono">FL 11_0 (0xB000)</td><td>Higher core count &amp; VRAM headroom (3–6 GB GDDR5) for D3D12-to-D3D11 compute workloads.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-wrap">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>Spotlight Title</th>
+              <th>Engine / API</th>
+              <th>Translation / Engine Notes</th>
+              <th>Target Estimate (GT 740 720p Low)</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Stray</strong></td><td>Unreal Engine 4.27</td><td>PSO interception, root signature space clamping, warm disk shader cache bypass.</td><td class="mono">28–38 FPS</td><td>Playable on KeplerBridge (Estimate)</td></tr>
+            <tr><td><strong>Devil May Cry 5</strong></td><td>RE Engine (D3D12)</td><td>Multi-slot compute UAV mapping (0–7), atomic counters, event query fencing.</td><td class="mono">35–48 FPS</td><td>Playable on KeplerBridge (Estimate)</td></tr>
+            <tr><td><strong>Resident Evil 2 / 3 Remake</strong></td><td>RE Engine (D3D12)</td><td>Dynamic root constant tracking, texture footprint clamping, SHA-256 disk cache.</td><td class="mono">34–46 FPS</td><td>Playable on KeplerBridge (Estimate)</td></tr>
+            <tr><td><strong>Lies of P / Hi-Fi RUSH</strong></td><td>Unreal Engine 4.27</td><td>Linear root signature mapping, discard swapchain normalization, warm cache hits.</td><td class="mono">30–55 FPS</td><td>Playable on KeplerBridge (Estimate)</td></tr>
+            <tr><td><strong>Hades II</strong></td><td>Custom Engine (D3D12)</td><td>2D isometric draw path with lightweight constant buffers and low compute pressure.</td><td class="mono">50–60 FPS</td><td>Playable on KeplerBridge (Estimate)</td></tr>
+            <tr><td><strong>Palworld</strong></td><td>Unreal Engine 5.1</td><td>Requires D3D12 Tier 3 bindless descriptors absent on Kepler; launch using engine flag <code>-dx11</code> instead.</td><td class="mono">30–45 FPS (-dx11)</td><td>D3D12 Unsupported (Use Native -dx11)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note" style="margin-top:10px;">Disclaimer: FPS figures in the 86-game compatibility showcase are engineering estimates for a GT 740 (4 GB DDR3) at 720p Low presets unless explicitly labeled as benchmark measurements. Online anti-cheat multiplayer titles are unsupported.</p>
+    </section>
+
+    <section class="section" id="kb-faq" style="padding-top:52px;">
+      <div class="section-heading">
+        <span class="eyebrow">Direct Reference</span>
+        <h2>KeplerBridge <span class="gradient-text">FAQ</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary><h3>Can KeplerBridge run DirectX 12 games on an NVIDIA GeForce GT 740?</h3></summary>
+          <div class="faq-answer">
+            <p>Yes, for supported workloads. KeplerBridge (github.com/HamzaShaikhAI/KeplerBridge, release candidate v0.5.0-rc1) is an open-source C++20 Direct3D 12-to-Direct3D 11 compatibility proxy engineered specifically for legacy NVIDIA Kepler GPUs including the GeForce GT 740 (GK107/GK208), GTX 750, GTX 760, GTX 770, GTX 780, and GTX TITAN at Feature Level 11_0.</p>
+            <p>Deployed in user space as a drop-in 64-bit d3d12.dll beside the game executable with 0 Windows system modifications, KeplerBridge translates Shader Model 6.0 DXIL into Shader Model 5.0 DXBC using a cleanroom LLVM 3.7 decoder and SHA-256 disk shader cache (~1.12 ms cold to ~0.03 ms warm on synthetic fixtures). Compatibility is catalogued across 86 PC titles and remains workload-dependent.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary><h3>Does KeplerBridge work on Unreal Engine 5 games requiring Tier 3 bindless or ray tracing?</h3></summary>
+          <div class="faq-answer">
+            <p>No. Titles that strictly mandate Direct3D 12 Tier 3 bindless descriptor indexing, mesh shaders, or hardware ray tracing exceed NVIDIA Kepler silicon limits and cannot be translated onto Feature Level 11_0 hardware. Unreal Engine 5.1 titles such as Palworld crash in D3D12 on Kepler and should instead be launched with the game engine's native -dx11 switch when provided.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> Hamza Shaikh (@HamzaShaikhAI) · KeplerBridge Guide · MIT License</span>
+      <div class="footer-links">
+        <a href="/">Main Portfolio</a>
+        <a href="https://github.com/HamzaShaikhAI/KeplerBridge" target="_blank" rel="noopener noreferrer">KeplerBridge GitHub</a>
+        <a href="/llms.txt">llms.txt</a>
+        <a href="/sitemap.xml">sitemap.xml</a>
+      </div>
+    </div>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const root = document.documentElement;
+    const saved = localStorage.getItem('hs-theme') || 'dark';
+    root.setAttribute('data-theme', saved);
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('hs-theme', next);
+    });
+    document.getElementById('copyKbBtn').addEventListener('click', async () => {
+      const code = document.getElementById('kbCode').textContent;
+      const toast = document.getElementById('toast');
+      try { await navigator.clipboard.writeText(code); } catch (_) {}
+      toast.textContent = 'Copied KeplerBridge build commands';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2200);
+    });
+  </script>
+</body>
+</html>

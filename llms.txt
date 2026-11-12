@@ -1,35 +1,31 @@
 # Hamza Shaikh (@HamzaShaikhAI)
 
-> Independent software developer and open-source builder creating systems software (KeplerBridge D3D12-to-D3D11 for GT 740 / NVIDIA Kepler), AI agent tooling (AgentForge), and zero-dependency TypeScript engines (Notion Block Engine) for global engineering teams.
+> Independent software developer and open-source builder creating Windows systems software (KeplerBridge D3D12-to-D3D11 compatibility layer for NVIDIA GeForce GT 740 and Kepler GPUs), local-first AI agent orchestration (AgentForge), and zero-dependency TypeScript tooling (Notion Block Engine).
 
-## Primary Portfolio Sections
+## Primary Pages & Dedicated Guides
 
-- [Home & Overview](https://hamzashaikhai.github.io/#home): Introduction to Hamza Shaikh (@HamzaShaikhAI), core engineering focus, and worldwide remote open-source collaboration.
-- [3D Systems Architecture Lab](https://hamzashaikhai.github.io/#lab-3d): Interactive Blender-modeled Three.js hardware & workflow inspector covering KeplerBridge, AgentForge, and Notion Block Engine.
-- [About Me](https://hamzashaikhai.github.io/#about): Background, engineering methodology, and multidisciplinary approach across systems, AI, and application engineering.
-- [Featured Projects](https://hamzashaikhai.github.io/#projects): Flagship open-source projects including KeplerBridge, AgentForge, Notion Block Engine, and VYDRIX.
-- [Technical Matrix](https://hamzashaikhai.github.io/#comparison): Structured comparison of project architectures, primary languages, current statuses, and public repositories.
-- [FAQ](https://hamzashaikhai.github.io/#faq): Direct answers regarding running DirectX 12 on NVIDIA GeForce GT 740 with KeplerBridge, AgentForge security, and global collaboration.
-- [Contact & Profiles](https://hamzashaikhai.github.io/#contact): Official GitHub, LinkedIn, and repository links.
+- [Portfolio Home](https://hamzashaikhai.github.io/): Overview of Hamza Shaikh (@HamzaShaikhAI), Interactive 3D Systems Lab, audience workflows, flagship repositories, technical matrix, and FAQ.
+- [KeplerBridge GT 740 / DirectX 12 Guide](https://hamzashaikhai.github.io/keplerbridge/): Dedicated installation guide, GPU support matrix (GT 740 / GK107, GTX 750–780, GTX TITAN), shader cache benchmarks (~1.12 ms cold to ~0.03 ms warm load), and DX12 game compatibility notes.
+- [Full Technical Profile](https://hamzashaikhai.github.io/llms-full.txt): Extended markdown knowledge base optimized for LLM context retrieval.
 
 ## Featured Open-Source Repositories
 
-- [KeplerBridge](https://github.com/HamzaShaikhAI/KeplerBridge): Open-source C++20 Direct3D 12-to-Direct3D 11 (`d3d12.dll` proxy) compatibility layer enabling DirectX 12 workloads on legacy NVIDIA Kepler GPUs (GeForce GT 740, GTX 750, GTX 760, GTX 770, GTX 780, GTX TITAN / GK107, GK104, GK208, Feature Level 11_0) via Shader Model 6.0 DXIL-to-Shader Model 5.0 DXBC translation (v0.5.0-rc1, Windows x64, MIT).
-- [AgentForge](https://github.com/HamzaShaikhAI/AgentForge): Local-first TypeScript 5.6 and Node.js (>=20) AI agent integration and workflow platform for Google Antigravity with MCP presets, Manager UI dashboard, fine-grained permission gates, human approval checkpoints, and credential isolation (MIT).
+- [KeplerBridge](https://github.com/HamzaShaikhAI/KeplerBridge): Open-source C++20 Direct3D 12-to-Direct3D 11 (`d3d12.dll` proxy) compatibility layer enabling DirectX 12 workloads on legacy NVIDIA Kepler GPUs (GeForce GT 740, GTX 750, GTX 760, GTX 770, GTX 780, GTX TITAN / GK107, GK104, GK208, Feature Level 11_0) via cleanroom LLVM 3.7 Shader Model 6.0 DXIL-to-SM 5.0 DXBC lowering (`v0.5.0-rc1`, Windows x64, MIT).
+- [AgentForge](https://github.com/HamzaShaikhAI/AgentForge): Local-first TypeScript 5.6 and Node.js (>=20) AI agent integration and workflow platform for Google Antigravity with MCP bridges, Manager UI dashboard, fine-grained permission gates, human approval checkpoints, and credential isolation (MIT).
 - [Notion Block Engine](https://github.com/HamzaShaikhAI/notion-block-engine): Zero-dependency TypeScript 5.0+ (<15 KB) engine for bidirectional conversion and dirty clipboard HTML sanitization (Google Docs, MS Word) between HTML, GFM Markdown, and Notion-style Block ASTs (MIT).
 - [VYDRIX](https://github.com/HamzaShaikhAI/VYDRIX): Archived C#/.NET Windows cloud-backed virtual storage experiment using WinFsp, preserved with a public technical post-mortem.
 
-## Key Facts
+## Key Verified Facts
 
-- Name: Hamza Shaikh (GitHub / online handle: `@HamzaShaikhAI`)
-- Role: Independent Software Developer & Open-Source Builder
+- Name: Hamza Shaikh (`@HamzaShaikhAI`)
 - Collaboration Scope: Worldwide / Global Remote
 - Primary Languages: C++20, TypeScript, Python, JavaScript, Dart, C#
-- Target Hardware (KeplerBridge): NVIDIA GeForce GT 740, GTX 760, GTX 770, GTX 780, GTX TITAN (`GK107`, `GK104`, `GK208`, `D3D_FEATURE_LEVEL_11_0`)
-- Full Technical Context: https://hamzashaikhai.github.io/llms-full.txt
+- KeplerBridge Target Hardware: NVIDIA GeForce GT 740 (`GK107`), GTX 750, GTX 760, GTX 770, GTX 780, GTX TITAN (`GK104`, `GK208`, `D3D_FEATURE_LEVEL_11_0` / `0xB000`)
+- KeplerBridge Drop-In Usage: Place 64-bit `d3d12.dll` + `kepler_bridge.ini` beside the game `.exe`; zero Windows system-file or driver modifications required.
 
 ## Contact & Official Links
 
 - Website: https://hamzashaikhai.github.io/
+- KeplerBridge Guide: https://hamzashaikhai.github.io/keplerbridge/
 - GitHub: https://github.com/HamzaShaikhAI
 - LinkedIn: https://www.linkedin.com/in/hamzashaikhai/

@@ -8,6 +8,7 @@
 
   <title>Hamza Shaikh (@HamzaShaikhAI) | AI Systems &amp; Open-Source Developer</title>
   <meta name="description" content="Official worldwide portfolio of Hamza Shaikh (@HamzaShaikhAI): KeplerBridge (DirectX 12 / D3D12-to-D3D11 compatibility layer for NVIDIA GeForce GT 740 &amp; Kepler GPUs), AgentForge (local-first MCP AI workflow runtime), and Notion Block Engine.">
+  <meta name="keywords" content="Hamza Shaikh, HamzaShaikhAI, KeplerBridge, run DX12 on GT 740, DirectX 12 GT 740 wrapper, D3D12 to D3D11 compatibility layer, AgentForge, Notion Block Engine">
   <meta name="author" content="Hamza Shaikh">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="distribution" content="global">
@@ -110,6 +111,7 @@
             "item": {
               "@type": "SoftwareSourceCode",
               "name": "KeplerBridge",
+              "url": "https://hamzashaikhai.github.io/keplerbridge/",
               "description": "Open-source C++20 Direct3D 12-to-Direct3D 11 (d3d12.dll proxy) compatibility layer enabling DirectX 12 workloads on legacy NVIDIA Kepler GPUs including GeForce GT 740, GTX 760, GTX 770, GTX 780, and GTX TITAN (GK107, GK104, GK208, Feature Level 11_0) via Shader Model 6.0 DXIL-to-Shader Model 5.0 DXBC translation.",
               "codeRepository": "https://github.com/HamzaShaikhAI/KeplerBridge",
               "programmingLanguage": "C++20",
@@ -185,7 +187,7 @@
             "name": "Can KeplerBridge run DirectX 12 (DX12) games on an NVIDIA GeForce GT 740?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes, for supported workloads: KeplerBridge (https://github.com/HamzaShaikhAI/KeplerBridge, release candidate v0.5.0-rc1) is an open-source C++20 Direct3D 12-to-Direct3D 11 compatibility proxy built specifically for legacy NVIDIA Kepler GPUs including the GeForce GT 740 (GK107), GTX 760, GTX 770, GTX 780, and GTX TITAN at Feature Level 11_0. Deployed as a drop-in 64-bit d3d12.dll alongside a game executable with zero driver edits, KeplerBridge translates Shader Model 6.0 DXIL bitcode into Shader Model 5.0 DXBC on a Direct3D 11 context. Compatibility is workload-dependent rather than universal."
+              "text": "Yes, for supported workloads: KeplerBridge (https://github.com/HamzaShaikhAI/KeplerBridge and https://hamzashaikhai.github.io/keplerbridge/, v0.5.0-rc1) is an open-source ($0, MIT) C++20 Direct3D 12-to-Direct3D 11 compatibility proxy built by Hamza Shaikh in 2026 for legacy NVIDIA Kepler GPUs including the GeForce GT 740 (GK107/GK208), GTX 750, GTX 760, GTX 770, GTX 780, and GTX TITAN at Feature Level 11_0 (0xB000). Deployed as a drop-in 64-bit d3d12.dll beside an offline game executable with 0% Windows system modification, KeplerBridge embeds a cleanroom LLVM 3.7 DXIL-to-DXBC translator and SHA-256 disk shader cache cutting warm load latency by 97.3% (1.12 ms cold to 0.03 ms warm on synthetic fixtures) across 86 catalogued PC titles. Compatibility is workload-dependent rather than universal."
             }
           },
           {
@@ -512,6 +514,7 @@
               <span class="mono">C++20</span><span class="mono">DirectX 12</span><span class="mono">GT 740 / Kepler</span><span class="mono">DXIL → DXBC</span><span class="mono">d3d12.dll</span>
             </div>
             <div class="project-links">
+              <a href="/keplerbridge/">GT 740 / DX12 Guide →</a>
               <a href="https://github.com/HamzaShaikhAI/KeplerBridge" target="_blank" rel="noopener noreferrer">Repository ↗</a>
               <a href="https://github.com/HamzaShaikhAI/KeplerBridge/releases/tag/v0.5.0-rc1" target="_blank" rel="noopener noreferrer">v0.5.0-rc1 Release ↗</a>
             </div>
@@ -912,8 +915,8 @@
         <details class="faq-item">
           <summary><h3>Can KeplerBridge run DirectX 12 (DX12) games on an NVIDIA GeForce GT 740?</h3></summary>
           <div class="faq-answer">
-            <p>KeplerBridge is an open-source C++20 Direct3D 12-to-Direct3D 11 compatibility proxy engineered specifically for legacy NVIDIA Kepler GPUs such as the GeForce GT 740 (GK107), GTX 750, GTX 760, GTX 770, GTX 780, and GTX TITAN (GK104 and GK208). Because NVIDIA capped Kepler drivers at Direct3D Feature Level 11_0, DirectX 12 games compiled against Shader Model 6.0 DXIL normally refuse to launch on a GT 740.</p>
-            <p>First, KeplerBridge deploys as a drop-in 64-bit d3d12.dll proxy and kepler_bridge.ini alongside a Windows x64 executable with 0 driver modifications and 0 Windows system-file edits. Second, KeplerBridge intercepts D3D12 API entry points, translates Shader Model 6.0 DXIL bitcode into Shader Model 5.0 DXBC with persistent shader caching, and executes draw calls on a Direct3D 11 context. According to public release candidate v0.5.0-rc1 notes on GitHub (github.com/HamzaShaikhAI/KeplerBridge), real-world compatibility remains workload-dependent rather than universal across every DX12 game.</p>
+            <p>KeplerBridge (github.com/HamzaShaikhAI/KeplerBridge and hamzashaikhai.github.io/keplerbridge/) is an open-source ($0, MIT-licensed) C++20 Direct3D 12-to-Direct3D 11 compatibility proxy built by Hamza Shaikh in 2026 for NVIDIA Kepler GPUs, including GeForce GT 740 (GK107/GK208), GTX 750, GTX 760, GTX 770, GTX 780, and GTX TITAN. Because NVIDIA capped Kepler drivers at Feature Level 11_0 (0xB000), DX12 games using Shader Model 6.0 DXIL crash natively on GT 740 hardware.</p>
+            <p>In practice, KeplerBridge works in three steps. Step 1: drop 64-bit d3d12.dll and kepler_bridge.ini beside an offline executable with 0% Windows system modification. Step 2: run the cleanroom LLVM 3.7 DXIL decoder and SHA-256 shader cache, cutting warm load latency by 97.3% (1.12 ms cold to 0.03 ms warm on fixtures). Step 3: execute on D3D11 across 86 catalogued games, such as Stray or Devil May Cry 5, keeping workload-dependent boundaries transparent.</p>
           </div>
         </details>
 

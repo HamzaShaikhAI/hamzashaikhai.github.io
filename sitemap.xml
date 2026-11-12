@@ -7,15 +7,21 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://hamzashaikhai.github.io/keplerbridge/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://hamzashaikhai.github.io/llms.txt</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://hamzashaikhai.github.io/llms-full.txt</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
 </urlset>
