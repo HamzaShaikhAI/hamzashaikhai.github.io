@@ -118,20 +118,27 @@
   const hudPipe = document.getElementById("hudPipe");
   const hudLink = document.getElementById("hudLink");
 
+  const hudScreen = document.querySelector(".hud-screen");
   hudTabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       const node = hudNodes[tab.dataset.node];
       if (!node) return;
       hudTabs.forEach((t) => t.setAttribute("aria-selected", String(t === tab)));
-      if (hudMeta) hudMeta.textContent = node.meta;
-      if (hudStatus) hudStatus.textContent = node.status;
-      if (hudTitle) hudTitle.textContent = node.title;
-      if (hudDesc) hudDesc.textContent = node.desc;
-      if (hudPipe) hudPipe.textContent = node.pipe;
-      if (hudLink) {
-        hudLink.href = node.url;
-        hudLink.textContent = node.cta;
+      if (hudScreen) {
+        hudScreen.classList.add("is-switching");
       }
+      setTimeout(() => {
+        if (hudMeta) hudMeta.textContent = node.meta;
+        if (hudStatus) hudStatus.textContent = node.status;
+        if (hudTitle) hudTitle.textContent = node.title;
+        if (hudDesc) hudDesc.textContent = node.desc;
+        if (hudPipe) hudPipe.textContent = node.pipe;
+        if (hudLink) {
+          hudLink.href = node.url;
+          hudLink.textContent = node.cta;
+        }
+        hudScreen?.classList.remove("is-switching");
+      }, 130);
     });
   });
 
@@ -189,8 +196,14 @@
       let shown = 0;
       projectCards.forEach((card) => {
         const match = cat === "all" || card.dataset.category === cat;
+        card.classList.remove("is-entering");
         card.classList.toggle("is-hidden", !match);
-        if (match) shown++;
+        if (match) {
+          card.style.animationDelay = `${shown * 45}ms`;
+          void card.offsetWidth;
+          card.classList.add("is-entering");
+          shown++;
+        }
       });
       if (filterStatus) {
         filterStatus.textContent = `Showing ${shown} project${shown === 1 ? "" : "s"}`;
@@ -221,6 +234,9 @@
       topicPills.forEach((p) => p.setAttribute("aria-pressed", String(p === pill)));
       if (pitchPreview && pitches[key]) {
         pitchPreview.textContent = pitches[key];
+        pitchPreview.classList.remove("is-updated");
+        void pitchPreview.offsetWidth;
+        pitchPreview.classList.add("is-updated");
       }
     });
   });

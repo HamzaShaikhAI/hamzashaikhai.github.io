@@ -338,6 +338,8 @@ h1, h2, h3 {
 }
 
 .btn {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -350,11 +352,97 @@ h1, h2, h3 {
   font-weight: 600;
   background: var(--surface-strong);
   box-shadow: var(--specular);
-  transition: transform 0.18s var(--ease), border-color 0.18s var(--ease), background-color 0.18s var(--ease);
+  transition: transform 0.2s var(--ease), border-color 0.2s var(--ease), background-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
 }
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 25%, rgba(255, 255, 255, 0.16) 50%, transparent 75%);
+  transform: translateX(-120%);
+  transition: transform 0.55s var(--ease);
+  pointer-events: none;
+}
+.btn:hover::after { transform: translateX(120%); }
 .btn:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   border-color: var(--border-strong);
+}
+.btn:active { transform: scale(0.97); }
+
+/* Hero Staggered Entrance */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-layout > div > *,
+.hero-layout > aside {
+  animation: fadeUp 0.55s var(--ease) both;
+}
+.hero-layout > div > *:nth-child(1) { animation-delay: 0.04s; }
+.hero-layout > div > *:nth-child(2) { animation-delay: 0.10s; }
+.hero-layout > div > *:nth-child(3) { animation-delay: 0.16s; }
+.hero-layout > div > *:nth-child(4) { animation-delay: 0.22s; }
+.hero-layout > div > *:nth-child(5) { animation-delay: 0.28s; }
+.hero-layout > div > *:nth-child(6) { animation-delay: 0.34s; }
+.hero-layout > aside { animation-delay: 0.18s; }
+
+/* Interactive Micro-Animations across HUD, Cards, Filters, FAQ, Pitch */
+.hud-tab, .filter-btn, .topic-pill, .lab-btn {
+  transition: transform 0.16s var(--ease), background-color 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.hud-tab:active, .filter-btn:active, .topic-pill:active, .lab-btn:active {
+  transform: scale(0.95);
+}
+.hud-screen {
+  transition: opacity 0.22s var(--ease), transform 0.22s var(--ease);
+}
+.hud-screen.is-switching {
+  opacity: 0.35;
+  transform: translateY(4px);
+}
+.project-card:hover .project-icon {
+  transform: translateY(-2px) scale(1.06);
+  border-color: var(--blue);
+  color: var(--blue-soft);
+}
+.project-icon {
+  transition: transform 0.24s var(--ease), border-color 0.24s var(--ease), color 0.24s var(--ease);
+}
+.project-links a, .hud-screen-link {
+  transition: color 0.18s var(--ease), transform 0.18s var(--ease);
+}
+.project-links a:hover, .hud-screen-link:hover {
+  transform: translateX(3px);
+}
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.985); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.project-card.is-entering {
+  animation: cardIn 0.34s var(--ease) both;
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.faq-item[open] .faq-answer {
+  animation: slideDown 0.26s var(--ease);
+}
+.faq-item summary::after {
+  transition: transform 0.24s var(--ease), color 0.2s;
+}
+.faq-item[open] summary::after {
+  content: "+";
+  transform: rotate(45deg);
+  color: var(--blue-soft);
+}
+@keyframes pitchPulse {
+  0%   { border-color: var(--blue); transform: scale(0.992); }
+  100% { border-color: var(--border); transform: scale(1); }
+}
+.pitch-preview.is-updated {
+  animation: pitchPulse 0.38s var(--ease);
 }
 
 .btn-primary {
@@ -956,8 +1044,8 @@ h1, h2, h3 {
 }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary h3 { font-size: 1rem; font-weight: 600; margin: 0; }
-.faq-item summary::after { content: "+"; color: var(--muted); font-size: 1.2rem; font-weight: 600; }
-.faq-item[open] summary::after { content: "−"; color: var(--text); }
+.faq-item summary::after { content: "+"; color: var(--muted); font-size: 1.25rem; font-weight: 600; transition: transform 0.24s var(--ease), color 0.2s; }
+.faq-item[open] summary::after { content: "+"; transform: rotate(45deg); color: var(--blue-soft); }
 .faq-answer { padding: 0 20px 18px; color: var(--muted); font-size: 0.91rem; line-height: 1.75; }
 .faq-answer p + p { margin-top: 10px; }
 
