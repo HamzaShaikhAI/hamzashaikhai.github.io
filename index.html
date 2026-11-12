@@ -211,46 +211,44 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Exo:wght@500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-  <header class="navbar">
-    <nav class="container nav-inner" aria-label="Main navigation">
-      <a href="#home" class="brand" aria-label="HamzaShaikhAI home">
-        <img src="/assets/hs-mark.svg" alt="Hamza Shaikh HS logo" width="40" height="40">
-        <span>HamzaShaikh<span class="gradient-text">AI</span></span>
-      </a>
+  <div class="nav-wrap">
+    <header class="navbar">
+      <nav class="nav-inner" aria-label="Main navigation">
+        <a href="#home" class="brand" aria-label="HamzaShaikhAI home">
+          <img src="/assets/hs-mark.svg" alt="Hamza Shaikh HS logo" width="34" height="34">
+          <span>HamzaShaikh<span class="gradient-text">AI</span></span>
+        </a>
 
-      <div class="nav-right">
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#comparison">Matrix</a></li>
-          <li><a href="#technologies">Skills</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div class="nav-right">
+          <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#comparison">Matrix</a></li>
+            <li><a href="#technologies">Skills</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
 
-        <div class="nav-controls">
-          <button type="button" class="icon-btn" id="paletteOpenBtn" aria-label="Open quick jump menu">
-            <span>Jump</span><span class="kbd mono">Ctrl+K</span>
-          </button>
-          <button type="button" class="icon-btn" id="themeToggle" aria-label="Toggle light or dark theme" aria-pressed="false">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-            <span>Light</span>
-          </button>
-          <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-          </button>
+          <div class="nav-controls">
+            <button type="button" class="theme-circle" id="themeToggle" aria-label="Switch to light mode" title="Switch to light mode" aria-pressed="false">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            </button>
+            <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+          </div>
         </div>
-      </div>
-    </nav>
-  </header>
+      </nav>
+    </header>
+  </div>
 
   <main id="main-content">
     <!-- Hero -->
@@ -259,7 +257,7 @@
         <div>
           <div class="availability">
             <span class="dot" aria-hidden="true"></span>
-            <span>Worldwide Remote · Independent Software &amp; Open-Source Builder</span>
+            <span class="mono">WORLDWIDE REMOTE · OPEN-SOURCE ENGINEER</span>
           </div>
           <h1>Hi, I'm <span class="gradient-text">Hamza Shaikh.</span></h1>
           <p class="hero-subtitle">Engineering AI agent platforms, C++20 graphics compatibility, and zero-dependency TypeScript tooling.</p>
@@ -270,7 +268,6 @@
             <a class="btn btn-primary" href="#projects">Explore Projects ↗</a>
             <a class="btn btn-secondary" href="https://github.com/HamzaShaikhAI" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
             <a class="btn btn-secondary" href="https://www.linkedin.com/in/hamzashaikhai/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-            <a class="btn btn-secondary" href="#contact">Collaborate</a>
           </div>
           <div class="tags" aria-label="Core technologies">
             <span class="tag mono">C++20</span>
@@ -282,31 +279,36 @@
           </div>
         </div>
 
-        <aside class="hero-card" aria-label="Developer profile summary">
-          <div class="hero-card-header">
-            <img class="hero-card-logo" src="/assets/hs-mark.svg" alt="Hamza Shaikh HS monogram" width="68" height="68">
-            <span class="geo-badge mono">GLOBAL · OPEN SOURCE</span>
+        <aside class="hud-card spotlight-card" aria-label="Interactive developer telemetry console">
+          <div class="hud-topbar">
+            <div class="hud-id mono">
+              <img src="/assets/hs-mark.svg" alt="Hamza Shaikh HS monogram" width="26" height="26">
+              <span>SYS.INDEX // @HAMZASHAIKHAI</span>
+            </div>
+            <span class="geo-badge mono">GLOBAL</span>
           </div>
-          <span class="eyebrow">Verified Engineering Index</span>
-          <h2>Ideas into working software.</h2>
-          <p>Public repositories across graphics translation, AI agent orchestration, AST content engines, and cross-platform apps.</p>
 
-          <div class="hero-metrics" aria-label="Portfolio highlights">
+          <div class="hud-tabs" role="tablist" aria-label="Featured repository telemetry">
+            <button type="button" class="hud-tab mono" role="tab" data-node="kepler" aria-selected="true">01 Kepler</button>
+            <button type="button" class="hud-tab mono" role="tab" data-node="agentforge" aria-selected="false">02 AgentForge</button>
+            <button type="button" class="hud-tab mono" role="tab" data-node="notion" aria-selected="false">03 Block AST</button>
+          </div>
+
+          <div class="hud-screen" aria-live="polite">
+            <div class="hud-screen-meta mono">
+              <span id="hudMeta">NODE_01 // C++20 · WIN_X64</span>
+              <span id="hudStatus">v0.5.0-rc1</span>
+            </div>
+            <h2 id="hudTitle">KeplerBridge</h2>
+            <p id="hudDesc">Bounded Direct3D 12-to-Direct3D 11 translation layer with DXIL-to-DXBC shader conversion and persistent cache.</p>
+            <div class="hud-pipeline mono" id="hudPipe">D3D12 App  →  DXIL→DXBC  →  D3D11 Kepler GPU</div>
+            <a class="hud-screen-link" id="hudLink" href="https://github.com/HamzaShaikhAI/KeplerBridge" target="_blank" rel="noopener noreferrer">Inspect KeplerBridge Repository ↗</a>
+          </div>
+
+          <div class="hud-metrics" aria-label="Portfolio highlights">
             <div><strong>4</strong><span>Flagship Repos</span></div>
             <div><strong>6+</strong><span>Languages</span></div>
             <div><strong>Global</strong><span>Remote Scope</span></div>
-          </div>
-
-          <div class="hero-card-links">
-            <a href="https://github.com/HamzaShaikhAI/KeplerBridge" target="_blank" rel="noopener noreferrer">
-              <span><strong>KeplerBridge</strong> · C++20 / D3D12→11</span><span class="mono">v0.5.0-rc1 ↗</span>
-            </a>
-            <a href="https://github.com/HamzaShaikhAI/AgentForge" target="_blank" rel="noopener noreferrer">
-              <span><strong>AgentForge</strong> · MCP &amp; AI Agents</span><span class="mono">TypeScript ↗</span>
-            </a>
-            <a href="https://github.com/HamzaShaikhAI/notion-block-engine" target="_blank" rel="noopener noreferrer">
-              <span><strong>Notion Block Engine</strong> · AST</span><span class="mono">0-Deps ↗</span>
-            </a>
           </div>
         </aside>
       </div>
@@ -394,45 +396,49 @@
       </div>
       <p id="filterStatus" class="eyebrow mono" style="margin-bottom:16px;" aria-live="polite">Showing 8 projects</p>
 
-      <div class="project-grid">
-        <!-- 1. KeplerBridge -->
-        <article class="project-card" data-category="systems">
-          <div class="project-top">
-            <div class="project-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 4.5v11L12 22l-9-4.5v-11L12 2z"/><path d="M12 22V11"/><path d="m21 6.5-9 4.5-9-4.5"/></svg>
+      <div class="bento-grid">
+        <!-- 1. KeplerBridge (Wide Bento Centerpiece) -->
+        <article class="project-card bento-wide spotlight-card" data-category="systems">
+          <div>
+            <div class="project-top">
+              <div class="project-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 4.5v11L12 22l-9-4.5v-11L12 2z"/><path d="M12 22V11"/><path d="m21 6.5-9 4.5-9-4.5"/></svg>
+              </div>
+              <span class="status mono">Release Candidate · v0.5.0-rc1</span>
             </div>
-            <span class="status mono">Release Candidate · v0.5.0-rc1</span>
+            <h3>KeplerBridge</h3>
+            <div class="project-type">Direct3D 12 → Direct3D 11 Compatibility Layer</div>
+            <p>KeplerBridge is an open-source C++20 compatibility layer for legacy NVIDIA Kepler GPUs on Windows x64. It implements runtime API interception, a bounded DXIL-to-DXBC shader translation pipeline, shader caching, diagnostic tooling, and a Direct3D 11 execution backend.</p>
+            <div class="project-tech">
+              <span class="mono">C++20</span><span class="mono">Direct3D 12</span><span class="mono">Direct3D 11</span><span class="mono">DXIL / DXBC</span><span class="mono">Windows x64</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/HamzaShaikhAI/KeplerBridge" target="_blank" rel="noopener noreferrer">Repository ↗</a>
+              <a href="https://github.com/HamzaShaikhAI/KeplerBridge/releases/tag/v0.5.0-rc1" target="_blank" rel="noopener noreferrer">v0.5.0-rc1 Release ↗</a>
+            </div>
+            <p class="note">Experimental release candidate. Compatibility is workload-dependent and not universal.</p>
           </div>
           <div class="arch-preview" aria-hidden="true">
-            <svg viewBox="0 0 420 74" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="4" y="14" width="90" height="46" rx="8" stroke="#38bdf8" stroke-opacity="0.6" fill="#0f172a" fill-opacity="0.45"/>
-              <text x="49" y="35" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">D3D12 App</text>
-              <text x="49" y="49" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="8">DXIL Shaders</text>
-              <path d="M98 37H134" stroke="#22d3ee" stroke-width="1.8" stroke-dasharray="3 3"/>
-              <rect x="138" y="10" width="144" height="54" rx="8" stroke="#a78bfa" stroke-opacity="0.7" fill="#0f172a" fill-opacity="0.55"/>
-              <text x="210" y="33" text-anchor="middle" fill="#22d3ee" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700">KeplerBridge</text>
-              <text x="210" y="48" text-anchor="middle" fill="#cbd5e1" font-family="JetBrains Mono,monospace" font-size="8">DXIL → DXBC + Cache</text>
-              <path d="M286 37H322" stroke="#22d3ee" stroke-width="1.8" stroke-dasharray="3 3"/>
-              <rect x="326" y="14" width="90" height="46" rx="8" stroke="#4ade80" stroke-opacity="0.6" fill="#0f172a" fill-opacity="0.45"/>
-              <text x="371" y="35" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">D3D11 GPU</text>
-              <text x="371" y="49" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="8">NVIDIA Kepler</text>
+            <svg viewBox="0 0 420 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <text x="12" y="18" fill="#64748b" font-family="JetBrains Mono,monospace" font-size="9">EXECUTION PIPELINE // WINDOWS X64</text>
+              <rect x="8" y="34" width="96" height="58" rx="9" stroke="#38bdf8" stroke-opacity="0.65" fill="#0f172a"/>
+              <text x="56" y="59" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono,monospace" font-size="10.5" font-weight="600">D3D12 App</text>
+              <text x="56" y="75" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="8.5">DXIL Shaders</text>
+              <path class="flow-line" d="M108 63H140" stroke="#22d3ee" stroke-width="2"/>
+              <rect x="144" y="28" width="132" height="70" rx="9" stroke="#a78bfa" stroke-opacity="0.8" fill="#0f172a"/>
+              <text x="210" y="56" text-anchor="middle" fill="#22d3ee" font-family="JetBrains Mono,monospace" font-size="11" font-weight="700">KeplerBridge</text>
+              <text x="210" y="73" text-anchor="middle" fill="#cbd5e1" font-family="JetBrains Mono,monospace" font-size="8.5">DXIL → DXBC + Cache</text>
+              <text x="210" y="87" text-anchor="middle" fill="#64748b" font-family="JetBrains Mono,monospace" font-size="7.5">Bounded Translator</text>
+              <path class="flow-line" d="M280 63H312" stroke="#22d3ee" stroke-width="2"/>
+              <rect x="316" y="34" width="96" height="58" rx="9" stroke="#22c55e" stroke-opacity="0.65" fill="#0f172a"/>
+              <text x="364" y="59" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono,monospace" font-size="10.5" font-weight="600">D3D11 GPU</text>
+              <text x="364" y="75" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="8.5">NVIDIA Kepler</text>
             </svg>
           </div>
-          <h3>KeplerBridge</h3>
-          <div class="project-type">Direct3D 12 → Direct3D 11 Compatibility Layer</div>
-          <p>KeplerBridge is an open-source C++20 compatibility layer for legacy NVIDIA Kepler GPUs on Windows x64. It implements runtime API interception, a bounded DXIL-to-DXBC shader translation pipeline, shader caching, diagnostic tooling, and a Direct3D 11 execution backend.</p>
-          <div class="project-tech">
-            <span class="mono">C++20</span><span class="mono">Direct3D 12</span><span class="mono">Direct3D 11</span><span class="mono">DXIL / DXBC</span><span class="mono">Windows x64</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/HamzaShaikhAI/KeplerBridge" target="_blank" rel="noopener noreferrer">Repository ↗</a>
-            <a href="https://github.com/HamzaShaikhAI/KeplerBridge/releases/tag/v0.5.0-rc1" target="_blank" rel="noopener noreferrer">v0.5.0-rc1 Release ↗</a>
-          </div>
-          <p class="note">Experimental release candidate. Compatibility is workload-dependent and not universal.</p>
         </article>
 
         <!-- 2. AgentForge -->
-        <article class="project-card" data-category="ai">
+        <article class="project-card spotlight-card" data-category="ai">
           <div class="project-top">
             <div class="project-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="12" x="3" y="8" rx="2"/><path d="M12 8V4H8"/><path d="M2 14h2M20 14h2M9 13v2M15 13v2"/></svg>
@@ -441,15 +447,15 @@
           </div>
           <div class="arch-preview" aria-hidden="true">
             <svg viewBox="0 0 420 74" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="4" y="14" width="90" height="46" rx="8" stroke="#38bdf8" stroke-opacity="0.6" fill="#0f172a" fill-opacity="0.45"/>
+              <rect x="4" y="14" width="90" height="46" rx="8" stroke="#38bdf8" stroke-opacity="0.6" fill="#0f172a"/>
               <text x="49" y="35" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">AI Agent</text>
               <text x="49" y="49" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="8">Antigravity</text>
-              <path d="M98 37H134" stroke="#22d3ee" stroke-width="1.8" stroke-dasharray="3 3"/>
-              <rect x="138" y="10" width="144" height="54" rx="8" stroke="#a78bfa" stroke-opacity="0.7" fill="#0f172a" fill-opacity="0.55"/>
+              <path class="flow-line" d="M98 37H134" stroke="#22d3ee" stroke-width="1.8"/>
+              <rect x="138" y="10" width="144" height="54" rx="8" stroke="#a78bfa" stroke-opacity="0.7" fill="#0f172a"/>
               <text x="210" y="33" text-anchor="middle" fill="#22d3ee" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700">AgentForge</text>
               <text x="210" y="48" text-anchor="middle" fill="#cbd5e1" font-family="JetBrains Mono,monospace" font-size="8">Approval Gate + Auth</text>
-              <path d="M286 37H322" stroke="#22d3ee" stroke-width="1.8" stroke-dasharray="3 3"/>
-              <rect x="326" y="14" width="90" height="46" rx="8" stroke="#4ade80" stroke-opacity="0.6" fill="#0f172a" fill-opacity="0.45"/>
+              <path class="flow-line" d="M286 37H322" stroke="#22d3ee" stroke-width="1.8"/>
+              <rect x="326" y="14" width="90" height="46" rx="8" stroke="#22c55e" stroke-opacity="0.6" fill="#0f172a"/>
               <text x="371" y="35" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">MCP Bridges</text>
               <text x="371" y="49" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="8">Isolated Creds</text>
             </svg>
@@ -466,7 +472,7 @@
         </article>
 
         <!-- 3. Notion Block Engine -->
-        <article class="project-card" data-category="tooling">
+        <article class="project-card spotlight-card" data-category="tooling">
           <div class="project-top">
             <div class="project-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
@@ -475,15 +481,15 @@
           </div>
           <div class="arch-preview" aria-hidden="true">
             <svg viewBox="0 0 420 74" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="4" y="14" width="94" height="46" rx="8" stroke="#38bdf8" stroke-opacity="0.6" fill="#0f172a" fill-opacity="0.45"/>
+              <rect x="4" y="14" width="94" height="46" rx="8" stroke="#38bdf8" stroke-opacity="0.6" fill="#0f172a"/>
               <text x="51" y="35" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">Markdown</text>
               <text x="51" y="49" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="8">HTML / Clipboard</text>
-              <path d="M102 37H136" stroke="#22d3ee" stroke-width="1.8"/>
-              <rect x="140" y="10" width="140" height="54" rx="8" stroke="#a78bfa" stroke-opacity="0.7" fill="#0f172a" fill-opacity="0.55"/>
+              <path class="flow-line" d="M102 37H136" stroke="#22d3ee" stroke-width="1.8"/>
+              <rect x="140" y="10" width="140" height="54" rx="8" stroke="#a78bfa" stroke-opacity="0.7" fill="#0f172a"/>
               <text x="210" y="33" text-anchor="middle" fill="#22d3ee" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700">Block AST</text>
               <text x="210" y="48" text-anchor="middle" fill="#cbd5e1" font-family="JetBrains Mono,monospace" font-size="8">Sanitize &amp; Serialize</text>
-              <path d="M284 37H318" stroke="#22d3ee" stroke-width="1.8"/>
-              <rect x="322" y="14" width="94" height="46" rx="8" stroke="#4ade80" stroke-opacity="0.6" fill="#0f172a" fill-opacity="0.45"/>
+              <path class="flow-line" d="M284 37H318" stroke="#22d3ee" stroke-width="1.8"/>
+              <rect x="322" y="14" width="94" height="46" rx="8" stroke="#22c55e" stroke-opacity="0.6" fill="#0f172a"/>
               <text x="369" y="35" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">Notion JSON</text>
               <text x="369" y="49" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="8">Bidirectional</text>
             </svg>
@@ -500,7 +506,7 @@
         </article>
 
         <!-- 4. VYDRIX -->
-        <article class="project-card" data-category="systems">
+        <article class="project-card spotlight-card" data-category="systems">
           <div class="project-top">
             <div class="project-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
@@ -509,15 +515,15 @@
           </div>
           <div class="arch-preview" aria-hidden="true">
             <svg viewBox="0 0 420 74" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="4" y="14" width="94" height="46" rx="8" stroke="#38bdf8" stroke-opacity="0.6" fill="#0f172a" fill-opacity="0.45"/>
+              <rect x="4" y="14" width="94" height="46" rx="8" stroke="#38bdf8" stroke-opacity="0.6" fill="#0f172a"/>
               <text x="51" y="35" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">Win Explorer</text>
               <text x="51" y="49" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="8">Virtual Drive</text>
-              <path d="M102 37H136" stroke="#fbbf24" stroke-width="1.8" stroke-dasharray="3 3"/>
-              <rect x="140" y="10" width="140" height="54" rx="8" stroke="#fbbf24" stroke-opacity="0.65" fill="#0f172a" fill-opacity="0.55"/>
+              <path class="flow-line" d="M102 37H136" stroke="#fbbf24" stroke-width="1.8"/>
+              <rect x="140" y="10" width="140" height="54" rx="8" stroke="#fbbf24" stroke-opacity="0.65" fill="#0f172a"/>
               <text x="210" y="33" text-anchor="middle" fill="#fbbf24" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700">VYDRIX / WinFsp</text>
               <text x="210" y="48" text-anchor="middle" fill="#cbd5e1" font-family="JetBrains Mono,monospace" font-size="8">Local Block Cache</text>
-              <path d="M284 37H318" stroke="#fbbf24" stroke-width="1.8" stroke-dasharray="3 3"/>
-              <rect x="322" y="14" width="94" height="46" rx="8" stroke="#94a3b8" stroke-opacity="0.6" fill="#0f172a" fill-opacity="0.45"/>
+              <path class="flow-line" d="M284 37H318" stroke="#fbbf24" stroke-width="1.8"/>
+              <rect x="322" y="14" width="94" height="46" rx="8" stroke="#94a3b8" stroke-opacity="0.6" fill="#0f172a"/>
               <text x="369" y="35" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">Cloud Store</text>
               <text x="369" y="49" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="8">Post-Mortem Study</text>
             </svg>
@@ -534,7 +540,7 @@
         </article>
 
         <!-- 5. Hifz Hero -->
-        <article class="project-card" data-category="apps" id="other-work">
+        <article class="project-card spotlight-card" data-category="apps" id="other-work">
           <div class="project-top">
             <div class="project-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
@@ -550,7 +556,7 @@
         </article>
 
         <!-- 6. VisionAI -->
-        <article class="project-card" data-category="apps">
+        <article class="project-card spotlight-card" data-category="apps">
           <div class="project-top">
             <div class="project-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -566,7 +572,7 @@
         </article>
 
         <!-- 7. PS-O1 -->
-        <article class="project-card" data-category="ai">
+        <article class="project-card spotlight-card" data-category="ai">
           <div class="project-top">
             <div class="project-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2"/></svg>
@@ -582,7 +588,7 @@
         </article>
 
         <!-- 8. AI Creative Studio -->
-        <article class="project-card" data-category="ai">
+        <article class="project-card spotlight-card" data-category="ai">
           <div class="project-top">
             <div class="project-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18M17 3v18M3 7.5h4M3 12h18M3 16.5h4M17 7.5h4M17 16.5h4"/></svg>

@@ -15,7 +15,6 @@
     yearEl.textContent = String(new Date().getFullYear());
   }
 
-  // ── Toast helper ──
   let toastTimer = null;
   function showToast(msg) {
     if (!toastEl) return;
@@ -25,7 +24,12 @@
     toastTimer = setTimeout(() => toastEl.classList.remove("show"), 2600);
   }
 
-  // ── Theme toggle ──
+  // ── Theme toggle (icon-only circular button) ──
+  const ICON_SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>';
+  const ICON_MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
+  const ICON_MENU = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>';
+  const ICON_CLOSE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>';
+
   const savedTheme = localStorage.getItem("hs_theme");
   if (savedTheme === "light" || savedTheme === "dark") {
     root.setAttribute("data-theme", savedTheme);
@@ -33,16 +37,13 @@
     root.setAttribute("data-theme", "light");
   }
 
-  const ICON_SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>';
-  const ICON_MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
-  const ICON_MENU = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>';
-  const ICON_CLOSE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>';
-
   function syncThemeBtn() {
     if (!themeBtn) return;
     const isLight = root.getAttribute("data-theme") === "light";
     themeBtn.setAttribute("aria-pressed", String(isLight));
-    themeBtn.innerHTML = isLight ? `${ICON_MOON}<span>Dark</span>` : `${ICON_SUN}<span>Light</span>`;
+    themeBtn.setAttribute("aria-label", isLight ? "Switch to dark mode" : "Switch to light mode");
+    themeBtn.setAttribute("title", isLight ? "Switch to dark mode" : "Switch to light mode");
+    themeBtn.innerHTML = isLight ? ICON_MOON : ICON_SUN;
   }
   syncThemeBtn();
 
@@ -78,6 +79,79 @@
     }
   });
 
+  // ── Hero HUD Interactive Telemetry Tabs ──
+  const hudNodes = {
+    kepler: {
+      meta: "NODE_01 // C++20 · WIN_X64",
+      status: "v0.5.0-rc1",
+      title: "KeplerBridge",
+      desc: "Bounded Direct3D 12-to-Direct3D 11 translation layer with DXIL-to-DXBC shader conversion and persistent cache.",
+      pipe: "D3D12 App  →  DXIL→DXBC  →  D3D11 Kepler GPU",
+      url: "https://github.com/HamzaShaikhAI/KeplerBridge",
+      cta: "Inspect KeplerBridge Repository ↗"
+    },
+    agentforge: {
+      meta: "NODE_02 // TYPESCRIPT · NODE.JS",
+      status: "ACTIVE_DEV",
+      title: "AgentForge",
+      desc: "Local-first AI agent orchestration harness unifying MCP bridges, human approval checkpoints, and credential isolation.",
+      pipe: "Agent  →  Approval Gate  →  MCP Bridge",
+      url: "https://github.com/HamzaShaikhAI/AgentForge",
+      cta: "Inspect AgentForge Repository ↗"
+    },
+    notion: {
+      meta: "NODE_03 // TYPESCRIPT · ZERO_DEPS",
+      status: "OPEN_SOURCE",
+      title: "Notion Block Engine",
+      desc: "Bidirectional Markdown, HTML, and clipboard sanitizer converting rich content into a Notion-compatible Block AST.",
+      pipe: "Markdown / HTML  ⇄  Block AST  ⇄  Notion JSON",
+      url: "https://github.com/HamzaShaikhAI/notion-block-engine",
+      cta: "Inspect Notion Block Engine ↗"
+    }
+  };
+
+  const hudTabs = document.querySelectorAll(".hud-tab");
+  const hudMeta = document.getElementById("hudMeta");
+  const hudStatus = document.getElementById("hudStatus");
+  const hudTitle = document.getElementById("hudTitle");
+  const hudDesc = document.getElementById("hudDesc");
+  const hudPipe = document.getElementById("hudPipe");
+  const hudLink = document.getElementById("hudLink");
+
+  hudTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const node = hudNodes[tab.dataset.node];
+      if (!node) return;
+      hudTabs.forEach((t) => t.setAttribute("aria-selected", String(t === tab)));
+      if (hudMeta) hudMeta.textContent = node.meta;
+      if (hudStatus) hudStatus.textContent = node.status;
+      if (hudTitle) hudTitle.textContent = node.title;
+      if (hudDesc) hudDesc.textContent = node.desc;
+      if (hudPipe) hudPipe.textContent = node.pipe;
+      if (hudLink) {
+        hudLink.href = node.url;
+        hudLink.textContent = node.cta;
+      }
+    });
+  });
+
+  // ── Pointer Spotlight Glow on Bento Cards ──
+  const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  if (!reducedMotion) {
+    document.querySelectorAll(".spotlight-card").forEach((card) => {
+      let rafId = null;
+      card.addEventListener("pointermove", (e) => {
+        if (rafId) return;
+        rafId = requestAnimationFrame(() => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+          card.style.setProperty("--my", `${e.clientY - rect.top}px`);
+          rafId = null;
+        });
+      });
+    });
+  }
+
   // ── Scroll progress & active nav spy ──
   const navAnchors = Array.from(document.querySelectorAll(".nav-links a[href^='#']"));
   const sections = navAnchors
@@ -90,10 +164,9 @@
     if (progressBar && max > 0) {
       progressBar.style.width = `${Math.min(100, (scrollTop / max) * 100)}%`;
     }
-
     let currentId = sections[0]?.id || "";
     for (const sec of sections) {
-      if (sec.getBoundingClientRect().top <= 130) {
+      if (sec.getBoundingClientRect().top <= 145) {
         currentId = sec.id;
       }
     }
@@ -113,14 +186,12 @@
     btn.addEventListener("click", () => {
       const cat = btn.dataset.filter;
       filterBtns.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
-
       let shown = 0;
       projectCards.forEach((card) => {
         const match = cat === "all" || card.dataset.category === cat;
         card.classList.toggle("is-hidden", !match);
         if (match) shown++;
       });
-
       if (filterStatus) {
         filterStatus.textContent = `Showing ${shown} project${shown === 1 ? "" : "s"}`;
       }
@@ -173,7 +244,6 @@
 
   // ── Quick-Jump Command Palette (Ctrl+K / Cmd+K) ──
   const paletteBackdrop = document.getElementById("paletteBackdrop");
-  const paletteOpenBtn = document.getElementById("paletteOpenBtn");
   const paletteInput = document.getElementById("paletteInput");
   const paletteItems = Array.from(document.querySelectorAll(".palette-item"));
 
@@ -188,25 +258,19 @@
     }
   }
 
-  function closePalette(restoreFocus = false) {
+  function closePalette() {
     if (!paletteBackdrop) return;
-    const wasOpen = paletteBackdrop.classList.contains("open");
     paletteBackdrop.classList.remove("open");
     paletteBackdrop.setAttribute("aria-hidden", "true");
-    if (restoreFocus && wasOpen) {
-      paletteOpenBtn?.focus();
-    }
   }
 
   function filterPalette(query) {
     const q = query.trim().toLowerCase();
     paletteItems.forEach((item) => {
-      const text = item.textContent.toLowerCase();
-      item.style.display = text.includes(q) ? "" : "none";
+      item.style.display = item.textContent.toLowerCase().includes(q) ? "" : "none";
     });
   }
 
-  paletteOpenBtn?.addEventListener("click", openPalette);
   paletteBackdrop?.addEventListener("click", (e) => {
     if (e.target === paletteBackdrop) closePalette();
   });
@@ -231,16 +295,16 @@
   document.addEventListener("keydown", (e) => {
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
       e.preventDefault();
-      paletteBackdrop?.classList.contains("open") ? closePalette(true) : openPalette();
+      paletteBackdrop?.classList.contains("open") ? closePalette() : openPalette();
     } else if (e.key === "Escape") {
-      closePalette(true);
+      closePalette();
       setMenu(false);
     }
   });
 
   // ── Scroll reveal ──
   const revealEls = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window) {
+  if ("IntersectionObserver" in window && !reducedMotion) {
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
