@@ -755,6 +755,8 @@ h1, h2, h3 {
   font-size: 0.74rem;
   font-weight: 700;
   color: var(--blue-soft);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .lab-inspector-repo:hover { text-decoration: underline; }
 .lab-inspector-head h3 { font-size: 1.05rem; margin-bottom: 3px; }
@@ -763,6 +765,7 @@ h1, h2, h3 {
 .lab-parts-list {
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 12px;
   display: grid;
   gap: 8px;
@@ -788,10 +791,10 @@ h1, h2, h3 {
 }
 .lab-part-top {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 4px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  margin-bottom: 5px;
 }
 .lab-part-name {
   font-family: "Space Grotesk", sans-serif;
@@ -800,9 +803,8 @@ h1, h2, h3 {
   color: var(--text);
 }
 .lab-part-mat {
-  font-size: 0.66rem;
+  font-size: 0.68rem;
   color: var(--blue-soft);
-  white-space: nowrap;
 }
 .lab-part-desc {
   font-size: 0.77rem;
