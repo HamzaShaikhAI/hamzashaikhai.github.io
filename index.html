@@ -213,6 +213,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.min.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+    }
+  }
+  </script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -229,6 +237,7 @@
         <div class="nav-right">
           <ul class="nav-links" id="navLinks">
             <li><a href="#home">Home</a></li>
+            <li><a href="#lab-3d">3D Lab</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#comparison">Matrix</a></li>
@@ -311,6 +320,44 @@
             <div><strong>Global</strong><span>Remote Scope</span></div>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <!-- Interactive 3D Architecture Lab (3Dviz Pro Max + Three.js 0.180) -->
+    <section class="section container reveal" id="lab-3d">
+      <div class="section-heading">
+        <span class="eyebrow">Interactive 3D Systems Lab</span>
+        <h2>Explore Architecture <span class="gradient-text">in 3D</span></h2>
+        <p>Drag to orbit each interactive Three.js hardware and workflow model. Switch between KeplerBridge, AgentForge, and Notion Block Engine to inspect live data flow.</p>
+      </div>
+
+      <div class="lab-shell">
+        <div class="lab-topbar">
+          <div class="lab-modes" role="group" aria-label="Select 3D architecture scene">
+            <button type="button" class="lab-btn lab-mode-btn mono" data-scene="kepler" aria-pressed="true">01 KeplerBridge</button>
+            <button type="button" class="lab-btn lab-mode-btn mono" data-scene="agentforge" aria-pressed="false">02 AgentForge</button>
+            <button type="button" class="lab-btn lab-mode-btn mono" data-scene="notion" aria-pressed="false">03 Block AST</button>
+          </div>
+          <div class="lab-controls">
+            <button type="button" class="lab-btn" id="labPauseBtn" aria-pressed="false">Pause Motion</button>
+            <button type="button" class="lab-btn" id="labResetBtn">Reset View</button>
+          </div>
+        </div>
+
+        <div class="lab-stage" id="labStage">
+          <canvas id="labCanvas" aria-label="Interactive 3D engineering architecture viewer"></canvas>
+          <div class="lab-fallback">
+            WebGL 3D view is unavailable in this browser. Refer to the architectural diagrams and specification matrix below.
+          </div>
+          <div class="lab-hud">
+            <div class="lab-readout" aria-live="polite">
+              <div class="lab-readout-tag mono" id="labTag">ARCHITECTURE_01 // C++20 · DIRECT3D 12 → 11</div>
+              <h3 id="labTitle">KeplerBridge Shader &amp; API Translation Core</h3>
+              <p id="labDesc">Direct3D 12 workload (left) feeds DXIL bytecode through the bounded KeplerBridge translation core (center heatsink &amp; cache die) into a Direct3D 11 Kepler backend (right).</p>
+            </div>
+            <div class="lab-legend mono">Drag to orbit · Three.js 0.180 PBR Studio</div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -874,5 +921,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="/app.js" defer></script>
+  <script type="module" src="/scene3d.js"></script>
 </body>
 </html>
