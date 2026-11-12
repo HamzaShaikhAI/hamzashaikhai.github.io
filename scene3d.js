@@ -18,8 +18,10 @@ const viewButtons = document.querySelectorAll('.lab-view-btn');
 const explodeBtn = document.getElementById('labExplodeBtn');
 const wireBtn = document.getElementById('labWireBtn');
 const orbitBtn = document.getElementById('labOrbitBtn');
+const lightBtn = document.getElementById('labLightBtn');
 const pauseBtn = document.getElementById('labPauseBtn');
 const resetBtn = document.getElementById('labResetBtn');
+const hoverTip = document.getElementById('labHoverTip');
 
 const readoutTag = document.getElementById('labTag');
 const readoutTitle = document.getElementById('labTitle');
@@ -618,6 +620,33 @@ function initLab() {
   const pointer = new THREE.Vector2();
   let downXY = { x: 0, y: 0 };
 
+  canvas.addEventListener('pointermove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    raycaster.setFromCamera(pointer, camera);
+    const targets = [];
+    Object.values(loadedModels).forEach((entry) => {
+      if (entry.root.visible) targets.push(...entry.meshes);
+    });
+    const hits = raycaster.intersectObjects(targets, false);
+    if (hits.length && hoverTip) {
+      const hit = hits[0].object;
+      const hm = hit.userData.systemMode;
+      const part = SYSTEMS[hm]?.parts.find((p) => p.prefixes?.some((pre) => hit.name.startsWith(pre)));
+      hoverTip.textContent = part ? `${SYSTEMS[hm].badge.split('·')[1]?.trim() || hm} · ${part.name}` : hit.name;
+      hoverTip.classList.add('visible');
+      canvas.style.cursor = 'pointer';
+    } else if (hoverTip) {
+      hoverTip.classList.remove('visible');
+      canvas.style.cursor = 'grab';
+    }
+  });
+
+  canvas.addEventListener('pointerleave', () => {
+    hoverTip?.classList.remove('visible');
+  });
+
   canvas.addEventListener('pointerdown', (e) => {
     downXY = { x: e.clientX, y: e.clientY };
   });
@@ -684,6 +713,36 @@ function initLab() {
         if (m.material) m.material.wireframe = wireframe;
       });
     });
+  });
+
+  const lightModes = ['studio', 'dramatic', 'inspect'];
+  let lightIdx = 0;
+  function applyLightRig(mode) {
+    const isLightTheme = document.documentElement.getAttribute('data-theme') === 'light';
+    if (mode === 'studio') {
+      scene.environmentIntensity = isLightTheme ? 1.15 : 0.95;
+      keyLight.intensity = 1.75;
+      rimLight.intensity = 1.35;
+      fillLight.intensity = 0.65;
+    } else if (mode === 'dramatic') {
+      scene.environmentIntensity = isLightTheme ? 0.65 : 0.42;
+      keyLight.intensity = 2.4;
+      rimLight.intensity = 2.6;
+      fillLight.intensity = 0.25;
+    } else {
+      scene.environmentIntensity = 1.4;
+      keyLight.intensity = 1.1;
+      rimLight.intensity = 0.8;
+      fillLight.intensity = 1.25;
+    }
+    if (lightBtn) {
+      lightBtn.textContent = `Light: ${mode[0].toUpperCase() + mode.slice(1)}`;
+    }
+  }
+
+  lightBtn?.addEventListener('click', () => {
+    lightIdx = (lightIdx + 1) % lightModes.length;
+    applyLightRig(lightModes[lightIdx]);
   });
 
   orbitBtn?.addEventListener('click', () => {

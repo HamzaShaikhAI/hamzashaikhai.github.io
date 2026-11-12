@@ -184,30 +184,131 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  // ── Project category filter ──
+  // ── Project category filter + live power-user search ──
   const filterBtns = document.querySelectorAll(".filter-btn");
   const projectCards = document.querySelectorAll(".project-card[data-category]");
   const filterStatus = document.getElementById("filterStatus");
+  const projectSearch = document.getElementById("projectSearch");
+
+  let currentCat = "all";
+  let currentQuery = "";
+
+  function applyProjectFilter() {
+    let shown = 0;
+    const q = currentQuery.trim().toLowerCase();
+    projectCards.forEach((card) => {
+      const catMatch = currentCat === "all" || card.dataset.category === currentCat;
+      const textMatch = !q || card.textContent.toLowerCase().includes(q);
+      const match = catMatch && textMatch;
+      card.classList.remove("is-entering");
+      card.classList.toggle("is-hidden", !match);
+      if (match) {
+        card.style.animationDelay = `${shown * 40}ms`;
+        void card.offsetWidth;
+        card.classList.add("is-entering");
+        shown++;
+      }
+    });
+    if (filterStatus) {
+      const suffix = q ? ` matching "${currentQuery.trim()}"` : "";
+      filterStatus.textContent = `Showing ${shown} project${shown === 1 ? "" : "s"}${suffix}`;
+    }
+  }
 
   filterBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      const cat = btn.dataset.filter;
+      currentCat = btn.dataset.filter;
       filterBtns.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
-      let shown = 0;
-      projectCards.forEach((card) => {
-        const match = cat === "all" || card.dataset.category === cat;
-        card.classList.remove("is-entering");
-        card.classList.toggle("is-hidden", !match);
-        if (match) {
-          card.style.animationDelay = `${shown * 45}ms`;
-          void card.offsetWidth;
-          card.classList.add("is-entering");
-          shown++;
-        }
-      });
-      if (filterStatus) {
-        filterStatus.textContent = `Showing ${shown} project${shown === 1 ? "" : "s"}`;
+      applyProjectFilter();
+    });
+  });
+
+  projectSearch?.addEventListener("input", (e) => {
+    currentQuery = e.target.value;
+    applyProjectFilter();
+  });
+
+  // ── Audience Value Switcher (Companies vs Power Users) ──
+  const audienceData = {
+    companies: [
+      {
+        title: "MIT-Licensed & Audit-Ready",
+        text: "All flagship tools ship under permissive MIT licensing with transparent CI checks, clear boundaries, and documented failure post-mortems."
+      },
+      {
+        title: "Deterministic AI Guardrails",
+        text: "AgentForge enforces human-in-the-loop approval checkpoints and credential isolation before external commits, pushes, or API writes."
+      },
+      {
+        title: "Zero-Bloat Production Libraries",
+        text: "Notion Block Engine runs in under 15 KB with 0 external runtime dependencies—no heavy jsdom containers or fragile markdown hacks."
       }
+    ],
+    power: [
+      {
+        title: "Drop-In d3d12.dll Proxy",
+        text: "Run supported DirectX 12 workloads on NVIDIA Kepler (GeForce GT 740 / GK107 / GTX 7xx) simply by placing d3d12.dll beside the .exe."
+      },
+      {
+        title: "Local-First Full Control",
+        text: "Zero telemetry trackers, local Manager UI in AgentForge, and Ollama/local-LLM workflows (PS-O1) that keep keys and prompts on your machine."
+      },
+      {
+        title: "Configurable INI & Logs",
+        text: "Inspect runtime behavior transparently via kepler_bridge.log, tune kepler_bridge.ini flags, and audit every step via GitHub source."
+      }
+    ]
+  };
+
+  const audTabs = document.querySelectorAll(".aud-tab");
+  const audGrid = document.getElementById("audienceGrid");
+
+  audTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const key = tab.dataset.audience;
+      const cards = audienceData[key];
+      if (!cards || !audGrid) return;
+      audTabs.forEach((t) => t.setAttribute("aria-pressed", String(t === tab)));
+      audGrid.innerHTML = cards
+        .map((c) => `<div class="audience-card"><h3>${c.title}</h3><p>${c.text}</p></div>`)
+        .join("");
+    });
+  });
+
+  // ── Quick-Start CLI & Config Snippet Drawer ──
+  const cliSnippets = {
+    kepler: "git clone https://github.com/HamzaShaikhAI/KeplerBridge.git\n# Place d3d12.dll + kepler_bridge.ini next to your 64-bit game .exe (MIT)",
+    agentforge: "git clone https://github.com/HamzaShaikhAI/AgentForge.git && cd AgentForge\nnpm install && npm run build   # Node.js >=20 · TypeScript 5.6",
+    notion: "git clone https://github.com/HamzaShaikhAI/notion-block-engine.git\n# Zero runtime dependencies (<15 KB): HTML / Markdown <-> Notion Block AST"
+  };
+
+  const cliTabs = document.querySelectorAll(".cli-tab");
+  const cliCode = document.getElementById("cliCode");
+  const cliCopyBtn = document.getElementById("cliCopyBtn");
+
+  cliTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const key = tab.dataset.cli;
+      cliTabs.forEach((t) => t.setAttribute("aria-pressed", String(t === tab)));
+      if (cliCode && cliSnippets[key]) cliCode.textContent = cliSnippets[key];
+    });
+  });
+
+  cliCopyBtn?.addEventListener("click", () => {
+    if (cliCode) copyText(cliCode.textContent.trim(), "CLI snippet copied");
+  });
+
+  // ── Clickable Tech Skill Pills -> Filter Projects ──
+  document.querySelectorAll(".tech-pill-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const term = btn.dataset.skill || btn.textContent.trim();
+      currentCat = "all";
+      filterBtns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.filter === "all")));
+      currentQuery = term;
+      if (projectSearch) projectSearch.value = term;
+      applyProjectFilter();
+      document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+      showToast(`Filtered projects by "${term}"`);
     });
   });
 
