@@ -193,16 +193,27 @@ h1, h2, h3 {
 .icon-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
+  min-height: 40px;
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 7px 11px;
+  padding: 8px 12px;
   background: var(--surface-subtle);
   color: var(--text-soft);
   font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
   transition: border-color 0.2s, background-color 0.2s, transform 0.15s;
+}
+.icon-btn svg,
+.menu-toggle svg,
+.project-icon svg,
+.tech-group h3 svg,
+.focus-item .focus-icon svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 .icon-btn:hover {
   border-color: var(--border-strong);
@@ -218,12 +229,15 @@ h1, h2, h3 {
 
 .menu-toggle {
   display: none;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 8px 12px;
+  padding: 8px 10px;
   background: var(--surface-subtle);
   cursor: pointer;
-  font-size: 1rem;
 }
 
 /* ── Hero ── */
@@ -550,7 +564,8 @@ h1, h2, h3 {
 }
 
 .filter-btn {
-  padding: 7px 14px;
+  min-height: 40px;
+  padding: 8px 15px;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--surface-subtle);
@@ -613,7 +628,11 @@ h1, h2, h3 {
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--surface-subtle);
-  font-size: 1.25rem;
+  color: var(--cyan);
+}
+.project-icon svg {
+  width: 20px;
+  height: 20px;
 }
 
 .status {
@@ -750,8 +769,14 @@ h1, h2, h3 {
   background: var(--surface);
 }
 .tech-group h3 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
   margin-bottom: 12px;
   font-size: 1rem;
+}
+.tech-group h3 svg {
+  color: var(--blue);
 }
 
 .tech-list {
@@ -776,11 +801,23 @@ h1, h2, h3 {
 
 .focus-item {
   display: flex;
+  align-items: flex-start;
   gap: 13px;
   padding: 18px;
   border: 1px solid var(--border);
   border-radius: 14px;
   background: var(--surface);
+}
+.focus-icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-subtle);
+  color: var(--cyan);
 }
 .focus-item strong {
   display: block;
@@ -809,7 +846,8 @@ h1, h2, h3 {
 .faq-item summary {
   list-style: none;
   cursor: pointer;
-  padding: 18px 20px;
+  min-height: 54px;
+  padding: 16px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -817,6 +855,14 @@ h1, h2, h3 {
   font-family: "Space Grotesk", sans-serif;
   font-size: 1.02rem;
   font-weight: 600;
+}
+.faq-item summary h3 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  margin: 0;
+}
+.faq-answer p + p {
+  margin-top: 10px;
 }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary::after {
@@ -890,12 +936,13 @@ h1, h2, h3 {
 }
 
 .topic-pill {
-  padding: 5px 11px;
+  min-height: 38px;
+  padding: 7px 13px;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--surface-subtle);
   color: var(--text-soft);
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   font-weight: 600;
   cursor: pointer;
 }

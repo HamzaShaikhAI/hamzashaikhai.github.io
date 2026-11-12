@@ -33,11 +33,16 @@
     root.setAttribute("data-theme", "light");
   }
 
+  const ICON_SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>';
+  const ICON_MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
+  const ICON_MENU = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>';
+  const ICON_CLOSE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>';
+
   function syncThemeBtn() {
     if (!themeBtn) return;
     const isLight = root.getAttribute("data-theme") === "light";
     themeBtn.setAttribute("aria-pressed", String(isLight));
-    themeBtn.innerHTML = isLight ? "🌙 <span>Dark</span>" : "☀️ <span>Light</span>";
+    themeBtn.innerHTML = isLight ? `${ICON_MOON}<span>Dark</span>` : `${ICON_SUN}<span>Light</span>`;
   }
   syncThemeBtn();
 
@@ -54,7 +59,7 @@
     if (!navLinks || !menuToggle) return;
     navLinks.classList.toggle("open", open);
     menuToggle.setAttribute("aria-expanded", String(open));
-    menuToggle.textContent = open ? "✕" : "☰";
+    menuToggle.innerHTML = open ? ICON_CLOSE : ICON_MENU;
   }
 
   menuToggle?.addEventListener("click", () => {
@@ -183,10 +188,14 @@
     }
   }
 
-  function closePalette() {
+  function closePalette(restoreFocus = false) {
     if (!paletteBackdrop) return;
+    const wasOpen = paletteBackdrop.classList.contains("open");
     paletteBackdrop.classList.remove("open");
     paletteBackdrop.setAttribute("aria-hidden", "true");
+    if (restoreFocus && wasOpen) {
+      paletteOpenBtn?.focus();
+    }
   }
 
   function filterPalette(query) {
@@ -222,9 +231,9 @@
   document.addEventListener("keydown", (e) => {
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
       e.preventDefault();
-      paletteBackdrop?.classList.contains("open") ? closePalette() : openPalette();
+      paletteBackdrop?.classList.contains("open") ? closePalette(true) : openPalette();
     } else if (e.key === "Escape") {
-      closePalette();
+      closePalette(true);
       setMenu(false);
     }
   });
