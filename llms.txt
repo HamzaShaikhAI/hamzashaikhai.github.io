@@ -1,0 +1,36 @@
+# Hamza Shaikh (@HamzaShaikhAI)
+
+> Independent software developer and open-source builder creating systems software, AI agent tooling, and TypeScript developer infrastructure for global engineering teams.
+
+## Primary Portfolio Sections
+
+- [Home & Overview](https://hamzashaikhai.github.io/#home): Introduction to Hamza Shaikh (@HamzaShaikhAI), core engineering focus, and worldwide remote open-source collaboration.
+- [About Me](https://hamzashaikhai.github.io/#about): Background, engineering methodology, and multidisciplinary approach across systems, AI, and application engineering.
+- [Featured Projects](https://hamzashaikhai.github.io/#projects): Flagship open-source projects including KeplerBridge, AgentForge, Notion Block Engine, and VYDRIX.
+- [Technical Matrix](https://hamzashaikhai.github.io/#comparison): Structured comparison of project architectures, primary languages, current statuses, and public repositories.
+- [Other Work](https://hamzashaikhai.github.io/#other-work): Experimental and application-level projects including Hifz Hero, VisionAI, PS-O1, and AI Creative Studio.
+- [Technologies & Skills](https://hamzashaikhai.github.io/#technologies): Core programming languages, frameworks, AI automation tools, and Windows systems technologies.
+- [FAQ](https://hamzashaikhai.github.io/#faq): Direct answers regarding Hamza Shaikh's background, flagship software projects, and global collaboration.
+- [Contact & Profiles](https://hamzashaikhai.github.io/#contact): Official GitHub, LinkedIn, and repository links.
+
+## Featured Open-Source Repositories
+
+- [KeplerBridge](https://github.com/HamzaShaikhAI/KeplerBridge): Experimental C++20 Direct3D 12-to-Direct3D 11 compatibility layer for legacy NVIDIA Kepler GPUs with bounded DXIL-to-DXBC translation (v0.5.0-rc1).
+- [AgentForge](https://github.com/HamzaShaikhAI/AgentForge): Local-first TypeScript and Node.js AI agent integration and workflow harness with MCP connectivity, permission-gated execution, and approval checkpoints.
+- [Notion Block Engine](https://github.com/HamzaShaikhAI/notion-block-engine): Zero-dependency TypeScript library for bidirectional parsing, sanitization, and conversion across Markdown, HTML, clipboard data, and Notion-style Block ASTs.
+- [VYDRIX](https://github.com/HamzaShaikhAI/VYDRIX): Archived C#/.NET Windows cloud-backed virtual storage experiment using WinFsp, preserved with a public technical post-mortem.
+
+## Key Facts
+
+- Name: Hamza Shaikh (GitHub / online handle: `@HamzaShaikhAI`)
+- Role: Independent Software Developer & Open-Source Builder
+- Collaboration Scope: Worldwide / Global Remote
+- Primary Languages: C++20, TypeScript, Python, JavaScript, Dart, C#
+- Core Domains: AI Agents & MCP Automation, Windows Systems & Direct3D Graphics Compatibility, Developer Tooling, Cross-Platform Apps (Flutter)
+- Full Technical Context: https://hamzashaikhai.github.io/llms-full.txt
+
+## Contact & Official Links
+
+- Website: https://hamzashaikhai.github.io/
+- GitHub: https://github.com/HamzaShaikhAI
+- LinkedIn: https://www.linkedin.com/in/hamzashaikhai/

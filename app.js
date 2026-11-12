@@ -1,0 +1,250 @@
+(() => {
+  "use strict";
+
+  document.documentElement.classList.add("js-ready");
+
+  const root = document.documentElement;
+  const themeBtn = document.getElementById("themeToggle");
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+  const progressBar = document.getElementById("scrollProgress");
+  const toastEl = document.getElementById("toast");
+  const yearEl = document.getElementById("year");
+
+  if (yearEl) {
+    yearEl.textContent = String(new Date().getFullYear());
+  }
+
+  // ── Toast helper ──
+  let toastTimer = null;
+  function showToast(msg) {
+    if (!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toastEl.classList.remove("show"), 2600);
+  }
+
+  // ── Theme toggle ──
+  const savedTheme = localStorage.getItem("hs_theme");
+  if (savedTheme === "light" || savedTheme === "dark") {
+    root.setAttribute("data-theme", savedTheme);
+  } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
+    root.setAttribute("data-theme", "light");
+  }
+
+  function syncThemeBtn() {
+    if (!themeBtn) return;
+    const isLight = root.getAttribute("data-theme") === "light";
+    themeBtn.setAttribute("aria-pressed", String(isLight));
+    themeBtn.innerHTML = isLight ? "🌙 <span>Dark</span>" : "☀️ <span>Light</span>";
+  }
+  syncThemeBtn();
+
+  themeBtn?.addEventListener("click", () => {
+    const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+    root.setAttribute("data-theme", next);
+    localStorage.setItem("hs_theme", next);
+    syncThemeBtn();
+    showToast(`Switched to ${next} mode`);
+  });
+
+  // ── Mobile navigation ──
+  function setMenu(open) {
+    if (!navLinks || !menuToggle) return;
+    navLinks.classList.toggle("open", open);
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.textContent = open ? "✕" : "☰";
+  }
+
+  menuToggle?.addEventListener("click", () => {
+    setMenu(!navLinks.classList.contains("open"));
+  });
+
+  navLinks?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setMenu(false));
+  });
+
+  document.addEventListener("click", (e) => {
+    if (navLinks?.classList.contains("open") &&
+        !navLinks.contains(e.target) &&
+        !menuToggle?.contains(e.target)) {
+      setMenu(false);
+    }
+  });
+
+  // ── Scroll progress & active nav spy ──
+  const navAnchors = Array.from(document.querySelectorAll(".nav-links a[href^='#']"));
+  const sections = navAnchors
+    .map((a) => document.querySelector(a.getAttribute("href")))
+    .filter(Boolean);
+
+  function onScroll() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (progressBar && max > 0) {
+      progressBar.style.width = `${Math.min(100, (scrollTop / max) * 100)}%`;
+    }
+
+    let currentId = sections[0]?.id || "";
+    for (const sec of sections) {
+      if (sec.getBoundingClientRect().top <= 130) {
+        currentId = sec.id;
+      }
+    }
+    for (const a of navAnchors) {
+      a.classList.toggle("active", a.getAttribute("href") === `#${currentId}`);
+    }
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // ── Project category filter ──
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const projectCards = document.querySelectorAll(".project-card[data-category]");
+  const filterStatus = document.getElementById("filterStatus");
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const cat = btn.dataset.filter;
+      filterBtns.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+
+      let shown = 0;
+      projectCards.forEach((card) => {
+        const match = cat === "all" || card.dataset.category === cat;
+        card.classList.toggle("is-hidden", !match);
+        if (match) shown++;
+      });
+
+      if (filterStatus) {
+        filterStatus.textContent = `Showing ${shown} project${shown === 1 ? "" : "s"}`;
+      }
+    });
+  });
+
+  // ── Collaboration pitch generator ──
+  const pitches = {
+    "open-source":
+      "Hi Hamza, I explored your open-source repositories (KeplerBridge / AgentForge / Notion Block Engine) and would love to collaborate or contribute.",
+    "ai-agents":
+      "Hi Hamza, we're building AI agent / MCP workflows and want to connect about your work on AgentForge and local-first automation.",
+    "systems":
+      "Hi Hamza, I saw KeplerBridge and your Direct3D / C++20 systems work — reaching out to discuss graphics or Windows engineering.",
+    "remote":
+      "Hi Hamza, we're hiring / collaborating globally on AI and systems software and would like to connect with you via LinkedIn or GitHub."
+  };
+
+  const topicPills = document.querySelectorAll(".topic-pill");
+  const pitchPreview = document.getElementById("pitchPreview");
+  const copyPitchBtn = document.getElementById("copyPitchBtn");
+  const copyUrlBtn = document.getElementById("copyUrlBtn");
+
+  topicPills.forEach((pill) => {
+    pill.addEventListener("click", () => {
+      const key = pill.dataset.topic;
+      topicPills.forEach((p) => p.setAttribute("aria-pressed", String(p === pill)));
+      if (pitchPreview && pitches[key]) {
+        pitchPreview.textContent = pitches[key];
+      }
+    });
+  });
+
+  async function copyText(text, label) {
+    try {
+      await navigator.clipboard.writeText(text);
+      showToast(label);
+    } catch {
+      showToast("Copy unavailable — please select text manually");
+    }
+  }
+
+  copyPitchBtn?.addEventListener("click", () => {
+    if (pitchPreview) copyText(pitchPreview.textContent.trim(), "Intro message copied to clipboard");
+  });
+
+  copyUrlBtn?.addEventListener("click", () => {
+    copyText("https://hamzashaikhai.github.io/", "Portfolio URL copied");
+  });
+
+  // ── Quick-Jump Command Palette (Ctrl+K / Cmd+K) ──
+  const paletteBackdrop = document.getElementById("paletteBackdrop");
+  const paletteOpenBtn = document.getElementById("paletteOpenBtn");
+  const paletteInput = document.getElementById("paletteInput");
+  const paletteItems = Array.from(document.querySelectorAll(".palette-item"));
+
+  function openPalette() {
+    if (!paletteBackdrop) return;
+    paletteBackdrop.classList.add("open");
+    paletteBackdrop.setAttribute("aria-hidden", "false");
+    if (paletteInput) {
+      paletteInput.value = "";
+      filterPalette("");
+      setTimeout(() => paletteInput.focus(), 20);
+    }
+  }
+
+  function closePalette() {
+    if (!paletteBackdrop) return;
+    paletteBackdrop.classList.remove("open");
+    paletteBackdrop.setAttribute("aria-hidden", "true");
+  }
+
+  function filterPalette(query) {
+    const q = query.trim().toLowerCase();
+    paletteItems.forEach((item) => {
+      const text = item.textContent.toLowerCase();
+      item.style.display = text.includes(q) ? "" : "none";
+    });
+  }
+
+  paletteOpenBtn?.addEventListener("click", openPalette);
+  paletteBackdrop?.addEventListener("click", (e) => {
+    if (e.target === paletteBackdrop) closePalette();
+  });
+  paletteInput?.addEventListener("input", (e) => filterPalette(e.target.value));
+
+  paletteItems.forEach((item) => {
+    item.querySelector("button")?.addEventListener("click", () => {
+      const action = item.dataset.action;
+      closePalette();
+      if (action === "theme") {
+        themeBtn?.click();
+      } else if (action === "copy-url") {
+        copyUrlBtn?.click();
+      } else if (action?.startsWith("#")) {
+        document.querySelector(action)?.scrollIntoView({ behavior: "smooth" });
+      } else if (action?.startsWith("http") || action?.startsWith("/")) {
+        window.open(action, "_blank", "noopener,noreferrer");
+      }
+    });
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+      e.preventDefault();
+      paletteBackdrop?.classList.contains("open") ? closePalette() : openPalette();
+    } else if (e.key === "Escape") {
+      closePalette();
+      setMenu(false);
+    }
+  });
+
+  // ── Scroll reveal ──
+  const revealEls = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08 }
+    );
+    revealEls.forEach((el) => io.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add("visible"));
+  }
+})();

@@ -1,0 +1,80 @@
+# Hamza Shaikh (@HamzaShaikhAI) — Complete Technical Profile
+
+> Official comprehensive profile for AI search engines and assistants covering Hamza Shaikh's software engineering work, open-source repositories, technical architecture, and global collaboration availability.
+
+## Identity & Global Scope
+
+- Full Name: Hamza Shaikh
+- Handle: `@HamzaShaikhAI`
+- Official Portfolio URL: https://hamzashaikhai.github.io/
+- GitHub Profile: https://github.com/HamzaShaikhAI
+- LinkedIn Profile: https://www.linkedin.com/in/hamzashaikhai/
+- Role: Independent Software Developer & Open-Source Builder
+- Service & Collaboration Area: Worldwide (open to global remote collaboration, open-source engineering, and technical problem-solving)
+- Primary Language: English (`en`, global audience)
+
+## Engineering Methodology
+
+Hamza Shaikh applies an empirical, four-stage engineering workflow across all software projects:
+1. **Problem Analysis**: Isolate hardware, protocol, or workflow constraints with measurable reproduction criteria.
+2. **Architecture Design**: Define clean module boundaries, zero-dependency core engines where practical, and explicit safety/permission boundaries.
+3. **Implementation**: Build in the optimal systems or application language (`C++20`, `TypeScript`, `Python`, `Dart`, `C#`).
+4. **Testing & Honest Documentation**: Validate behavior against real workloads and publish transparent limitations and post-mortems (including archived experiments such as VYDRIX).
+
+---
+
+## Featured Open-Source Projects (Detailed)
+
+### 1. KeplerBridge
+- Repository: https://github.com/HamzaShaikhAI/KeplerBridge
+- Latest Release: https://github.com/HamzaShaikhAI/KeplerBridge/releases/tag/v0.5.0-rc1
+- Category: Systems Software / Graphics Compatibility
+- Primary Language: C++20
+- Status: Release Candidate (`v0.5.0-rc1`)
+- Summary: KeplerBridge is an experimental Direct3D 12-to-Direct3D 11 compatibility and translation layer targeting legacy NVIDIA Kepler GPUs on Windows x64. It investigates bounded DXIL-to-DXBC shader translation, runtime API interception, capability-aware fallbacks, shader caching, diagnostic tooling, and a Direct3D 11 execution backend. Compatibility is workload-dependent and documented transparently rather than claimed as universal.
+
+### 2. AgentForge
+- Repository: https://github.com/HamzaShaikhAI/AgentForge
+- Category: AI Agent Infrastructure / Workflow Automation
+- Primary Language: TypeScript / Node.js
+- Status: Active Development
+- Summary: AgentForge is a local-first integration and workflow harness built for Google Antigravity. It unifies Model Context Protocol (MCP) integrations, deterministic tool execution, permission-controlled workflows, human-in-the-loop approval checkpoints, extensible bridges, and credential isolation.
+
+### 3. Notion Block Engine
+- Repository: https://github.com/HamzaShaikhAI/notion-block-engine
+- Category: Developer Tooling / Content Parsing
+- Primary Language: TypeScript
+- Status: Open Source
+- Summary: Notion Block Engine is a zero-dependency TypeScript library for bidirectional parsing, sanitization, and serialization between Markdown, HTML, clipboard content, and a Notion-style Block AST.
+
+### 4. VYDRIX
+- Repository: https://github.com/HamzaShaikhAI/VYDRIX
+- Category: Windows Filesystem / Virtual Storage
+- Primary Language: C# / .NET
+- Status: Archived (Reference & Post-Mortem)
+- Summary: VYDRIX is an archived Windows cloud-backed virtual storage experiment built with C#, .NET, and WinFsp. It explored virtual filesystem mounting, caching, and cloud-backed storage workloads, and remains public with a technical post-mortem documenting architectural trade-offs and lessons learned.
+
+---
+
+## Experimental & Application Projects
+
+- **Hifz Hero** (Flutter, Dart, Firebase, Riverpod — In Development): An AI-assisted Quran memorization mobile app inspired by Duolingo, featuring spaced repetition, structured revision, gamification, progress tracking, and an offline-first architecture.
+- **VisionAI** (Python, Computer Vision, Raspberry Pi — Prototype): Accessibility-focused hardware and AI prototype exploring computer vision assistance on Raspberry Pi.
+- **PS-O1** (Python, Ollama, LLMs, Voice AI — Personal Project): Local-first personal AI assistant exploring local LLMs, multilingual interaction, voice input/output, and workflow automation.
+- **AI Creative Studio** (AI Video, Motion Graphics — Creative Work): Exploration of AI-generated video pipelines, motion graphics, and creative automation.
+
+---
+
+## Frequently Asked Questions
+
+### Who is Hamza Shaikh (@HamzaShaikhAI)?
+Hamza Shaikh (@HamzaShaikhAI) is an independent software developer and open-source builder focused on AI agent tooling, Windows systems and graphics engineering, TypeScript developer libraries, and cross-platform applications. He builds and publishes public repositories on GitHub and collaborates globally.
+
+### What are Hamza Shaikh's most notable open-source projects?
+His flagship public repositories are KeplerBridge (a C++20 Direct3D 12-to-Direct3D 11 translation layer at release candidate v0.5.0-rc1), AgentForge (a TypeScript/Node.js local-first MCP and AI agent workflow platform), Notion Block Engine (a zero-dependency TypeScript Markdown/HTML/Block AST converter), and VYDRIX (an archived C#/.NET WinFsp virtual storage study).
+
+### What technologies does Hamza Shaikh work with?
+Across public repositories and prototypes, Hamza Shaikh works with C++20, TypeScript, JavaScript, Python, Dart, and C#; platforms including Node.js, Flutter, .NET, Firebase, Riverpod, and Ollama; AI tooling including MCP and LLM agent workflows; and Windows systems APIs including Direct3D 11, Direct3D 12, DXIL/DXBC, and CMake.
+
+### How can developers or teams worldwide connect with Hamza Shaikh?
+Developers, open-source contributors, and engineering teams worldwide can connect via GitHub (https://github.com/HamzaShaikhAI) or LinkedIn (https://www.linkedin.com/in/hamzashaikhai/).

@@ -1,339 +1,850 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="dark">
-  <meta name="theme-color" content="#080b14">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#060913">
 
-  <title>Hamza Shaikh (@HamzaShaikhAI) | Software Developer & Open-Source Builder</title>
-  <meta name="description" content="Official portfolio of Hamza Shaikh (@HamzaShaikhAI), an independent developer exploring AI applications, systems software, intelligent automation, and open-source engineering. Explore KeplerBridge, AgentForge, and Notion Block Engine.">
+  <title>Hamza Shaikh (@HamzaShaikhAI) | AI Systems &amp; Open-Source Developer</title>
+  <meta name="description" content="Official worldwide portfolio of Hamza Shaikh (@HamzaShaikhAI), an independent software developer building AI agent platforms (AgentForge), C++20 Direct3D translation layers (KeplerBridge), and TypeScript developer tooling (Notion Block Engine).">
   <meta name="author" content="Hamza Shaikh">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="distribution" content="global">
+  <meta name="coverage" content="Worldwide">
+
   <link rel="canonical" href="https://hamzashaikhai.github.io/">
+  <link rel="alternate" hreflang="x-default" href="https://hamzashaikhai.github.io/">
+  <link rel="alternate" hreflang="en" href="https://hamzashaikhai.github.io/">
+  <link rel="alternate" type="text/plain" title="LLM Context Summary" href="https://hamzashaikhai.github.io/llms.txt">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/assets/hs-mark.svg">
 
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="en_IN">
+  <!-- Open Graph (Worldwide English) -->
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="en_IN">
   <meta property="og:site_name" content="HamzaShaikhAI">
-  <meta property="og:title" content="Hamza Shaikh (@HamzaShaikhAI) | Developer Portfolio">
-  <meta property="og:description" content="Software development, AI applications, systems engineering, and open-source projects by Hamza Shaikh.">
+  <meta property="og:title" content="Hamza Shaikh (@HamzaShaikhAI) | AI Systems &amp; Open-Source Developer">
+  <meta property="og:description" content="Independent software developer building AI agent platforms, C++20 Direct3D compatibility layers, and zero-dependency TypeScript engines for global open-source collaboration.">
   <meta property="og:url" content="https://hamzashaikhai.github.io/">
   <meta property="og:image" content="https://hamzashaikhai.github.io/assets/social-preview.png">
   <meta property="og:image:secure_url" content="https://hamzashaikhai.github.io/assets/social-preview.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Hamza Shaikh, independent software developer and open-source builder. Featured projects: KeplerBridge, AgentForge, and Notion Block Engine.">
+  <meta property="og:image:alt" content="Hamza Shaikh (@HamzaShaikhAI) developer portfolio banner featuring KeplerBridge, AgentForge, and Notion Block Engine.">
+  <meta property="profile:username" content="HamzaShaikhAI">
 
+  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Hamza Shaikh (@HamzaShaikhAI) | Developer Portfolio">
-  <meta name="twitter:description" content="Software development, AI applications, systems engineering, and open-source projects.">
+  <meta name="twitter:title" content="Hamza Shaikh (@HamzaShaikhAI) | AI Systems &amp; Open-Source Developer">
+  <meta name="twitter:description" content="AI agent platforms, C++20 graphics compatibility, and TypeScript developer tooling. Open to worldwide open-source and engineering collaboration.">
   <meta name="twitter:image" content="https://hamzashaikhai.github.io/assets/social-preview.png">
   <meta name="twitter:image:alt" content="Hamza Shaikh developer portfolio banner">
 
+  <!-- Structured Data Graph for Search & Generative AI Engines (GEO) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Hamza Shaikh",
-    "alternateName": "HamzaShaikhAI",
-    "url": "https://hamzashaikhai.github.io/",
-    "image": "https://hamzashaikhai.github.io/assets/social-preview.png",
-    "sameAs": [
-      "https://github.com/HamzaShaikhAI",
-      "https://www.linkedin.com/in/hamzashaikhai/"
-    ],
-    "description": "Independent software developer exploring AI applications, systems software, intelligent automation, and open-source engineering.",
-    "knowsAbout": [
-      "Software Development", "Artificial Intelligence", "C++", "Python",
-      "TypeScript", "Flutter", "AI Agents", "Direct3D", "Software Architecture",
-      "Open Source Software"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://hamzashaikhai.github.io/#website",
+        "url": "https://hamzashaikhai.github.io/",
+        "name": "Hamza Shaikh (@HamzaShaikhAI) Portfolio",
+        "description": "Official developer portfolio and open-source software index of Hamza Shaikh (@HamzaShaikhAI).",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://hamzashaikhai.github.io/#person" }
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://hamzashaikhai.github.io/#webpage",
+        "url": "https://hamzashaikhai.github.io/",
+        "name": "Hamza Shaikh (@HamzaShaikhAI) | AI Systems & Open-Source Developer",
+        "isPartOf": { "@id": "https://hamzashaikhai.github.io/#website" },
+        "about": { "@id": "https://hamzashaikhai.github.io/#person" },
+        "mainEntity": { "@id": "https://hamzashaikhai.github.io/#person" },
+        "dateCreated": "2026-10-15",
+        "dateModified": "2026-11-12",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://hamzashaikhai.github.io/#person",
+        "name": "Hamza Shaikh",
+        "alternateName": "HamzaShaikhAI",
+        "url": "https://hamzashaikhai.github.io/",
+        "image": "https://hamzashaikhai.github.io/assets/social-preview.png",
+        "jobTitle": "Independent Software Developer & Open-Source Builder",
+        "description": "Hamza Shaikh (@HamzaShaikhAI) is an independent software developer building AI agent workflows, C++20 Direct3D translation layers, and TypeScript developer libraries for global engineering teams.",
+        "areaServed": "Worldwide",
+        "knowsLanguage": ["en"],
+        "sameAs": [
+          "https://github.com/HamzaShaikhAI",
+          "https://www.linkedin.com/in/hamzashaikhai/"
+        ],
+        "knowsAbout": [
+          "Software Development",
+          "Artificial Intelligence",
+          "AI Agents",
+          "Model Context Protocol (MCP)",
+          "C++20",
+          "Direct3D 12",
+          "Direct3D 11",
+          "DXIL and DXBC Shader Translation",
+          "TypeScript",
+          "Python",
+          "Flutter",
+          "Windows Systems Programming",
+          "Open Source Software"
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://hamzashaikhai.github.io/#projects-list",
+        "name": "Featured Open-Source Projects by Hamza Shaikh",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "KeplerBridge",
+              "description": "Experimental C++20 Direct3D 12-to-Direct3D 11 compatibility and translation layer for legacy NVIDIA Kepler GPUs featuring bounded DXIL-to-DXBC translation and diagnostic tooling.",
+              "codeRepository": "https://github.com/HamzaShaikhAI/KeplerBridge",
+              "programmingLanguage": "C++20",
+              "runtimePlatform": "Windows x64",
+              "softwareVersion": "v0.5.0-rc1",
+              "author": { "@id": "https://hamzashaikhai.github.io/#person" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "AgentForge",
+              "description": "Local-first AI agent integration and workflow platform for Google Antigravity featuring MCP connectivity, permission-gated actions, approval checkpoints, and credential isolation.",
+              "codeRepository": "https://github.com/HamzaShaikhAI/AgentForge",
+              "programmingLanguage": "TypeScript",
+              "runtimePlatform": "Node.js",
+              "author": { "@id": "https://hamzashaikhai.github.io/#person" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "Notion Block Engine",
+              "description": "Zero-dependency TypeScript library for bidirectional parsing, sanitization, and conversion between Markdown, HTML, clipboard content, and Notion-style Block ASTs.",
+              "codeRepository": "https://github.com/HamzaShaikhAI/notion-block-engine",
+              "programmingLanguage": "TypeScript",
+              "runtimePlatform": "Node.js / Browser",
+              "author": { "@id": "https://hamzashaikhai.github.io/#person" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "SoftwareSourceCode",
+              "name": "VYDRIX",
+              "description": "Archived Windows cloud-backed virtual storage experiment built with C#, .NET, and WinFsp, preserved with a technical post-mortem.",
+              "codeRepository": "https://github.com/HamzaShaikhAI/VYDRIX",
+              "programmingLanguage": "C#",
+              "runtimePlatform": ".NET / Windows",
+              "author": { "@id": "https://hamzashaikhai.github.io/#person" }
+            }
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://hamzashaikhai.github.io/#faq-schema",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Who is Hamza Shaikh (@HamzaShaikhAI)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hamza Shaikh (@HamzaShaikhAI) is an independent software developer and open-source builder specializing in AI agent workflows, Windows systems and graphics engineering, TypeScript developer tooling, and cross-platform applications. He publishes public repositories on GitHub and collaborates with teams worldwide."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the flagship open-source projects built by Hamza Shaikh?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hamza Shaikh's flagship repositories are KeplerBridge (a C++20 Direct3D 12-to-Direct3D 11 compatibility layer at v0.5.0-rc1), AgentForge (a TypeScript/Node.js local-first MCP and AI agent workflow platform), Notion Block Engine (a zero-dependency TypeScript Markdown, HTML, and Block AST engine), and VYDRIX (an archived C#/.NET WinFsp virtual storage study)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is KeplerBridge and which GPUs does it target?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "KeplerBridge is an experimental open-source C++20 compatibility layer targeting legacy NVIDIA Kepler GPUs on Windows x64. It implements runtime Direct3D 12 interception, bounded DXIL-to-DXBC shader translation, shader caching, and a Direct3D 11 execution backend, currently at release candidate v0.5.0-rc1."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What problem does AgentForge solve?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "AgentForge is a local-first TypeScript and Node.js workflow harness for Google Antigravity that unifies Model Context Protocol (MCP) bridges with deterministic tool execution, permission-gated actions, human approval checkpoints, and credential isolation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can global teams collaborate with Hamza Shaikh?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Developers, open-source maintainers, and engineering teams worldwide can collaborate with Hamza Shaikh through GitHub (https://github.com/HamzaShaikhAI) or connect directly on LinkedIn (https://www.linkedin.com/in/hamzashaikhai/)."
+            }
+          }
+        ]
+      }
     ]
   }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #080b14;
-      --surface: rgba(17, 24, 39, .82);
-      --border: rgba(148, 163, 184, .15);
-      --text: #f1f5f9;
-      --muted: #9aa9bf;
-      --blue: #38bdf8;
-      --cyan: #22d3ee;
-      --purple: #a78bfa;
-      --green: #4ade80;
-      --width: 1120px;
-      --radius: 18px;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-    body {
-      min-width: 320px;
-      overflow-x: hidden;
-      color: var(--text);
-      background:
-        radial-gradient(ellipse at 12% 10%, rgba(37,99,235,.16), transparent 34%),
-        radial-gradient(ellipse at 88% 35%, rgba(124,58,237,.12), transparent 38%),
-        var(--bg);
-      font-family: "DM Sans", sans-serif;
-      line-height: 1.7;
-    }
-    a { color: inherit; text-decoration: none; }
-    a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
-    .container { width: min(var(--width), calc(100% - 42px)); margin-inline: auto; }
-    .gradient-text {
-      color: transparent;
-      background: linear-gradient(105deg, var(--cyan), var(--blue), var(--purple));
-      -webkit-background-clip: text;
-      background-clip: text;
-    }
-    .navbar {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(8,11,20,.86); backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
-    .brand { display: inline-flex; align-items: center; gap: 12px; font: 700 1.05rem "Space Grotesk",sans-serif; white-space: nowrap; }
-    .brand img { width: 42px; height: 42px; display: block; filter: drop-shadow(0 0 12px rgba(59,130,246,.25)); }
-    .nav-links { display: flex; align-items: center; gap: 27px; list-style: none; }
-    .nav-links a { color: var(--muted); font-size: .9rem; transition: color .2s; }
-    .nav-links a:hover { color: var(--cyan); }
-    .menu-toggle { display: none; border: 1px solid var(--border); border-radius: 10px; padding: 8px 12px; color: var(--text); background: #10182a; cursor: pointer; }
-    .hero { min-height: 650px; display: flex; align-items: center; padding-block: 92px 72px; }
-    .hero-layout { width: 100%; display: grid; grid-template-columns: minmax(0,1.2fr) minmax(270px,.8fr); gap: 48px; align-items: center; }
-    .eyebrow { display: block; color: var(--blue); font-size: .78rem; font-weight: 700; letter-spacing: 2.2px; text-transform: uppercase; margin-bottom: 11px; }
-    .availability { display: inline-flex; align-items: center; gap: 9px; border: 1px solid var(--border); border-radius: 30px; padding: 8px 14px; margin-bottom: 27px; background: rgba(15,23,42,.7); color: #cbd5e1; font-size: .8rem; }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); }
-    h1,h2,h3 { font-family: "Space Grotesk",sans-serif; }
-    .hero h1 { max-width: 720px; font-size: clamp(3.3rem,6.5vw,5.65rem); line-height: 1.07; letter-spacing: -3.5px; margin-bottom: 20px; }
-    .hero h2 { color: #d2dbea; font-size: clamp(1.15rem,2vw,1.5rem); font-weight: 500; line-height: 1.45; margin-bottom: 17px; }
-    .hero-copy { max-width: 690px; color: var(--muted); font-size: 1rem; line-height: 1.9; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 29px; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid var(--border); border-radius: 11px; padding: 11px 18px; font-size: .9rem; font-weight: 700; transition: transform .2s,border-color .2s,box-shadow .2s; }
-    .btn:hover { transform: translateY(-2px); border-color: rgba(56,189,248,.55); }
-    .btn-primary { background: linear-gradient(105deg,#2563eb,#7c3aed); border-color: transparent; box-shadow: 0 9px 28px rgba(37,99,235,.2); }
-    .btn-secondary { background: rgba(15,23,42,.8); }
-    .tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 29px; }
-    .tag { padding: 6px 11px; border: 1px solid var(--border); border-radius: 8px; background: rgba(15,23,42,.6); color: #cbd5e1; font-size: .78rem; }
-    .hero-card { border: 1px solid rgba(100,149,237,.23); border-radius: 24px; padding: 26px; background: linear-gradient(155deg,rgba(21,35,66,.88),rgba(13,17,34,.9)); box-shadow: 0 25px 70px rgba(0,0,0,.25); }
-    .hero-card-logo { width: 88px; height: 88px; margin-bottom: 24px; }
-    .hero-card h2 { font-size: 1.45rem; margin-bottom: 9px; }
-    .hero-card p { color: var(--muted); font-size: .9rem; }
-    .hero-card-links { display: grid; gap: 10px; margin-top: 24px; }
-    .hero-card-links a { color: #c4ddff; font-size: .88rem; }
-    .section { padding-block: 86px 20px; }
-    .section-heading { margin-bottom: 31px; }
-    .section-heading h2 { font-size: clamp(2rem,4vw,2.65rem); letter-spacing: -1.4px; }
-    .section-heading p { max-width: 650px; color: var(--muted); margin-top: 9px; }
-    .about-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 20px; }
-    .panel { padding: 27px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
-    .about-copy { color: #bcc9da; line-height: 1.9; }
-    .about-copy p + p { margin-top: 13px; }
-    .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
-    .fact { min-height: 105px; padding: 17px; border: 1px solid var(--border); border-radius: 13px; background: rgba(15,23,42,.56); }
-    .fact strong { display: block; margin-bottom: 4px; color: var(--blue); font: 700 1.1rem "Space Grotesk",sans-serif; }
-    .fact span { color: var(--muted); font-size: .8rem; }
-    .project-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
-    .project-card { position: relative; overflow: hidden; min-height: 300px; display: flex; flex-direction: column; padding: 25px; border: 1px solid var(--border); border-radius: var(--radius); background: linear-gradient(145deg,rgba(20,30,50,.94),rgba(12,17,31,.96)); transition: transform .25s,border-color .25s; }
-    .project-card:hover { transform: translateY(-4px); border-color: rgba(56,189,248,.48); }
-    .project-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 19px; }
-    .project-icon { width: 45px; height: 45px; display: grid; place-items: center; border: 1px solid rgba(59,130,246,.24); border-radius: 13px; background: rgba(59,130,246,.13); font-size: 1.3rem; }
-    .status { padding: 5px 9px; border: 1px solid rgba(34,211,238,.23); border-radius: 20px; background: rgba(34,211,238,.07); color: var(--cyan); font-size: .68rem; letter-spacing: .5px; text-transform: uppercase; }
-    .project-card h3 { font-size: 1.42rem; margin-bottom: 3px; }
-    .project-type { margin-bottom: 12px; color: var(--blue); font-size: .84rem; }
-    .project-card p { color: var(--muted); font-size: .9rem; line-height: 1.8; }
-    .project-tech { display: flex; flex-wrap: wrap; gap: 7px; margin: 17px 0 19px; }
-    .project-tech span { padding: 4px 8px; border-radius: 6px; background: rgba(148,163,184,.09); color: #cbd5e1; font-size: .71rem; }
-    .project-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: auto; }
-    .project-links a { color: var(--blue); font-size: .87rem; font-weight: 700; }
-    .note { margin-top: 11px; color: #fbbf24 !important; font-size: .78rem !important; }
-    .tech-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 15px; }
-    .tech-group { padding: 21px; border: 1px solid var(--border); border-radius: 15px; background: var(--surface); }
-    .tech-group h3 { margin-bottom: 13px; font-size: 1rem; }
-    .tech-list { display: flex; flex-wrap: wrap; gap: 7px; }
-    .tech-list span { padding: 6px 9px; border: 1px solid var(--border); border-radius: 7px; color: #cbd5e1; font-size: .76rem; }
-    .focus-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
-    .focus-item { display: flex; gap: 12px; padding: 17px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
-    .focus-item strong { display: block; font-size: .92rem; }
-    .focus-item small { display: block; margin-top: 3px; color: var(--muted); font-size: .8rem; }
-    .contact { padding: 48px 24px; text-align: center; border: 1px solid var(--border); border-radius: 22px; background: radial-gradient(ellipse at top,rgba(37,99,235,.18),transparent 62%),var(--surface); }
-    .contact h2 { font-size: clamp(2rem,4vw,2.65rem); margin-bottom: 10px; }
-    .contact p { max-width: 570px; margin: 0 auto 23px; color: var(--muted); }
-    .contact-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 11px; }
-    footer { margin-top: 82px; padding-block: 25px; border-top: 1px solid var(--border); color: var(--muted); font-size: .82rem; }
-    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
-    .footer-links { display: flex; gap: 17px; }
-    .footer-links a:hover { color: var(--cyan); }
-    @media(max-width:900px) { .hero-layout { grid-template-columns: 1fr; } .hero-card { max-width: 520px; } .tech-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
-    @media(max-width:680px) {
-      .container { width: min(var(--width),calc(100% - 30px)); }
-      .nav-inner { min-height: 66px; }
-      .menu-toggle { display: inline-flex; }
-      .nav-links { display: none; position: absolute; top: 66px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; padding: 9px 20px 16px; border-bottom: 1px solid var(--border); background: #0b1020; }
-      .nav-links.open { display: flex; }
-      .nav-links a { display: block; padding: 10px 4px; }
-      .hero { min-height: 0; padding-block: 75px 45px; }
-      .hero h1 { letter-spacing: -2.5px; }
-      .section { padding-top: 70px; }
-      .about-grid,.project-grid,.tech-grid,.focus-grid { grid-template-columns: 1fr; }
-      .project-card { min-height: auto; }
-      .footer-inner { flex-direction: column; text-align: center; }
-    }
-    @media(prefers-reduced-motion:reduce) { html { scroll-behavior: auto; } *,*::before,*::after { transition-duration: .01ms !important; } }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
   <header class="navbar">
     <nav class="container nav-inner" aria-label="Main navigation">
       <a href="#home" class="brand" aria-label="HamzaShaikhAI home">
-        <img src="/assets/hs-mark.svg" alt="HS logo" width="42" height="42">
+        <img src="/assets/hs-mark.svg" alt="Hamza Shaikh HS logo" width="40" height="40">
         <span>HamzaShaikh<span class="gradient-text">AI</span></span>
       </a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#projects">Projects</a></li><li><a href="#technologies">Technologies</a></li><li><a href="#focus">Focus</a></li><li><a href="#contact">Contact</a></li>
-      </ul>
+
+      <div class="nav-right">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#comparison">Matrix</a></li>
+          <li><a href="#technologies">Skills</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-controls">
+          <button type="button" class="icon-btn" id="paletteOpenBtn" aria-label="Open quick jump menu">
+            <span>Jump</span><span class="kbd mono">Ctrl+K</span>
+          </button>
+          <button type="button" class="icon-btn" id="themeToggle" aria-label="Toggle light or dark theme" aria-pressed="false">
+            ☀️ <span>Light</span>
+          </button>
+          <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
+        </div>
+      </div>
     </nav>
   </header>
-  <main>
+
+  <main id="main-content">
+    <!-- Hero -->
     <section class="hero container" id="home">
       <div class="hero-layout">
         <div>
-          <div class="availability"><span class="dot"></span> Independent Developer · Open-Source Builder</div>
+          <div class="availability">
+            <span class="dot" aria-hidden="true"></span>
+            <span>Worldwide Remote · Independent Software &amp; Open-Source Builder</span>
+          </div>
           <h1>Hi, I'm <span class="gradient-text">Hamza Shaikh.</span></h1>
-          <h2>Building software, exploring AI, and engineering ideas into reality.</h2>
-          <p class="hero-copy">I'm <strong>Hamza Shaikh (@HamzaShaikhAI)</strong>, a developer interested in artificial intelligence, systems software, intelligent automation, and open-source engineering. I enjoy turning ideas into practical software through architecture, experimentation, implementation, and testing.</p>
+          <p class="hero-subtitle">Engineering AI agent platforms, C++20 graphics compatibility, and zero-dependency TypeScript tooling.</p>
+          <p class="hero-copy">
+            <strong>Hamza Shaikh (@HamzaShaikhAI)</strong> is an independent software developer building open-source systems software, local-first AI automation, and developer infrastructure for global engineering teams. From bounded Direct3D 12-to-11 shader translation in <strong>KeplerBridge</strong> to permission-gated MCP workflows in <strong>AgentForge</strong>, every project follows an empirical cycle of architecture, implementation, testing, and transparent documentation.
+          </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">Explore My Projects ↗</a>
+            <a class="btn btn-primary" href="#projects">Explore Projects ↗</a>
             <a class="btn btn-secondary" href="https://github.com/HamzaShaikhAI" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
             <a class="btn btn-secondary" href="https://www.linkedin.com/in/hamzashaikhai/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a class="btn btn-secondary" href="#contact">Collaborate</a>
           </div>
-          <div class="tags"><span class="tag">C++20</span><span class="tag">Python</span><span class="tag">TypeScript</span><span class="tag">AI Agents</span><span class="tag">Flutter</span><span class="tag">Systems Software</span></div>
+          <div class="tags" aria-label="Core technologies">
+            <span class="tag mono">C++20</span>
+            <span class="tag mono">TypeScript</span>
+            <span class="tag mono">Python</span>
+            <span class="tag mono">AI Agents &amp; MCP</span>
+            <span class="tag mono">Direct3D 12/11</span>
+            <span class="tag mono">Flutter</span>
+          </div>
         </div>
+
         <aside class="hero-card" aria-label="Developer profile summary">
-          <img class="hero-card-logo" src="/assets/hs-mark.svg" alt="Hamza Shaikh HS monogram" width="88" height="88">
-          <span class="eyebrow">Developer portfolio</span>
+          <div class="hero-card-header">
+            <img class="hero-card-logo" src="/assets/hs-mark.svg" alt="Hamza Shaikh HS monogram" width="68" height="68">
+            <span class="geo-badge mono">GLOBAL · OPEN SOURCE</span>
+          </div>
+          <span class="eyebrow">Verified Engineering Index</span>
           <h2>Ideas into working software.</h2>
-          <p>Exploring software engineering through practical projects in graphics compatibility, AI tooling, developer infrastructure, and application development.</p>
+          <p>Public repositories across graphics translation, AI agent orchestration, AST content engines, and cross-platform apps.</p>
+
+          <div class="hero-metrics" aria-label="Portfolio highlights">
+            <div><strong>4</strong><span>Flagship Repos</span></div>
+            <div><strong>6+</strong><span>Languages</span></div>
+            <div><strong>Global</strong><span>Remote Scope</span></div>
+          </div>
+
           <div class="hero-card-links">
-            <a href="https://github.com/HamzaShaikhAI/KeplerBridge">↗ KeplerBridge — Direct3D compatibility</a>
-            <a href="https://github.com/HamzaShaikhAI/AgentForge">↗ AgentForge — AI agent workflows</a>
-            <a href="https://github.com/HamzaShaikhAI/notion-block-engine">↗ Notion Block Engine — TypeScript tooling</a>
+            <a href="https://github.com/HamzaShaikhAI/KeplerBridge" target="_blank" rel="noopener noreferrer">
+              <span><strong>KeplerBridge</strong> · C++20 / D3D12→11</span><span class="mono">v0.5.0-rc1 ↗</span>
+            </a>
+            <a href="https://github.com/HamzaShaikhAI/AgentForge" target="_blank" rel="noopener noreferrer">
+              <span><strong>AgentForge</strong> · MCP &amp; AI Agents</span><span class="mono">TypeScript ↗</span>
+            </a>
+            <a href="https://github.com/HamzaShaikhAI/notion-block-engine" target="_blank" rel="noopener noreferrer">
+              <span><strong>Notion Block Engine</strong> · AST</span><span class="mono">0-Deps ↗</span>
+            </a>
           </div>
         </aside>
       </div>
     </section>
 
-    <section class="section container" id="about">
-      <div class="section-heading"><span class="eyebrow">A little introduction</span><h2>About <span class="gradient-text">Me</span></h2><p>Learning, building, experimenting, and improving through hands-on software projects.</p></div>
+    <!-- About & Engineering Methodology -->
+    <section class="section container reveal" id="about">
+      <div class="section-heading">
+        <span class="eyebrow">Engineering Philosophy</span>
+        <h2>About <span class="gradient-text">Hamza Shaikh</span></h2>
+        <p>Hands-on systems and AI engineering focused on verifiable results, clean abstractions, and honest technical documentation.</p>
+      </div>
+
       <div class="about-grid">
         <div class="panel about-copy">
-          <p>I'm an independent developer passionate about software engineering and emerging technologies. I enjoy exploring problems across different areas of development, from low-level systems and graphics programming to AI-powered applications and developer productivity tools.</p>
-          <p>My approach is hands-on: understand the problem, design the architecture, implement the solution, test it, and document the results honestly.</p>
-          <p>Through my projects, I'm exploring modern C++, Python, TypeScript, AI agents, application development, and software architecture.</p>
+          <p>
+            <strong>Hamza Shaikh</strong> builds across two complementary layers of modern computing: low-level Windows systems programming (C++20, Direct3D, shader translation, filesystems) and practical AI infrastructure (Model Context Protocol bridges, local-first LLMs, and deterministic agent tooling).
+          </p>
+          <p>
+            Rather than stopping at prototypes or inflated claims, every project is structured around explicit failure boundaries and documented constraints—whether that means publishing bounded compatibility notes for <strong>KeplerBridge</strong> or preserving a full architectural post-mortem for <strong>VYDRIX</strong>.
+          </p>
+          <p>
+            Operating with a worldwide open-source mindset, all public tools and libraries are written in clean English documentation for developers, researchers, and engineering teams globally.
+          </p>
         </div>
+
         <div class="facts">
-          <div class="fact"><strong>AI</strong><span>Artificial Intelligence & Automation</span></div>
-          <div class="fact"><strong>C++</strong><span>Systems & Graphics Engineering</span></div>
-          <div class="fact"><strong>Open Source</strong><span>Public software projects</span></div>
-          <div class="fact"><strong>Build & Test</strong><span>Practical engineering workflow</span></div>
+          <div class="fact">
+            <strong>AI &amp; MCP Agents</strong>
+            <span>Local-first automation, approval gates, and tool orchestration</span>
+          </div>
+          <div class="fact">
+            <strong>C++20 &amp; Graphics</strong>
+            <span>Direct3D 12/11 interception, DXIL/DXBC translation, caching</span>
+          </div>
+          <div class="fact">
+            <strong>Zero-Dep Tooling</strong>
+            <span>Portable TypeScript AST parsers and Node.js developer engines</span>
+          </div>
+          <div class="fact">
+            <strong>Worldwide Collaboration</strong>
+            <span>Open-source workflows built for global remote engineering</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="workflow-strip" aria-label="Four-stage engineering workflow">
+        <div class="workflow-step">
+          <span class="step-num mono">01 / ANALYZE</span>
+          <h3>Problem Isolation</h3>
+          <p>Map hardware, protocol, or workflow bottlenecks with clear reproduction criteria.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="step-num mono">02 / ARCHITECT</span>
+          <h3>Bounded Design</h3>
+          <p>Establish strict module contracts, permission checks, and zero-bloat dependencies.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="step-num mono">03 / BUILD</span>
+          <h3>Systems Execution</h3>
+          <p>Implement in C++20, TypeScript, Python, or Dart matched to the runtime target.</p>
+        </div>
+        <div class="workflow-step">
+          <span class="step-num mono">04 / VERIFY</span>
+          <h3>Honest Docs</h3>
+          <p>Validate on real workloads and publish transparent release notes and post-mortems.</p>
         </div>
       </div>
     </section>
 
-    <section class="section container" id="projects">
-      <div class="section-heading"><span class="eyebrow">Things I've been building</span><h2>Featured <span class="gradient-text">Projects</span></h2><p>Selected software projects across graphics compatibility, AI agents, developer tooling, and application engineering.</p></div>
+    <!-- Featured & Experimental Projects with Filter -->
+    <section class="section container reveal" id="projects">
+      <div class="section-heading">
+        <span class="eyebrow">Open-Source Portfolio</span>
+        <h2>Featured <span class="gradient-text">Projects</span></h2>
+        <p>Filterable index of flagship systems libraries, AI agent platforms, and applied prototypes. Each flagship project includes an architectural overview.</p>
+      </div>
+
+      <div class="filter-bar" role="group" aria-label="Filter projects by domain">
+        <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All Projects (8)</button>
+        <button type="button" class="filter-btn" data-filter="systems" aria-pressed="false">Systems &amp; C++ (2)</button>
+        <button type="button" class="filter-btn" data-filter="ai" aria-pressed="false">AI &amp; Agents (3)</button>
+        <button type="button" class="filter-btn" data-filter="tooling" aria-pressed="false">TypeScript Tooling (1)</button>
+        <button type="button" class="filter-btn" data-filter="apps" aria-pressed="false">Mobile &amp; Hardware (2)</button>
+      </div>
+      <p id="filterStatus" class="eyebrow mono" style="margin-bottom:16px;" aria-live="polite">Showing 8 projects</p>
+
       <div class="project-grid">
-        <article class="project-card">
-          <div class="project-top"><div class="project-icon">🔷</div><span class="status">Release Candidate</span></div>
-          <h3>KeplerBridge</h3><div class="project-type">Direct3D 12 → Direct3D 11 Compatibility Layer</div>
-          <p>An open-source C++20 project exploring graphics API and shader translation for legacy NVIDIA Kepler GPUs. It includes a bounded DXIL-to-DXBC translation pipeline, runtime interception, and a Direct3D 11 execution backend.</p>
-          <div class="project-tech"><span>C++20</span><span>Direct3D 12</span><span>Direct3D 11</span><span>DXIL / DXBC</span><span>Windows x64</span></div>
-          <div class="project-links"><a href="https://github.com/HamzaShaikhAI/KeplerBridge" target="_blank" rel="noopener noreferrer">Repository ↗</a><a href="https://github.com/HamzaShaikhAI/KeplerBridge/releases/tag/v0.5.0-rc1" target="_blank" rel="noopener noreferrer">v0.5.0-rc1 ↗</a></div>
+        <!-- 1. KeplerBridge -->
+        <article class="project-card" data-category="systems">
+          <div class="project-top">
+            <div class="project-icon" aria-hidden="true">🔷</div>
+            <span class="status mono">Release Candidate · v0.5.0-rc1</span>
+          </div>
+          <div class="arch-preview" aria-hidden="true">
+            <svg viewBox="0 0 420 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="14" width="90" height="46" rx="8" stroke="#38bdf8" stroke-opacity="0.6" fill="#0f172a" fill-opacity="0.45"/>
+              <text x="49" y="35" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">D3D12 App</text>
+              <text x="49" y="49" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="8">DXIL Shaders</text>
+              <path d="M98 37H134" stroke="#22d3ee" stroke-width="1.8" stroke-dasharray="3 3"/>
+              <rect x="138" y="10" width="144" height="54" rx="8" stroke="#a78bfa" stroke-opacity="0.7" fill="#0f172a" fill-opacity="0.55"/>
+              <text x="210" y="33" text-anchor="middle" fill="#22d3ee" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700">KeplerBridge</text>
+              <text x="210" y="48" text-anchor="middle" fill="#cbd5e1" font-family="JetBrains Mono,monospace" font-size="8">DXIL → DXBC + Cache</text>
+              <path d="M286 37H322" stroke="#22d3ee" stroke-width="1.8" stroke-dasharray="3 3"/>
+              <rect x="326" y="14" width="90" height="46" rx="8" stroke="#4ade80" stroke-opacity="0.6" fill="#0f172a" fill-opacity="0.45"/>
+              <text x="371" y="35" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">D3D11 GPU</text>
+              <text x="371" y="49" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="8">NVIDIA Kepler</text>
+            </svg>
+          </div>
+          <h3>KeplerBridge</h3>
+          <div class="project-type">Direct3D 12 → Direct3D 11 Compatibility Layer</div>
+          <p>KeplerBridge is an open-source C++20 compatibility layer for legacy NVIDIA Kepler GPUs on Windows x64. It implements runtime API interception, a bounded DXIL-to-DXBC shader translation pipeline, shader caching, diagnostic tooling, and a Direct3D 11 execution backend.</p>
+          <div class="project-tech">
+            <span class="mono">C++20</span><span class="mono">Direct3D 12</span><span class="mono">Direct3D 11</span><span class="mono">DXIL / DXBC</span><span class="mono">Windows x64</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/HamzaShaikhAI/KeplerBridge" target="_blank" rel="noopener noreferrer">Repository ↗</a>
+            <a href="https://github.com/HamzaShaikhAI/KeplerBridge/releases/tag/v0.5.0-rc1" target="_blank" rel="noopener noreferrer">v0.5.0-rc1 Release ↗</a>
+          </div>
           <p class="note">Experimental release candidate. Compatibility is workload-dependent and not universal.</p>
         </article>
-        <article class="project-card">
-          <div class="project-top"><div class="project-icon">🤖</div><span class="status">Development</span></div>
-          <h3>AgentForge</h3><div class="project-type">AI Agent Integration & Workflow Platform</div>
-          <p>A local-first platform for Google Antigravity that brings together MCP integrations, deterministic tool execution, permission-controlled workflows, human approval checkpoints, and credential isolation.</p>
-          <div class="project-tech"><span>TypeScript</span><span>Node.js</span><span>MCP</span><span>AI Agents</span><span>Automation</span></div>
-          <div class="project-links"><a href="https://github.com/HamzaShaikhAI/AgentForge" target="_blank" rel="noopener noreferrer">Explore repository ↗</a></div>
+
+        <!-- 2. AgentForge -->
+        <article class="project-card" data-category="ai">
+          <div class="project-top">
+            <div class="project-icon" aria-hidden="true">🤖</div>
+            <span class="status mono">Active Development</span>
+          </div>
+          <div class="arch-preview" aria-hidden="true">
+            <svg viewBox="0 0 420 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="14" width="90" height="46" rx="8" stroke="#38bdf8" stroke-opacity="0.6" fill="#0f172a" fill-opacity="0.45"/>
+              <text x="49" y="35" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">AI Agent</text>
+              <text x="49" y="49" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="8">Antigravity</text>
+              <path d="M98 37H134" stroke="#22d3ee" stroke-width="1.8" stroke-dasharray="3 3"/>
+              <rect x="138" y="10" width="144" height="54" rx="8" stroke="#a78bfa" stroke-opacity="0.7" fill="#0f172a" fill-opacity="0.55"/>
+              <text x="210" y="33" text-anchor="middle" fill="#22d3ee" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700">AgentForge</text>
+              <text x="210" y="48" text-anchor="middle" fill="#cbd5e1" font-family="JetBrains Mono,monospace" font-size="8">Approval Gate + Auth</text>
+              <path d="M286 37H322" stroke="#22d3ee" stroke-width="1.8" stroke-dasharray="3 3"/>
+              <rect x="326" y="14" width="90" height="46" rx="8" stroke="#4ade80" stroke-opacity="0.6" fill="#0f172a" fill-opacity="0.45"/>
+              <text x="371" y="35" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">MCP Bridges</text>
+              <text x="371" y="49" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="8">Isolated Creds</text>
+            </svg>
+          </div>
+          <h3>AgentForge</h3>
+          <div class="project-type">Local-First AI Agent &amp; MCP Workflow Platform</div>
+          <p>AgentForge is a TypeScript and Node.js integration harness built for Google Antigravity. It unifies Model Context Protocol (MCP) bridges with deterministic tool execution, permission-gated actions, human approval checkpoints, and strict credential isolation.</p>
+          <div class="project-tech">
+            <span class="mono">TypeScript</span><span class="mono">Node.js</span><span class="mono">MCP</span><span class="mono">AI Agents</span><span class="mono">Workflow Security</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/HamzaShaikhAI/AgentForge" target="_blank" rel="noopener noreferrer">Explore Repository ↗</a>
+          </div>
         </article>
-        <article class="project-card">
-          <div class="project-top"><div class="project-icon">⚡</div><span class="status">Open Source</span></div>
-          <h3>Notion Block Engine</h3><div class="project-type">TypeScript Content Conversion Engine</div>
-          <p>A zero-dependency TypeScript library for bidirectional conversion between Markdown, HTML, clipboard content, and a Notion-style Block AST, with clipboard sanitization and rich-text handling.</p>
-          <div class="project-tech"><span>TypeScript</span><span>Node.js</span><span>Markdown</span><span>HTML</span><span>AST</span></div>
-          <div class="project-links"><a href="https://github.com/HamzaShaikhAI/notion-block-engine" target="_blank" rel="noopener noreferrer">Explore repository ↗</a></div>
+
+        <!-- 3. Notion Block Engine -->
+        <article class="project-card" data-category="tooling">
+          <div class="project-top">
+            <div class="project-icon" aria-hidden="true">⚡</div>
+            <span class="status mono">Open Source · Zero Deps</span>
+          </div>
+          <div class="arch-preview" aria-hidden="true">
+            <svg viewBox="0 0 420 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="14" width="94" height="46" rx="8" stroke="#38bdf8" stroke-opacity="0.6" fill="#0f172a" fill-opacity="0.45"/>
+              <text x="51" y="35" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">Markdown</text>
+              <text x="51" y="49" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="8">HTML / Clipboard</text>
+              <path d="M102 37H136" stroke="#22d3ee" stroke-width="1.8"/>
+              <rect x="140" y="10" width="140" height="54" rx="8" stroke="#a78bfa" stroke-opacity="0.7" fill="#0f172a" fill-opacity="0.55"/>
+              <text x="210" y="33" text-anchor="middle" fill="#22d3ee" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700">Block AST</text>
+              <text x="210" y="48" text-anchor="middle" fill="#cbd5e1" font-family="JetBrains Mono,monospace" font-size="8">Sanitize &amp; Serialize</text>
+              <path d="M284 37H318" stroke="#22d3ee" stroke-width="1.8"/>
+              <rect x="322" y="14" width="94" height="46" rx="8" stroke="#4ade80" stroke-opacity="0.6" fill="#0f172a" fill-opacity="0.45"/>
+              <text x="369" y="35" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">Notion JSON</text>
+              <text x="369" y="49" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="8">Bidirectional</text>
+            </svg>
+          </div>
+          <h3>Notion Block Engine</h3>
+          <div class="project-type">Zero-Dependency TypeScript Content Conversion Engine</div>
+          <p>Notion Block Engine is a lightweight TypeScript library for bidirectional parsing, sanitization, and serialization across Markdown, HTML, rich clipboard payloads, and a Notion-compatible Block Abstract Syntax Tree (AST) with zero external runtime dependencies.</p>
+          <div class="project-tech">
+            <span class="mono">TypeScript</span><span class="mono">Node.js</span><span class="mono">Markdown</span><span class="mono">HTML</span><span class="mono">AST</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/HamzaShaikhAI/notion-block-engine" target="_blank" rel="noopener noreferrer">Explore Repository ↗</a>
+          </div>
         </article>
-        <article class="project-card">
-          <div class="project-top"><div class="project-icon">📦</div><span class="status">Archived</span></div>
-          <h3>VYDRIX</h3><div class="project-type">Windows Cloud-Backed Virtual Storage Experiment</div>
-          <p>An experimental systems-engineering project investigating virtual storage, filesystem integration, caching, and cloud-backed Windows workloads. Preserved with a technical post-mortem documenting why the prototype did not meet its core objective.</p>
-          <div class="project-tech"><span>C#</span><span>.NET</span><span>Windows</span><span>WinFsp</span><span>Storage</span></div>
-          <div class="project-links"><a href="https://github.com/HamzaShaikhAI/VYDRIX" target="_blank" rel="noopener noreferrer">Explore archive ↗</a></div>
+
+        <!-- 4. VYDRIX -->
+        <article class="project-card" data-category="systems">
+          <div class="project-top">
+            <div class="project-icon" aria-hidden="true">📦</div>
+            <span class="status status-archived mono">Archived · Post-Mortem</span>
+          </div>
+          <div class="arch-preview" aria-hidden="true">
+            <svg viewBox="0 0 420 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="14" width="94" height="46" rx="8" stroke="#38bdf8" stroke-opacity="0.6" fill="#0f172a" fill-opacity="0.45"/>
+              <text x="51" y="35" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">Win Explorer</text>
+              <text x="51" y="49" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="8">Virtual Drive</text>
+              <path d="M102 37H136" stroke="#fbbf24" stroke-width="1.8" stroke-dasharray="3 3"/>
+              <rect x="140" y="10" width="140" height="54" rx="8" stroke="#fbbf24" stroke-opacity="0.65" fill="#0f172a" fill-opacity="0.55"/>
+              <text x="210" y="33" text-anchor="middle" fill="#fbbf24" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700">VYDRIX / WinFsp</text>
+              <text x="210" y="48" text-anchor="middle" fill="#cbd5e1" font-family="JetBrains Mono,monospace" font-size="8">Local Block Cache</text>
+              <path d="M284 37H318" stroke="#fbbf24" stroke-width="1.8" stroke-dasharray="3 3"/>
+              <rect x="322" y="14" width="94" height="46" rx="8" stroke="#94a3b8" stroke-opacity="0.6" fill="#0f172a" fill-opacity="0.45"/>
+              <text x="369" y="35" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">Cloud Store</text>
+              <text x="369" y="49" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="8">Post-Mortem Study</text>
+            </svg>
+          </div>
+          <h3>VYDRIX</h3>
+          <div class="project-type">Windows Cloud-Backed Virtual Storage Experiment</div>
+          <p>VYDRIX was a Windows systems-engineering experiment built with C#, .NET, and WinFsp to test cloud-backed virtual filesystem mounting and local caching. It is preserved as a transparent engineering archive with a documented technical post-mortem.</p>
+          <div class="project-tech">
+            <span class="mono">C#</span><span class="mono">.NET</span><span class="mono">Windows</span><span class="mono">WinFsp</span><span class="mono">Storage</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/HamzaShaikhAI/VYDRIX" target="_blank" rel="noopener noreferrer">Explore Archive ↗</a>
+          </div>
+        </article>
+
+        <!-- 5. Hifz Hero -->
+        <article class="project-card" data-category="apps" id="other-work">
+          <div class="project-top">
+            <div class="project-icon" aria-hidden="true">📖</div>
+            <span class="status mono">In Development</span>
+          </div>
+          <h3>Hifz Hero</h3>
+          <div class="project-type">Offline-First Quran Memorization Application</div>
+          <p>Hifz Hero is an AI-assisted Flutter mobile application designed for structured Quran memorization, combining spaced-repetition algorithms, daily revision streaks, gamified progress tracking, and offline-first local persistence.</p>
+          <div class="project-tech">
+            <span class="mono">Flutter</span><span class="mono">Dart</span><span class="mono">Firebase</span><span class="mono">Riverpod</span>
+          </div>
+        </article>
+
+        <!-- 6. VisionAI -->
+        <article class="project-card" data-category="apps">
+          <div class="project-top">
+            <div class="project-icon" aria-hidden="true">👓</div>
+            <span class="status mono">Hardware Prototype</span>
+          </div>
+          <h3>VisionAI</h3>
+          <div class="project-type">AI-Powered Accessibility Vision Assistant</div>
+          <p>VisionAI is an experimental edge-AI hardware prototype running on Raspberry Pi with Python computer vision pipelines to deliver real-time environmental context and assistive audio descriptions.</p>
+          <div class="project-tech">
+            <span class="mono">Python</span><span class="mono">Computer Vision</span><span class="mono">Raspberry Pi</span><span class="mono">Accessibility</span>
+          </div>
+        </article>
+
+        <!-- 7. PS-O1 -->
+        <article class="project-card" data-category="ai">
+          <div class="project-top">
+            <div class="project-icon" aria-hidden="true">🧠</div>
+            <span class="status mono">Personal Research</span>
+          </div>
+          <h3>PS-O1</h3>
+          <div class="project-type">Local Multilingual Voice AI Assistant</div>
+          <p>PS-O1 explores privacy-preserving personal AI workflows powered by local Ollama language models, multilingual prompt routing, speech-to-text voice capture, and spoken synthesis.</p>
+          <div class="project-tech">
+            <span class="mono">Python</span><span class="mono">Ollama</span><span class="mono">Local LLMs</span><span class="mono">Voice AI</span>
+          </div>
+        </article>
+
+        <!-- 8. AI Creative Studio -->
+        <article class="project-card" data-category="ai">
+          <div class="project-top">
+            <div class="project-icon" aria-hidden="true">🎬</div>
+            <span class="status mono">Creative Lab</span>
+          </div>
+          <h3>AI Creative Studio</h3>
+          <div class="project-type">Generative Video &amp; Motion Graphics Pipeline</div>
+          <p>AI Creative Studio investigates automated video synthesis, narrative pacing, programmatic motion graphics, and reproducible visual production workflows for digital media.</p>
+          <div class="project-tech">
+            <span class="mono">AI Video</span><span class="mono">Motion Graphics</span><span class="mono">Creative Automation</span>
+          </div>
         </article>
       </div>
     </section>
 
-    <section class="section container" id="other-work">
-      <div class="section-heading"><span class="eyebrow">Experiments & application development</span><h2>Other <span class="gradient-text">Work</span></h2><p>Additional projects exploring AI, mobile development, accessibility, and creative technology.</p></div>
-      <div class="project-grid">
-        <article class="project-card"><div class="project-top"><div class="project-icon">📖</div><span class="status">In Development</span></div><h3>Hifz Hero</h3><div class="project-type">Quran Memorization Application</div><p>An AI-assisted Quran memorization application inspired by Duolingo, exploring spaced repetition, structured revision, gamification, progress tracking, and an offline-first learning architecture.</p><div class="project-tech"><span>Flutter</span><span>Dart</span><span>Firebase</span><span>Riverpod</span></div></article>
-        <article class="project-card"><div class="project-top"><div class="project-icon">👓</div><span class="status">Prototype</span></div><h3>VisionAI</h3><div class="project-type">AI-Powered Vision Assistant</div><p>An experimental accessibility-focused project exploring computer vision, intelligent assistance, and Raspberry Pi-based AI hardware.</p><div class="project-tech"><span>Python</span><span>Computer Vision</span><span>Raspberry Pi</span><span>AI</span></div></article>
-        <article class="project-card"><div class="project-top"><div class="project-icon">🧠</div><span class="status">Personal Project</span></div><h3>PS-O1</h3><div class="project-type">Personal AI Assistant</div><p>A personal assistant project exploring local language models, multilingual interaction, voice input, speech output, and productivity automation.</p><div class="project-tech"><span>Python</span><span>Ollama</span><span>LLMs</span><span>Voice AI</span></div></article>
-        <article class="project-card"><div class="project-top"><div class="project-icon">🎬</div><span class="status">Creative Work</span></div><h3>AI Creative Studio</h3><div class="project-type">AI Video & Digital Creativity</div><p>Exploring AI-generated videos, digital storytelling, motion graphics, creative automation, and visual content production.</p><div class="project-tech"><span>AI Video</span><span>Motion Graphics</span><span>Creative Tools</span></div></article>
+    <!-- Structured Comparison Table (High AI Extraction Accuracy) -->
+    <section class="section container reveal" id="comparison">
+      <div class="section-heading">
+        <span class="eyebrow">Technical Index</span>
+        <h2>Project <span class="gradient-text">Comparison Matrix</span></h2>
+        <p>Concise specification overview of flagship public repositories maintained by Hamza Shaikh (@HamzaShaikhAI) on GitHub.</p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Primary Domain</th>
+              <th>Language / Runtime</th>
+              <th>Current Status</th>
+              <th>Core Technical Focus</th>
+              <th>Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>KeplerBridge</strong></td>
+              <td>Graphics Compatibility</td>
+              <td class="mono">C++20 · Windows x64</td>
+              <td>Release Candidate (<span class="mono">v0.5.0-rc1</span>)</td>
+              <td>D3D12-to-D3D11 translation, bounded DXIL→DXBC, shader caching</td>
+              <td><a href="https://github.com/HamzaShaikhAI/KeplerBridge" target="_blank" rel="noopener noreferrer">GitHub ↗</a></td>
+            </tr>
+            <tr>
+              <td><strong>AgentForge</strong></td>
+              <td>AI Agent Infrastructure</td>
+              <td class="mono">TypeScript · Node.js</td>
+              <td>Active Development</td>
+              <td>Local-first MCP bridges, approval gates, credential isolation</td>
+              <td><a href="https://github.com/HamzaShaikhAI/AgentForge" target="_blank" rel="noopener noreferrer">GitHub ↗</a></td>
+            </tr>
+            <tr>
+              <td><strong>Notion Block Engine</strong></td>
+              <td>Content AST Tooling</td>
+              <td class="mono">TypeScript · 0-Deps</td>
+              <td>Open Source</td>
+              <td>Bidirectional Markdown / HTML / Clipboard ↔ Notion Block AST</td>
+              <td><a href="https://github.com/HamzaShaikhAI/notion-block-engine" target="_blank" rel="noopener noreferrer">GitHub ↗</a></td>
+            </tr>
+            <tr>
+              <td><strong>VYDRIX</strong></td>
+              <td>Virtual Filesystem</td>
+              <td class="mono">C# · .NET · WinFsp</td>
+              <td>Archived (Post-Mortem)</td>
+              <td>Cloud-backed virtual drive caching and filesystem evaluation</td>
+              <td><a href="https://github.com/HamzaShaikhAI/VYDRIX" target="_blank" rel="noopener noreferrer">GitHub ↗</a></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
-    <section class="section container" id="technologies">
-      <div class="section-heading"><span class="eyebrow">Tools of the trade</span><h2>Technologies & <span class="gradient-text">Skills</span></h2><p>Languages, frameworks, platforms, and engineering areas explored through my development projects.</p></div>
+    <!-- Technologies & Skills -->
+    <section class="section container reveal" id="technologies">
+      <div class="section-heading">
+        <span class="eyebrow">Tools of the Trade</span>
+        <h2>Technologies &amp; <span class="gradient-text">Skills</span></h2>
+        <p>Languages, systems APIs, AI frameworks, and engineering tools actively applied across public repositories and experiments.</p>
+      </div>
+
       <div class="tech-grid">
-        <div class="tech-group"><h3>💻 Programming Languages</h3><div class="tech-list"><span>C++20</span><span>Python</span><span>TypeScript</span><span>JavaScript</span><span>Dart</span><span>C#</span></div></div>
-        <div class="tech-group"><h3>⚙️ Frameworks & Platforms</h3><div class="tech-list"><span>Flutter</span><span>Node.js</span><span>.NET</span><span>Firebase</span><span>Riverpod</span><span>Ollama</span></div></div>
-        <div class="tech-group"><h3>🤖 AI & Automation</h3><div class="tech-list"><span>LLM Integration</span><span>AI Agents</span><span>MCP</span><span>Workflow Automation</span><span>API Integration</span></div></div>
-        <div class="tech-group"><h3>🖥️ Systems Engineering</h3><div class="tech-list"><span>Windows Development</span><span>Direct3D 11</span><span>Direct3D 12</span><span>DXIL / DXBC</span><span>CMake</span></div></div>
-        <div class="tech-group"><h3>🧰 Developer Tools</h3><div class="tech-list"><span>Git</span><span>GitHub</span><span>VS Code</span><span>Android Studio</span><span>Visual Studio</span><span>Antigravity</span></div></div>
-        <div class="tech-group"><h3>🏗️ Engineering Interests</h3><div class="tech-list"><span>Software Architecture</span><span>Compiler Design</span><span>Testing</span><span>Performance Analysis</span><span>Open Source</span></div></div>
+        <div class="tech-group">
+          <h3>💻 Programming Languages</h3>
+          <div class="tech-list">
+            <span class="mono">C++20</span><span class="mono">TypeScript</span><span class="mono">Python</span><span class="mono">JavaScript</span><span class="mono">Dart</span><span class="mono">C#</span>
+          </div>
+        </div>
+        <div class="tech-group">
+          <h3>🤖 AI &amp; Agent Automation</h3>
+          <div class="tech-list">
+            <span>AI Agents</span><span class="mono">MCP</span><span>LLM Integration</span><span>Approval Workflows</span><span class="mono">Ollama</span>
+          </div>
+        </div>
+        <div class="tech-group">
+          <h3>🖥️ Systems &amp; Graphics</h3>
+          <div class="tech-list">
+            <span>Windows Internals</span><span>Direct3D 12</span><span>Direct3D 11</span><span class="mono">DXIL / DXBC</span><span class="mono">CMake</span>
+          </div>
+        </div>
+        <div class="tech-group">
+          <h3>⚙️ Frameworks &amp; Runtimes</h3>
+          <div class="tech-list">
+            <span class="mono">Node.js</span><span class="mono">Flutter</span><span class="mono">.NET</span><span class="mono">Riverpod</span><span class="mono">Firebase</span>
+          </div>
+        </div>
+        <div class="tech-group">
+          <h3>🧰 Developer Workflow</h3>
+          <div class="tech-list">
+            <span class="mono">Git</span><span class="mono">GitHub</span><span>VS Code</span><span>Visual Studio</span><span>Android Studio</span><span>Antigravity</span>
+          </div>
+        </div>
+        <div class="tech-group">
+          <h3>🏗️ Engineering Disciplines</h3>
+          <div class="tech-list">
+            <span>Software Architecture</span><span>Compiler &amp; Shader IR</span><span>Automated Testing</span><span>Post-Mortems</span><span>Open Source</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section container" id="focus">
-      <div class="section-heading"><span class="eyebrow">Always learning</span><h2>Current <span class="gradient-text">Focus</span></h2><p>Areas I'm actively exploring and improving through hands-on development.</p></div>
+    <!-- Current Focus -->
+    <section class="section container reveal" id="focus">
+      <div class="section-heading">
+        <span class="eyebrow">Active Roadmap</span>
+        <h2>Current <span class="gradient-text">Focus</span></h2>
+        <p>Primary engineering tracks currently under active development and validation.</p>
+      </div>
+
       <div class="focus-grid">
-        <div class="focus-item"><span>🚀</span><div><strong>KeplerBridge Development</strong><small>Improving compatibility, translation, validation, and documentation.</small></div></div>
-        <div class="focus-item"><span>🤖</span><div><strong>AI Agents & Automation</strong><small>Developing reliable AI workflows and tool integrations.</small></div></div>
-        <div class="focus-item"><span>⚡</span><div><strong>Systems Programming</strong><small>Exploring C++, compiler concepts, Windows APIs, and graphics engineering.</small></div></div>
-        <div class="focus-item"><span>📱</span><div><strong>Application Development</strong><small>Building useful cross-platform and AI-assisted applications.</small></div></div>
+        <div class="focus-item">
+          <span aria-hidden="true">🚀</span>
+          <div>
+            <strong>KeplerBridge Compatibility &amp; Diagnostics</strong>
+            <small>Expanding DXIL-to-DXBC translation coverage, shader cache stability, and real-world test documentation.</small>
+          </div>
+        </div>
+        <div class="focus-item">
+          <span aria-hidden="true">🤖</span>
+          <div>
+            <strong>Deterministic AI Agents &amp; MCP Bridges</strong>
+            <small>Hardening local-first permission gates, credential isolation, and human approval checkpoints in AgentForge.</small>
+          </div>
+        </div>
+        <div class="focus-item">
+          <span aria-hidden="true">⚡</span>
+          <div>
+            <strong>Low-Level Windows &amp; C++20 Engineering</strong>
+            <small>Deepening systems architecture, API hooking, and performance profiling across native binaries.</small>
+          </div>
+        </div>
+        <div class="focus-item">
+          <span aria-hidden="true">🌍</span>
+          <div>
+            <strong>Global Open-Source Collaboration</strong>
+            <small>Shipping zero-dependency libraries and cross-platform software accessible to developers worldwide.</small>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section container" id="contact">
-      <div class="contact"><span class="eyebrow">Let's connect</span><h2>Have an idea? <span class="gradient-text">Let's build.</span></h2><p>I'm interested in software engineering, open-source collaboration, AI applications, systems development, and learning from other developers.</p><div class="contact-actions"><a class="btn btn-primary" href="https://github.com/HamzaShaikhAI" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="btn btn-secondary" href="https://www.linkedin.com/in/hamzashaikhai/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="btn btn-secondary" href="https://github.com/HamzaShaikhAI?tab=repositories" target="_blank" rel="noopener noreferrer">All Repositories ↗</a></div></div>
+    <!-- FAQ Section (Synced 1:1 with FAQPage JSON-LD for GEO) -->
+    <section class="section container reveal" id="faq">
+      <div class="section-heading">
+        <span class="eyebrow">Quick Answers</span>
+        <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+        <p>Clear answers about Hamza Shaikh (@HamzaShaikhAI), flagship open-source repositories, and global collaboration.</p>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>Who is Hamza Shaikh (@HamzaShaikhAI)?</summary>
+          <div class="faq-answer">
+            Hamza Shaikh (@HamzaShaikhAI) is an independent software developer and open-source builder specializing in AI agent workflows, Windows systems and graphics engineering, TypeScript developer tooling, and cross-platform applications. He publishes public repositories on GitHub and collaborates with teams worldwide.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What are the flagship open-source projects built by Hamza Shaikh?</summary>
+          <div class="faq-answer">
+            Hamza Shaikh's flagship repositories are KeplerBridge (a C++20 Direct3D 12-to-Direct3D 11 compatibility layer at v0.5.0-rc1), AgentForge (a TypeScript/Node.js local-first MCP and AI agent workflow platform), Notion Block Engine (a zero-dependency TypeScript Markdown, HTML, and Block AST engine), and VYDRIX (an archived C#/.NET WinFsp virtual storage study).
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What is KeplerBridge and which GPUs does it target?</summary>
+          <div class="faq-answer">
+            KeplerBridge is an experimental open-source C++20 compatibility layer targeting legacy NVIDIA Kepler GPUs on Windows x64. It implements runtime Direct3D 12 interception, bounded DXIL-to-DXBC shader translation, shader caching, and a Direct3D 11 execution backend, currently at release candidate v0.5.0-rc1.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What problem does AgentForge solve?</summary>
+          <div class="faq-answer">
+            AgentForge is a local-first TypeScript and Node.js workflow harness for Google Antigravity that unifies Model Context Protocol (MCP) bridges with deterministic tool execution, permission-gated actions, human approval checkpoints, and credential isolation.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How can global teams collaborate with Hamza Shaikh?</summary>
+          <div class="faq-answer">
+            Developers, open-source maintainers, and engineering teams worldwide can collaborate with Hamza Shaikh through GitHub (https://github.com/HamzaShaikhAI) or connect directly on LinkedIn (https://www.linkedin.com/in/hamzashaikhai/).
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Contact & Interactive Collaboration Builder -->
+    <section class="section container reveal" id="contact">
+      <div class="contact">
+        <div class="contact-grid">
+          <div class="contact-intro">
+            <span class="eyebrow">Worldwide Collaboration</span>
+            <h2>Have an idea? <span class="gradient-text">Let's build.</span></h2>
+            <p>Available globally for open-source collaboration, AI agent engineering, systems software research, and technical discussions.</p>
+            <div class="contact-actions">
+              <a class="btn btn-primary" href="https://github.com/HamzaShaikhAI" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a>
+              <a class="btn btn-secondary" href="https://www.linkedin.com/in/hamzashaikhai/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+              <a class="btn btn-secondary" href="https://github.com/HamzaShaikhAI?tab=repositories" target="_blank" rel="noopener noreferrer">All Repositories ↗</a>
+            </div>
+          </div>
+
+          <div class="collab-box">
+            <h3>Quick Collaboration Message Builder</h3>
+            <div class="topic-pills" role="group" aria-label="Select collaboration topic">
+              <button type="button" class="topic-pill" data-topic="open-source" aria-pressed="true">Open Source</button>
+              <button type="button" class="topic-pill" data-topic="ai-agents" aria-pressed="false">AI Agents / MCP</button>
+              <button type="button" class="topic-pill" data-topic="systems" aria-pressed="false">Systems / C++</button>
+              <button type="button" class="topic-pill" data-topic="remote" aria-pressed="false">Global Remote</button>
+            </div>
+            <div class="pitch-preview" id="pitchPreview">
+              Hi Hamza, I explored your open-source repositories (KeplerBridge / AgentForge / Notion Block Engine) and would love to collaborate or contribute.
+            </div>
+            <div class="collab-actions">
+              <button type="button" class="btn btn-primary" id="copyPitchBtn">Copy Intro Message</button>
+              <button type="button" class="btn btn-secondary" id="copyUrlBtn">Copy Portfolio URL</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
-  <footer><div class="container footer-inner"><p>© <span id="year">2026</span> Hamza Shaikh · @HamzaShaikhAI</p><div class="footer-links"><a href="#home">Back to Top ↑</a><a href="https://github.com/HamzaShaikhAI" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/hamzashaikhai/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></div></footer>
-  <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
-    menuToggle.addEventListener("click", () => {
-      const open = navLinks.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", String(open));
-      menuToggle.textContent = open ? "✕" : "☰";
-    });
-    document.querySelectorAll(".nav-links a").forEach(link => link.addEventListener("click", () => {
-      navLinks.classList.remove("open");
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.textContent = "☰";
-    }));
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> Hamza Shaikh · <span class="mono">@HamzaShaikhAI</span> · Updated <time datetime="2026-11-12">Nov 12, 2026</time></p>
+      <div class="footer-links">
+        <a href="#home">Back to Top ↑</a>
+        <a href="/llms.txt">llms.txt</a>
+        <a href="/sitemap.xml">Sitemap</a>
+        <a href="https://github.com/HamzaShaikhAI" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/hamzashaikhai/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Quick Jump Command Palette -->
+  <div class="palette-backdrop" id="paletteBackdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Quick navigation">
+    <div class="palette">
+      <input type="text" class="palette-input" id="paletteInput" placeholder="Jump to section, toggle theme, or open link… (Esc to close)" aria-label="Search navigation commands">
+      <ul class="palette-list">
+        <li class="palette-item" data-action="#home"><button type="button"><span>Home &amp; Overview</span><span class="hint mono">#home</span></button></li>
+        <li class="palette-item" data-action="#about"><button type="button"><span>About &amp; Workflow</span><span class="hint mono">#about</span></button></li>
+        <li class="palette-item" data-action="#projects"><button type="button"><span>Featured Projects</span><span class="hint mono">#projects</span></button></li>
+        <li class="palette-item" data-action="#comparison"><button type="button"><span>Technical Comparison Matrix</span><span class="hint mono">#comparison</span></button></li>
+        <li class="palette-item" data-action="#technologies"><button type="button"><span>Technologies &amp; Skills</span><span class="hint mono">#technologies</span></button></li>
+        <li class="palette-item" data-action="#faq"><button type="button"><span>Frequently Asked Questions</span><span class="hint mono">#faq</span></button></li>
+        <li class="palette-item" data-action="#contact"><button type="button"><span>Collaborate / Contact</span><span class="hint mono">#contact</span></button></li>
+        <li class="palette-item" data-action="theme"><button type="button"><span>Toggle Dark / Light Theme</span><span class="hint mono">theme</span></button></li>
+        <li class="palette-item" data-action="copy-url"><button type="button"><span>Copy Portfolio URL</span><span class="hint mono">clipboard</span></button></li>
+        <li class="palette-item" data-action="https://github.com/HamzaShaikhAI"><button type="button"><span>Open GitHub Profile</span><span class="hint mono">external ↗</span></button></li>
+        <li class="palette-item" data-action="https://www.linkedin.com/in/hamzashaikhai/"><button type="button"><span>Open LinkedIn Profile</span><span class="hint mono">external ↗</span></button></li>
+        <li class="palette-item" data-action="/llms.txt"><button type="button"><span>View AI Context (llms.txt)</span><span class="hint mono">/llms.txt</span></button></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
 </body>
 </html>
