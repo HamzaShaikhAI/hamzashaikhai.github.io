@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#07080d">
+
+  <title>Running DirectX 12 on NVIDIA GT 740: Inside KeplerBridge's DXIL-to-DXBC Pipeline</title>
+  <meta name="description" content="Technical breakdown of how KeplerBridge translates Direct3D 12 API calls and Shader Model 6.0 DXIL bitcode onto legacy Feature Level 11_0 NVIDIA GT 740 / Kepler GPUs via a drop-in C++20 d3d12.dll proxy.">
+  <meta name="keywords" content="run DX12 on GT 740, KeplerBridge architecture, DXIL to DXBC translator, NVIDIA Kepler DirectX 12, d3d12.dll wrapper, C++20 graphics compatibility">
+  <meta name="author" content="Hamza Shaikh (@HamzaShaikhAI)">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+  <link rel="canonical" href="https://hamzashaikhai.github.io/blog/run-dx12-on-gt740-keplerbridge/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Running DirectX 12 on NVIDIA GT 740: Inside KeplerBridge's DXIL-to-DXBC Pipeline">
+  <meta property="og:description" content="Cleanroom LLVM 3.7 DXIL decoding, SSA Mem2Reg promotion, SHA-256 disk shader cache benchmarks (1.12 ms -> 0.03 ms), and honest Kepler hardware limits.">
+  <meta property="og:url" content="https://hamzashaikhai.github.io/blog/run-dx12-on-gt740-keplerbridge/">
+  <meta property="og:image" content="https://hamzashaikhai.github.io/assets/social-preview.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Running DirectX 12 on NVIDIA GT 740: Inside KeplerBridge's Cleanroom DXIL-to-DXBC Pipeline",
+        "datePublished": "2026-11-12T12:30:00Z",
+        "dateModified": "2026-11-12T12:30:00Z",
+        "author": { "@type": "Person", "name": "Hamza Shaikh", "alternateName": "HamzaShaikhAI", "url": "https://hamzashaikhai.github.io/" },
+        "mainEntityOfPage": "https://hamzashaikhai.github.io/blog/run-dx12-on-gt740-keplerbridge/",
+        "image": "https://hamzashaikhai.github.io/assets/social-preview.png",
+        "keywords": ["KeplerBridge", "GeForce GT 740", "DirectX 12", "DXIL", "DXBC", "NVIDIA Kepler", "C++20"]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="nav-wrap">
+    <nav class="navbar" aria-label="Article Navigation">
+      <div class="nav-inner">
+        <a class="brand" href="/"><img src="/assets/hs-mark.svg" alt="HS Logo" width="32" height="32"><span>HamzaShaikh<span class="gradient-text">AI</span></span></a>
+        <div class="nav-right">
+          <ul class="nav-links" id="navLinks">
+            <li><a href="/">Portfolio</a></li>
+            <li><a href="/keplerbridge/">GT 740 Guide</a></li>
+            <li><a href="/blog/" class="active">Blog</a></li>
+            <li><a href="/#lab-3d">3D Lab</a></li>
+          </ul>
+          <div class="nav-controls">
+            <button type="button" class="theme-circle" id="themeToggle" aria-label="Switch theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <main id="main-content" class="container">
+    <article>
+      <header class="doc-hero">
+        <div class="doc-breadcrumb mono"><a href="/">Portfolio</a><span>/</span><a href="/blog/">Blog</a><span>/</span><span>KeplerBridge Pipeline</span></div>
+        <span class="eyebrow">C++20 · Direct3D 12 · Cleanroom Compiler</span>
+        <h1>Running DirectX 12 on <span class="gradient-text">NVIDIA GT 740</span>: Inside KeplerBridge</h1>
+        <p class="doc-lead">By <strong>Hamza Shaikh (@HamzaShaikhAI)</strong> · <time datetime="2026-11-12">November 12, 2026</time> · 4 min read</p>
+      </header>
+
+      <div class="doc-prose-grid">
+        <section class="doc-card">
+          <h3>Why NVIDIA Kepler Cards Reject DX12 at Startup</h3>
+          <p>KeplerBridge is an open-source ($0, MIT-licensed) C++20 Direct3D 12-to-Direct3D 11 translation layer authored in 2026 to study user-space compatibility on legacy NVIDIA Kepler GPUs—such as the GeForce GT 740 (GK107/GK208), GTX 750, GTX 760, GTX 770, GTX 780, and GTX TITAN. According to NVIDIA driver support schedules, Kepler feature support stopped at Direct3D Feature Level 11_0 (0xB000). Consequently, modern titles compiled for Shader Model 6.0 LLVM DXIL abort during device initialization with DXGI_ERROR_UNSUPPORTED (0x887A0004).</p>
+          <p>In practice, KeplerBridge isolates translation entirely inside a user-space 64-bit d3d12.dll proxy beside the game binary, requiring 0% Windows System32 changes and 0 driver edits across 86 catalogued PC titles.</p>
+        </section>
+
+        <section class="doc-card">
+          <h3>Standalone LLVM 3.7 Decoder &amp; 97.3% Cache Speedup</h3>
+          <p>Rather than bundling full Clang or LLVM shared libraries, KeplerBridge embeds a cleanroom LLVM 3.7 bitstream parser reading MODULE_BLOCK, PARAMATTR_BLOCK, CONSTANTS_BLOCK, and FUNCTION_BLOCK records directly. Step 1 promotes scalar allocas via Mem2Reg SSA lowering. Step 2 reconstructs structured control flow through synthetic critical-edge splitting and bounded natural loop lowering. Step 3 emits Shader Model 5.0 DXBC containers (SHDR/SHEX, ISGN, OSGN, RDEF) stamped with authentic MurmurHash headers.</p>
+          <p>Per public KeplerBridge v0.5.0-rc1 microbenchmarks, deterministic SHA-256 disk caching lowers shader reload latency by 97.3% (1.12 ms cold translation to 0.03 ms warm disk hit, over 35x faster on synthetic fixtures).</p>
+        </section>
+      </div>
+
+      <section class="doc-card" style="margin-top:18px;">
+        <h3>Translation Architecture Diagram</h3>
+        <div class="arch-preview" style="margin-top:12px;">
+          <svg viewBox="0 0 760 110" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="KeplerBridge user-space DX12 to DX11 translation architecture">
+            <rect x="8" y="20" width="150" height="68" rx="10" class="svg-node"/>
+            <text x="83" y="49" text-anchor="middle" class="svg-title">DX12 Game .exe</text>
+            <text x="83" y="68" text-anchor="middle" class="svg-sub">SM 6.0 LLVM DXIL</text>
+            <path class="flow-line" d="M164 54H208"/>
+            <rect x="212" y="14" width="170" height="80" rx="10" class="svg-node-accent"/>
+            <text x="297" y="42" text-anchor="middle" class="svg-title-accent">d3d12.dll Proxy</text>
+            <text x="297" y="60" text-anchor="middle" class="svg-sub">Cleanroom DXIL Decoder</text>
+            <text x="297" y="76" text-anchor="middle" class="svg-sub">SHA-256 Disk Cache</text>
+            <path class="flow-line" d="M388 54H432"/>
+            <rect x="436" y="14" width="152" height="80" rx="10" class="svg-node"/>
+            <text x="512" y="45" text-anchor="middle" class="svg-title">SM 5.0 DXBC</text>
+            <text x="512" y="65" text-anchor="middle" class="svg-sub">D3D11 Command Batch</text>
+            <path class="flow-line" d="M594 54H636"/>
+            <rect x="640" y="20" width="112" height="68" rx="10" class="svg-node-ok"/>
+            <text x="696" y="49" text-anchor="middle" class="svg-title">GT 740 GPU</text>
+            <text x="696" y="68" text-anchor="middle" class="svg-sub">FL 11_0 Native</text>
+          </svg>
+        </div>
+        <p style="margin-top:14px;"><strong>Honest hardware boundaries:</strong> Compute shaders emulate missing wave intrinsics (<code>WaveActiveSum</code>) via groupshared LDS reduction trees, and 64-bit integer math lowers to 32-bit carry/borrow pairs. However, workloads mandating Tier 3 bindless descriptor indexing or hardware ray tracing (such as UE 5.1 <em>Palworld</em> in D3D12 mode) exceed Kepler silicon capabilities; when an engine provides a native <code>-dx11</code> launch flag, native D3D11 remains the faster path.</p>
+        <div class="hero-actions" style="margin-top:18px;">
+          <a class="btn btn-primary" href="/keplerbridge/">Full GT 740 Install &amp; Compatibility Guide</a>
+          <a class="btn btn-secondary" href="https://github.com/HamzaShaikhAI/KeplerBridge" target="_blank" rel="noopener noreferrer">KeplerBridge GitHub ↗</a>
+          <a class="btn btn-secondary" href="/#lab-3d">Inspect 3D Model</a>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> Hamza Shaikh (@HamzaShaikhAI)</span>
+      <div class="footer-links"><a href="/blog/">All Blog Posts</a><a href="/keplerbridge/">GT 740 Guide</a><a href="/">Portfolio</a></div>
+    </div>
+  </footer>
+  <script>
+    const root = document.documentElement;
+    root.setAttribute('data-theme', localStorage.getItem('hs-theme') || 'dark');
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('hs-theme', next);
+    });
+  </script>
+</body>
+</html>

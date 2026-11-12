@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#07080d">
+
+  <title>Engineering Blog | Hamza Shaikh (@HamzaShaikhAI) — C++20, DirectX 12 &amp; AI Agents</title>
+  <meta name="description" content="Technical articles, architecture breakdowns, and engineering notes by Hamza Shaikh (@HamzaShaikhAI) covering KeplerBridge (DirectX 12 on NVIDIA GT 740), AgentForge MCP security, and systems tooling.">
+  <meta name="author" content="Hamza Shaikh (@HamzaShaikhAI)">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+  <link rel="canonical" href="https://hamzashaikhai.github.io/blog/">
+  <link rel="alternate" hreflang="x-default" href="https://hamzashaikhai.github.io/blog/">
+  <link rel="alternate" hreflang="en" href="https://hamzashaikhai.github.io/blog/">
+  <link rel="alternate" type="text/plain" title="LLM Context Summary" href="https://hamzashaikhai.github.io/llms.txt">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HamzaShaikhAI">
+  <meta property="og:title" content="Engineering Blog | Hamza Shaikh (@HamzaShaikhAI)">
+  <meta property="og:description" content="Deep dives into Direct3D 12 shader translation on legacy NVIDIA Kepler GPUs, deterministic AI agent approval gates, and zero-dependency TypeScript engines.">
+  <meta property="og:url" content="https://hamzashaikhai.github.io/blog/">
+  <meta property="og:image" content="https://hamzashaikhai.github.io/assets/social-preview.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Blog",
+        "@id": "https://hamzashaikhai.github.io/blog/#blog",
+        "name": "Hamza Shaikh Engineering Blog",
+        "url": "https://hamzashaikhai.github.io/blog/",
+        "description": "Original technical write-ups on Windows systems programming, DXIL-to-DXBC translation, AI agent permissions, and TypeScript architecture.",
+        "author": {
+          "@type": "Person",
+          "name": "Hamza Shaikh",
+          "alternateName": "HamzaShaikhAI",
+          "url": "https://hamzashaikhai.github.io/"
+        },
+        "blogPost": [
+          {
+            "@type": "BlogPosting",
+            "headline": "Running DirectX 12 on NVIDIA GT 740: Inside KeplerBridge's Cleanroom DXIL-to-DXBC Pipeline",
+            "url": "https://hamzashaikhai.github.io/blog/run-dx12-on-gt740-keplerbridge/",
+            "datePublished": "2026-11-12T12:30:00Z"
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "Deterministic MCP Workflows: Designing Permission Tiers and Approval Gates in AgentForge",
+            "url": "https://hamzashaikhai.github.io/blog/agentforge-mcp-approval-gates/",
+            "datePublished": "2026-11-12T12:30:00Z"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="nav-wrap">
+    <nav class="navbar" aria-label="Blog Navigation">
+      <div class="nav-inner">
+        <a class="brand" href="/">
+          <img src="/assets/hs-mark.svg" alt="HS Logo" width="32" height="32">
+          <span>HamzaShaikh<span class="gradient-text">AI</span></span>
+        </a>
+        <div class="nav-right">
+          <ul class="nav-links" id="navLinks">
+            <li><a href="/">Portfolio</a></li>
+            <li><a href="/keplerbridge/">GT 740 Guide</a></li>
+            <li><a href="/blog/" class="active">Blog</a></li>
+            <li><a href="/#lab-3d">3D Lab</a></li>
+            <li><a href="/#projects">Projects</a></li>
+          </ul>
+          <div class="nav-controls">
+            <button type="button" class="theme-circle" id="themeToggle" aria-label="Switch theme" title="Toggle Dark/Light Theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <main id="main-content" class="container">
+    <section class="doc-hero">
+      <div class="doc-breadcrumb mono">
+        <a href="/">Portfolio</a><span>/</span><span>Engineering Blog</span>
+      </div>
+      <span class="eyebrow">Technical Journal · Systems, Graphics &amp; AI Agents</span>
+      <h1>Engineering <span class="gradient-text">Deep Dives</span> &amp; Notes</h1>
+      <p class="doc-lead">Original architectural notes, verified implementation breakdowns, and transparent benchmarks from building KeplerBridge, AgentForge, and developer tooling.</p>
+
+      <div class="project-toolbar" style="margin-top:20px;">
+        <div class="filter-bar" role="group" aria-label="Filter articles" style="margin-bottom:0;">
+          <button type="button" class="filter-btn" data-cat="all" aria-pressed="true">All Posts (2)</button>
+          <button type="button" class="filter-btn" data-cat="systems" aria-pressed="false">Systems &amp; GPU</button>
+          <button type="button" class="filter-btn" data-cat="ai" aria-pressed="false">AI &amp; MCP Agents</button>
+        </div>
+        <input type="search" id="blogSearch" class="search-input" placeholder="Search articles (e.g. GT 740, DXIL, MCP)…" aria-label="Search blog articles">
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:16px;">
+      <div class="doc-prose-grid" id="blogGrid">
+        <article class="doc-card" data-cat="systems">
+          <div class="eyebrow mono">Nov 12, 2026 · Systems &amp; Graphics · C++20</div>
+          <h3><a href="/blog/run-dx12-on-gt740-keplerbridge/" style="color:var(--text);">Running DirectX 12 on NVIDIA GT 740: Inside KeplerBridge's Cleanroom DXIL-to-DXBC Pipeline</a></h3>
+          <p>How KeplerBridge bypasses NVIDIA Kepler's <code>D3D_FEATURE_LEVEL_11_0</code> wall using a standalone LLVM 3.7 bitstream decoder, Mem2Reg SSA promotion, and a SHA-256 disk shader cache cutting warm loads by 97.3% (1.12 ms to 0.03 ms).</p>
+          <div class="project-links" style="margin-top:14px;">
+            <a href="/blog/run-dx12-on-gt740-keplerbridge/">Read Article →</a>
+            <a href="/keplerbridge/">GT 740 Guide</a>
+          </div>
+        </article>
+
+        <article class="doc-card" data-cat="ai">
+          <div class="eyebrow mono">Nov 12, 2026 · AI Infrastructure · TypeScript</div>
+          <h3><a href="/blog/agentforge-mcp-approval-gates/" style="color:var(--text);">Deterministic MCP Workflows: Designing Permission Tiers and Approval Gates in AgentForge</a></h3>
+          <p>Inside AgentForge's four-tier capability model (<code>read</code>, <code>local-write</code>, <code>external-write</code>, <code>publish</code>/<code>destructive</code>), schema-validated bridge manifests, and strict credential isolation for autonomous AI coding agents.</p>
+          <div class="project-links" style="margin-top:14px;">
+            <a href="/blog/agentforge-mcp-approval-gates/">Read Article →</a>
+            <a href="https://github.com/HamzaShaikhAI/AgentForge" target="_blank" rel="noopener noreferrer">AgentForge Repo ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> Hamza Shaikh (@HamzaShaikhAI) · Engineering Blog</span>
+      <div class="footer-links">
+        <a href="/">Portfolio</a>
+        <a href="/keplerbridge/">GT 740 Guide</a>
+        <a href="/llms.txt">llms.txt</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    root.setAttribute('data-theme', localStorage.getItem('hs-theme') || 'dark');
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('hs-theme', next);
+    });
+    let activeCat = 'all';
+    const cards = [...document.querySelectorAll('#blogGrid article')];
+    const searchEl = document.getElementById('blogSearch');
+    function filterPosts() {
+      const q = (searchEl.value || '').trim().toLowerCase();
+      cards.forEach((c) => {
+        const matchCat = activeCat === 'all' || c.dataset.cat === activeCat;
+        const matchQ = !q || c.textContent.toLowerCase().includes(q);
+        c.style.display = (matchCat && matchQ) ? '' : 'none';
+      });
+    }
+    document.querySelectorAll('.filter-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        activeCat = btn.dataset.cat;
+        document.querySelectorAll('.filter-btn').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+        filterPosts();
+      });
+    });
+    searchEl.addEventListener('input', filterPosts);
+  </script>
+</body>
+</html>
