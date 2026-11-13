@@ -13,6 +13,7 @@
 
 - [KeplerBridge](https://github.com/HamzaShaikhAI/KeplerBridge): Open-source C++20 Direct3D 12-to-Direct3D 11 (`d3d12.dll` proxy) compatibility layer enabling DirectX 12 workloads on legacy NVIDIA Kepler GPUs (GeForce GT 740, GTX 750, GTX 760, GTX 770, GTX 780, GTX TITAN / GK107, GK104, GK208, Feature Level 11_0) via cleanroom LLVM 3.7 Shader Model 6.0 DXIL-to-SM 5.0 DXBC lowering (`v0.5.0-rc1`, Windows x64, MIT).
 - [AgentForge](https://github.com/HamzaShaikhAI/AgentForge): Local-first TypeScript 5.6 and Node.js (>=20) AI agent integration and workflow platform for Google Antigravity with MCP bridges, Manager UI dashboard, fine-grained permission gates, human approval checkpoints, and credential isolation (MIT).
+- [Remotion-For-Antigravity](https://github.com/HamzaShaikhAI/Remotion-For-Antigravity): Autonomous motion graphics, video editing & multimedia engine for Google Antigravity 2.0 AI agents. Programmatic React video generation, deterministic spring physics, bundled zero-config FFmpeg, lossless trimming & EBU R128 loudness normalization (`rea` CLI, MIT).
 - [Notion Block Engine](https://github.com/HamzaShaikhAI/notion-block-engine): Zero-dependency TypeScript 5.0+ (<15 KB) engine for bidirectional conversion and dirty clipboard HTML sanitization (Google Docs, MS Word) between HTML, GFM Markdown, and Notion-style Block ASTs (MIT).
 - [VYDRIX](https://github.com/HamzaShaikhAI/VYDRIX): Archived C#/.NET Windows cloud-backed virtual storage experiment using WinFsp, preserved with a public technical post-mortem.
 

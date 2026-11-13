@@ -99,8 +99,17 @@
       url: "https://github.com/HamzaShaikhAI/AgentForge",
       cta: "Inspect AgentForge Repository ↗"
     },
+    remotion: {
+      meta: "NODE_03 // TYPESCRIPT · REACT · REMOTION",
+      status: "OPEN_SOURCE",
+      title: "Remotion-For-Antigravity",
+      desc: "Autonomous video motion graphics, editing & multimedia engine for Google Antigravity 2.0 AI agents with deterministic spring physics.",
+      pipe: "Antigravity Agent  →  React Remotion  →  Zero-Config FFmpeg Video",
+      url: "https://github.com/HamzaShaikhAI/Remotion-For-Antigravity",
+      cta: "Inspect Remotion-For-Antigravity Repository ↗"
+    },
     notion: {
-      meta: "NODE_03 // TYPESCRIPT · ZERO_DEPS",
+      meta: "NODE_04 // TYPESCRIPT · ZERO_DEPS",
       status: "OPEN_SOURCE",
       title: "Notion Block Engine",
       desc: "Bidirectional Markdown, HTML, and clipboard sanitizer converting rich content into a Notion-compatible Block AST.",
@@ -279,6 +288,7 @@
   const cliSnippets = {
     kepler: "git clone https://github.com/HamzaShaikhAI/KeplerBridge.git\n# Place d3d12.dll + kepler_bridge.ini next to your 64-bit game .exe (MIT)",
     agentforge: "git clone https://github.com/HamzaShaikhAI/AgentForge.git && cd AgentForge\nnpm install && npm run build   # Node.js >=20 · TypeScript 5.6",
+    remotion: "git clone https://github.com/HamzaShaikhAI/Remotion-For-Antigravity.git\ncd Remotion-For-Antigravity && npm install\nnpx rea --help   # Autonomous React video engine for Google Antigravity 2.0",
     notion: "git clone https://github.com/HamzaShaikhAI/notion-block-engine.git\n# Zero runtime dependencies (<15 KB): HTML / Markdown <-> Notion Block AST"
   };
 

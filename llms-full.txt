@@ -42,7 +42,16 @@
 - Status: Active Development
 - Summary: Local-first integration and workflow runtime for Google Antigravity with a built-in Manager UI dashboard. AgentForge provides Model Context Protocol (MCP) server presets, extensible service bridges, fine-grained permission boundaries, human-in-the-loop approval checkpoints, durable multi-step workflows, and credential isolation.
 
-### 3. Notion Block Engine
+### 3. Remotion-For-Antigravity
+- Repository: https://github.com/HamzaShaikhAI/Remotion-For-Antigravity
+- License: MIT
+- Category: Autonomous AI Motion Graphics / Multimedia Engine
+- Primary Language: TypeScript 5.0+ / React 18 / Remotion 4 / Node.js
+- CLI: `rea` (Remotion Engine for Antigravity)
+- Status: Open Source
+- Summary: Autonomous motion graphics, video editing & multimedia engine built specifically for Google Antigravity 2.0 AI agents. Supports programmatic React video generation, deterministic spring physics, bundled zero-config FFmpeg, lossless trimming, and broadcast-grade EBU R128 audio normalization.
+
+### 4. Notion Block Engine
 - Repository: https://github.com/HamzaShaikhAI/notion-block-engine
 - License: MIT
 - Category: Developer Tooling / Content Parsing
@@ -50,7 +59,7 @@
 - Status: Open Source
 - Summary: Bidirectional content conversion engine that parses dirty clipboard HTML (including Google Docs `docs-internal-guid` spans and MS Word XML comments), GFM Markdown, and semantic HTML into a Notion-compatible Block Abstract Syntax Tree (AST) and serializes cleanly back without requiring heavy DOM emulators like `jsdom`.
 
-### 4. VYDRIX
+### 5. VYDRIX
 - Repository: https://github.com/HamzaShaikhAI/VYDRIX
 - Category: Windows Filesystem / Virtual Storage
 - Primary Language: C# / .NET / WinFsp
