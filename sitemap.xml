@@ -19,6 +19,12 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://hamzashaikhai.github.io/blog/2026-11-13-stateless-mcp-agent-security/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://hamzashaikhai.github.io/blog/gemini-4-hydrogen-sub-millisecond-edge-agents/</loc>
     <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>

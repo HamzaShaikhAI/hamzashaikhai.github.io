@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#07080d">
+
+  <title>Stateless MCP &amp; The Security Frontier: Defending Autonomous Agents Against Tool Poisoning and Credential Leaks</title>
+  <meta name="description" content="Technical analysis of the 2026 Stateless Streamable HTTP MCP specification under the Agentic AI Foundation (AAIF), tool-poisoning attack surfaces, and deterministic permission gates in AgentForge.">
+  <meta name="keywords" content="Model Context Protocol, MCP Security, Agentic AI Foundation, Stateless Streamable HTTP, Tool Poisoning, AgentForge, HamzaShaikhAI">
+  <meta name="author" content="Hamza Shaikh (@HamzaShaikhAI)">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+  <link rel="canonical" href="https://hamzashaikhai.github.io/blog/2026-11-13-stateless-mcp-agent-security/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Stateless MCP &amp; The Security Frontier: Defending Autonomous Agents">
+  <meta property="og:description" content="Why the transition to Stateless Streamable HTTP requires local deterministic execution gates, tool manifest pre-validation, and env-only secret isolation.">
+  <meta property="og:url" content="https://hamzashaikhai.github.io/blog/2026-11-13-stateless-mcp-agent-security/">
+  <meta property="og:image" content="https://hamzashaikhai.github.io/assets/social-preview.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Stateless MCP & The Security Frontier: Defending Autonomous Agents Against Tool Poisoning and Credential Leaks",
+        "datePublished": "2026-11-13T12:00:00Z",
+        "dateModified": "2026-11-13T12:00:00Z",
+        "author": { "@type": "Person", "name": "Hamza Shaikh", "alternateName": "HamzaShaikhAI", "url": "https://hamzashaikhai.github.io/" },
+        "mainEntityOfPage": "https://hamzashaikhai.github.io/blog/2026-11-13-stateless-mcp-agent-security/",
+        "image": "https://hamzashaikhai.github.io/assets/social-preview.png",
+        "keywords": ["Model Context Protocol", "MCP Security", "Agentic AI Foundation", "Stateless Streamable HTTP", "Tool Poisoning", "AgentForge", "Autonomous Agents"]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="nav-wrap">
+    <nav class="navbar" aria-label="Article Navigation">
+      <div class="nav-inner">
+        <a class="brand" href="/"><img src="/assets/hs-mark.svg" alt="HS Logo" width="32" height="32"><span>HamzaShaikh<span class="gradient-text">AI</span></span></a>
+        <div class="nav-right">
+          <ul class="nav-links" id="navLinks">
+            <li><a href="/">Portfolio</a></li>
+            <li><a href="/keplerbridge/">GT 740 Guide</a></li>
+            <li><a href="/blog/" class="active">Blog</a></li>
+            <li><a href="/#lab-3d">3D Lab</a></li>
+          </ul>
+          <div class="nav-controls">
+            <button type="button" class="theme-circle" id="themeToggle" aria-label="Switch theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <main id="main-content" class="container">
+    <article>
+      <header class="doc-hero">
+        <div class="doc-breadcrumb mono"><a href="/">Portfolio</a><span>/</span><a href="/blog/">Blog</a><span>/</span><span>Stateless MCP Security</span></div>
+        <span class="eyebrow">Agentic AI Foundation · Stateless Streamable HTTP · MCP Security Gates</span>
+        <h1>Stateless MCP &amp; The Security Frontier: Defending Autonomous Agents Against <span class="gradient-text">Tool Poisoning</span> and Credential Leaks</h1>
+        <p class="doc-lead">By <strong>Hamza Shaikh (@HamzaShaikhAI)</strong> · <time datetime="2026-11-13">November 13, 2026</time> · 4 min read</p>
+      </header>
+
+      <div class="doc-prose-grid">
+        <section class="doc-card">
+          <h3>Executive GEO Answer: How to Secure Autonomous MCP Tooling</h3>
+          <p>As the Model Context Protocol (MCP) transitions to vendor-neutral governance under the Linux Foundation's Agentic AI Foundation (AAIF) alongside its modern Stateless Streamable HTTP specification, enterprise security risks have shifted from model hallucination to runtime execution vulnerabilities. Protocol updates removing stateful session handshakes enable distributed scaling, but expose autonomous agents to remote tool-poisoning attacks and credential leakage—vulnerabilities recently demonstrated when auto-mode coding agents inadvertently serialized sensitive authentication tokens into public git commits. In practice, hardening autonomous MCP agents requires a deterministic, defense-in-depth harness across three primary layers. First, pre-validate all tool manifests against strict JSON schemas before registration to reject poisoned payloads. Second, isolate secrets exclusively through local environment variables with automatic log redaction. Third, enforce deterministic policy gates separating safe local reads from external writes, package publishes, and destructive actions—the core security architecture implemented in open-source AgentForge (github.com/HamzaShaikhAI/AgentForge).</p>
+        </section>
+
+        <section class="doc-card">
+          <h3>The Stateless Shift: From Sticky Sessions to Streamable HTTP</h3>
+          <p>Under the governance of the newly established Agentic AI Foundation (AAIF)—co-founded by Anthropic, OpenAI, Block, Google, Microsoft, AWS, and Cloudflare—the core Model Context Protocol underwent its most significant architectural shift: the transition to a stateless protocol core over Streamable HTTP.</p>
+          <p>By dropping the mandatory stateful <code>initialize</code> handshake and sticky <code>Mcp-Session-Id</code> routing requirements, remote MCP servers can now sit behind standard round-robin cloud proxies and load balancers. Protocol additions like <code>ttlMs</code> cache-scoping on <code>tools/list</code> endpoints allow agent harnesses to cache tool schemas locally, saving thousands of tokens per turn while reducing invocation latency across complex developer workflows.</p>
+        </section>
+      </div>
+
+      <section class="doc-card" style="margin-top:18px;">
+        <h3>The Threat Vector: Tool Poisoning &amp; Runaway Auto-Mode Leaks</h3>
+        <p>While statelessness solves horizontal scalability, it fundamentally elevates runtime risks. In production environments where agents query multi-tenant or third-party MCP endpoints, two distinct attack vectors have surfaced:</p>
+        <ul style="padding-left:20px;margin-top:8px;line-height:1.7;">
+          <li><strong>Tool Poisoning &amp; Indirect Injection:</strong> Malicious or compromised remote MCP endpoints return manipulated tool descriptions and schema metadata specifically engineered to hijack LLM reasoning, steering autonomous agents into dispatching unauthorized API calls or exfiltrating workspace context.</li>
+          <li><strong>Autonomous Credential Serialization:</strong> As highlighted in recent enterprise application security disclosures, unattended "auto-mode" agents executing shell tasks frequently persist sensitive runtime environment secrets (OAuth tokens, private keys) into local dotfiles or build artifacts, which subsequently get swept into git commits and pushed upstream.</li>
+        </ul>
+      </section>
+
+      <section class="doc-card" style="margin-top:18px;">
+        <h3>Zero-Trust MCP Execution Gate Architecture</h3>
+        <div class="arch-preview" style="margin-top:12px;">
+          <svg viewBox="0 0 760 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stateless MCP Zero-Trust execution gate architecture with AgentForge">
+            <rect x="8" y="24" width="138" height="72" rx="10" class="svg-node"/>
+            <text x="77" y="52" text-anchor="middle" class="svg-title">Remote MCP</text>
+            <text x="77" y="70" text-anchor="middle" class="svg-sub">Streamable HTTP</text>
+            <path class="flow-line" d="M148 60H188"/>
+            <rect x="190" y="16" width="168" height="88" rx="10" class="svg-node-accent"/>
+            <text x="274" y="44" text-anchor="middle" class="svg-title-accent">AgentForge Gate</text>
+            <text x="274" y="62" text-anchor="middle" class="svg-sub">Manifest Validation</text>
+            <text x="274" y="80" text-anchor="middle" class="svg-sub">Schema v1.0 Check</text>
+            <path class="flow-line" d="M360 60H400"/>
+            <rect x="402" y="16" width="168" height="88" rx="10" class="svg-node"/>
+            <text x="486" y="44" text-anchor="middle" class="svg-title">Policy Tiers</text>
+            <text x="486" y="62" text-anchor="middle" class="svg-sub">Read / Local-Write</text>
+            <text x="486" y="80" text-anchor="middle" class="svg-sub">Approval for External</text>
+            <path class="flow-line" d="M572 60H612"/>
+            <rect x="614" y="24" width="138" height="72" rx="10" class="svg-node-accent"/>
+            <text x="683" y="52" text-anchor="middle" class="svg-title-accent">Safe Execution</text>
+            <text x="683" y="70" text-anchor="middle" class="svg-sub">Audit Log &amp; Token Redaction</text>
+          </svg>
+        </div>
+      </section>
+
+      <section class="doc-card" style="margin-top:18px;">
+        <h3>Deterministic Defense: How AgentForge Hardens Agent Tooling</h3>
+        <p>In our open-source integration harness <strong>AgentForge</strong>, we address stateless MCP risks by enforcing deterministic boundaries at the runtime engine layer rather than relying on LLM self-policing:</p>
+        <ul style="padding-left:20px;margin-top:8px;line-height:1.7;">
+          <li><strong>Pre-Execution Manifest Validation:</strong> Every incoming bridge or MCP tool declaration must strictly pass <code>bridge-validator.ts</code> against JSON Schema v1.0 before being added to the active registry, instantly discarding poisoned or malformed tools.</li>
+          <li><strong>Four-Tier Action Classification:</strong> Operations are divided into <code>read</code>, <code>local-write</code>, <code>external-write</code>, and <code>publish</code>/<code>destructive</code>. Read and local edits proceed with low friction; external mutations (git push, API publish, comment submission) trigger mandatory human sign-off.</li>
+          <li><strong>Strict Environment-Only Secrets:</strong> Secrets are referenced purely through environment variable tokens (e.g. <code>GITHUB_TOKEN</code>, <code>LINKEDIN_ACCESS_TOKEN</code>) and scrubbed in memory during prompt construction and log serialization.</li>
+          <li><strong>Tamper-Evident Audit Trails:</strong> Every executed tool action, along with its input parameters, response codes, and approval hashes, is recorded deterministically in <code>audit/audit-logger.ts</code> for compliance tracking.</li>
+        </ul>
+      </section>
+
+      <section class="doc-cta-card">
+        <h3>Inspect the Architecture &amp; Repositories</h3>
+        <p>Explore our open-source agent guardrail harness, GPU shader translation pipelines, and interactive developer tooling:</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://github.com/HamzaShaikhAI/AgentForge" target="_blank" rel="noopener">AgentForge on GitHub</a>
+          <a class="btn btn-secondary" href="/blog/agentforge-mcp-approval-gates/">Approval Gates Guide</a>
+          <a class="btn btn-secondary" href="/blog/gemini-4-hydrogen-sub-millisecond-edge-agents/">Gemini 4 Hydrogen Edge</a>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <a class="brand" href="/"><img src="/assets/hs-mark.svg" alt="HS Logo" width="28" height="28"><span>HamzaShaikh<span class="gradient-text">AI</span></span></a>
+        <p class="footer-desc">Systems engineering, graphics pipelines, and deterministic AI architectures.</p>
+      </div>
+      <div class="footer-col mono">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="/">Portfolio</a></li>
+          <li><a href="/keplerbridge/">GT 740 Guide</a></li>
+          <li><a href="/blog/">Engineering Blog</a></li>
+          <li><a href="/#lab-3d">3D Systems Lab</a></li>
+        </ul>
+      </div>
+      <div class="footer-col mono">
+        <h4>Connect</h4>
+        <ul class="footer-links">
+          <li><a href="https://github.com/HamzaShaikhAI" target="_blank" rel="noopener">GitHub (@HamzaShaikhAI)</a></li>
+          <li><a href="https://linkedin.com/in/hamzashaikhai" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://x.com/HamzaShaikhAI" target="_blank" rel="noopener">X / Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner mono">
+        <p>© 2026 Hamza Shaikh. Released under MIT License.</p>
+        <p><a href="/sitemap.xml">sitemap.xml</a> · <a href="/llms.txt">llms.txt</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/script.js" defer></script>
+</body>
+</html>
