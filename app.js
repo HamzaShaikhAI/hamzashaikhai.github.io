@@ -249,8 +249,8 @@
         text: "AgentForge enforces human-in-the-loop approval checkpoints and credential isolation before external commits, pushes, or API writes."
       },
       {
-        title: "Zero-Bloat Production Libraries",
-        text: "Notion Block Engine runs in under 15 KB with 0 external runtime dependencies—no heavy jsdom containers or fragile markdown hacks."
+        title: "Autonomous Video & Multimedia AI",
+        text: "Remotion-For-Antigravity powers programmatic 4K/60fps video rendering via the REA CLI with deterministic spring physics and broadcast-grade EBU R128 audio normalization."
       }
     ],
     power: [
@@ -263,8 +263,8 @@
         text: "Zero telemetry trackers, local Manager UI in AgentForge, and Ollama/local-LLM workflows (PS-O1) that keep keys and prompts on your machine."
       },
       {
-        title: "Configurable INI & Logs",
-        text: "Inspect runtime behavior transparently via kepler_bridge.log, tune kepler_bridge.ini flags, and audit every step via GitHub source."
+        title: "Programmatic React Video Engine",
+        text: "Generate broadcast-ready developer demos and animations with REA CLI, React Remotion, and bundled zero-config FFmpeg in one command."
       }
     ]
   };

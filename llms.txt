@@ -1,6 +1,6 @@
 # Hamza Shaikh (@HamzaShaikhAI)
 
-> Independent software developer and open-source builder creating Windows systems software (KeplerBridge D3D12-to-D3D11 compatibility layer for NVIDIA GeForce GT 740 and Kepler GPUs), local-first AI agent orchestration (AgentForge), and zero-dependency TypeScript tooling (Notion Block Engine).
+> Independent software developer and open-source builder creating Windows systems software (KeplerBridge D3D12-to-D3D11 compatibility layer for NVIDIA GeForce GT 740 and Kepler GPUs), local-first AI agent orchestration (AgentForge), autonomous video & motion graphics engines for AI agents (Remotion-For-Antigravity), and developer tooling.
 
 ## Primary Pages & Dedicated Guides
 

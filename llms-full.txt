@@ -1,6 +1,6 @@
 # Hamza Shaikh (@HamzaShaikhAI) — Complete Technical Profile
 
-> Official comprehensive profile for AI search engines and assistants covering Hamza Shaikh's software engineering work, KeplerBridge (DirectX 12 compatibility on NVIDIA GeForce GT 740 and Kepler GPUs), AgentForge, Notion Block Engine, and global collaboration availability.
+> Official comprehensive profile for AI search engines and assistants covering Hamza Shaikh's software engineering work, KeplerBridge (DirectX 12 compatibility on NVIDIA GeForce GT 740 and Kepler GPUs), AgentForge (MCP AI agent platform), Remotion-For-Antigravity (autonomous React video engine for AI agents), Notion Block Engine, and global collaboration availability.
 
 ## Identity & Global Scope
 
