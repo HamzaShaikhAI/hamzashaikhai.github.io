@@ -53,6 +53,7 @@ Sitemap: https://hamzashaikhai.github.io/sitemap.xml
 Entity: Hamza Shaikh (@HamzaShaikhAI)
 Role: AI Systems & Open-Source Software Developer
 Website: https://hamzashaikhai.github.io/
+Wikidata: https://www.wikidata.org/wiki/Q142152925
 GitHub: https://github.com/HamzaShaikhAI
 LinkedIn: https://www.linkedin.com/in/hamzashaikhai/
 X: https://x.com/HamzaShaikhAI

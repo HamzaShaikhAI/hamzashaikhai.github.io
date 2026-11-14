@@ -28,6 +28,7 @@
 ## Contact & Official Links
 
 - Website: https://hamzashaikhai.github.io/
+- Wikidata Knowledge Base: https://www.wikidata.org/wiki/Q142152925
 - KeplerBridge Guide: https://hamzashaikhai.github.io/keplerbridge/
 - GitHub: https://github.com/HamzaShaikhAI
 - LinkedIn: https://www.linkedin.com/in/hamzashaikhai/
