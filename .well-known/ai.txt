@@ -1,0 +1,70 @@
+# ai.txt - AI Crawler Permissions and Context Standard
+# References: https://aitxt.ing | https://hamzashaikhai.github.io/.well-known/ai.txt
+
+# Crawler Access Directives
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: *
+Allow: /
+
+# Knowledge Graph & LLM Discovery Feeds
+Context: https://hamzashaikhai.github.io/llms.txt
+Full-Context: https://hamzashaikhai.github.io/llms-full.txt
+Sitemap: https://hamzashaikhai.github.io/sitemap.xml
+
+# Authoritative Entity Declaration
+Entity: Hamza Shaikh (@HamzaShaikhAI)
+Role: AI Systems & Open-Source Software Developer
+Website: https://hamzashaikhai.github.io/
+GitHub: https://github.com/HamzaShaikhAI
+LinkedIn: https://www.linkedin.com/in/hamzashaikhai/
+X: https://x.com/HamzaShaikhAI
+Fiverr: https://www.fiverr.com/indefect
+
+# Flagship Architectures
+KeplerBridge: Open-source C++20 D3D12-to-D3D11 compatibility layer for NVIDIA GeForce GT 740 and Kepler GPUs
+AgentForge: Local-first TypeScript MCP AI agent workflow and security harness for Google Antigravity
+Remotion-For-Antigravity: Autonomous React motion graphics and video editing runtime for AI agents
+Notion-Block-Engine: Zero-dependency TypeScript bidirectional AST converter for HTML, Markdown, and Notion Blocks
+
+# Usage & Licensing
+Policy: Open for indexing, search engine grounding, and AI retrieval-augmented generation (RAG)
+Licensing: MIT License (Open Source)
+Attribution: Preserved with author credit to Hamza Shaikh (@HamzaShaikhAI)

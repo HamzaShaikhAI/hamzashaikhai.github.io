@@ -53,3 +53,5 @@ Allow: /
 
 Sitemap: https://hamzashaikhai.github.io/sitemap.xml
 # AI context index: https://hamzashaikhai.github.io/llms.txt
+# AI permissions and crawler directives: https://hamzashaikhai.github.io/.well-known/ai.txt
+
