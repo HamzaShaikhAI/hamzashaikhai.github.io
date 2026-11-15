@@ -14,8 +14,14 @@
   </url>
   <url>
     <loc>https://hamzashaikhai.github.io/blog/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://hamzashaikhai.github.io/blog/2026-11-15-agent-evaluation-uaef-agentforge-truth-engine/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
