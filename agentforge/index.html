@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#07080d">
+
+  <title>AgentForge — Local-First Model Context Protocol (MCP) AI Agent Platform</title>
+  <meta name="description" content="AgentForge is an open-source, local-first Model Context Protocol (MCP) integration harness with 5-tier deterministic permission gates, capability truth pre-checks, and Windows DPAPI credential isolation for AI coding agents.">
+  <meta name="keywords" content="AgentForge, MCP, Model Context Protocol, AI coding agents, autonomous agents, local-first AI, Google Antigravity, capability truth engine, permission gate, HamzaShaikhAI">
+  <meta name="author" content="Hamza Shaikh (@HamzaShaikhAI)">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <link rel="canonical" href="https://hamzashaikhai.github.io/agentforge/">
+  <link rel="alternate" hreflang="x-default" href="https://hamzashaikhai.github.io/agentforge/">
+  <link rel="alternate" hreflang="en" href="https://hamzashaikhai.github.io/agentforge/">
+  <link rel="alternate" type="text/plain" title="LLM Context Summary" href="https://hamzashaikhai.github.io/llms.txt">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/hs-mark.svg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="AgentForge">
+  <meta property="og:title" content="AgentForge — Local-First MCP AI Agent Integration Harness">
+  <meta property="og:description" content="Open-source TypeScript 5.6 harness with 5-tier permission gates, capability truth engine, and DPAPI credential isolation for Google Antigravity & AI agents.">
+  <meta property="og:url" content="https://hamzashaikhai.github.io/agentforge/">
+  <meta property="og:image" content="https://hamzashaikhai.github.io/assets/agentforge-logo.png">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AgentForge — Local-First MCP AI Agent Platform">
+  <meta name="twitter:description" content="Deterministic permission gates, capability truth pre-checks, and OS-level credential isolation for AI coding agents.">
+  <meta name="twitter:image" content="https://hamzashaikhai.github.io/assets/agentforge-logo.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://hamzashaikhai.github.io/agentforge/#software",
+        "name": "AgentForge",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "AI Agent Integration Harness & Model Context Protocol (MCP) Platform",
+        "operatingSystem": "Windows 10/11 x64, macOS, Linux",
+        "softwareVersion": "1.0.0",
+        "license": "https://opensource.org/licenses/MIT",
+        "url": "https://hamzashaikhai.github.io/agentforge/",
+        "codeRepository": "https://github.com/HamzaShaikhAI/AgentForge",
+        "programmingLanguage": "TypeScript",
+        "description": "Local-first Model Context Protocol (MCP) integration platform and deterministic safety harness for autonomous AI coding agents (Google Antigravity, Claude Code). Features 5-tier permission gates, capability truth engine, and Windows DPAPI credential isolation.",
+        "author": {
+          "@type": "Person",
+          "name": "Hamza Shaikh",
+          "alternateName": "HamzaShaikhAI",
+          "url": "https://hamzashaikhai.github.io/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Hamza Shaikh Portfolio", "item": "https://hamzashaikhai.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "AgentForge", "item": "https://hamzashaikhai.github.io/agentforge/" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .agentforge-hero {
+      padding: 5rem 0 3.5rem;
+      text-align: center;
+      position: relative;
+    }
+    .agentforge-logo-wrap {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 1.75rem;
+      border-radius: 26px;
+      background: var(--surface-strong);
+      border: 1px solid var(--border-strong);
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 16px 40px rgba(56, 189, 248, 0.15);
+    }
+    .agentforge-logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .badge-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      margin: 1.25rem 0 2rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+    .feature-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      transition: all 0.25s var(--ease);
+    }
+    .feature-box:hover {
+      border-color: var(--blue);
+      transform: translateY(-2px);
+    }
+    .feature-box h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      margin: 0.6rem 0;
+      color: var(--text);
+    }
+    .feature-box p {
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .tier-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .tier-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      padding: 1rem 1.25rem;
+      border-radius: 12px;
+    }
+    .tier-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+    .tier-read { background: rgba(52, 211, 153, 0.15); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3); }
+    .tier-local { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+    .tier-external { background: rgba(251, 191, 36, 0.15); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.3); }
+    .tier-publish { background: rgba(244, 63, 94, 0.15); color: #f43f5e; border: 1px solid rgba(244, 63, 94, 0.3); }
+    .tier-destructive { background: rgba(225, 29, 72, 0.2); color: #fda4af; border: 1px solid rgba(225, 29, 72, 0.4); }
+    .legal-callout {
+      background: var(--surface-strong);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius);
+      padding: 2.25rem;
+      margin: 3.5rem 0;
+      text-align: center;
+    }
+    .legal-callout h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+    .legal-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .legal-links a {
+      color: var(--blue);
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.6rem 1.25rem;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    .legal-links a:hover {
+      border-color: var(--blue);
+      background: rgba(56, 189, 248, 0.08);
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation -->
+  <header class="site-header" role="banner">
+    <div class="nav-container">
+      <a href="/" class="nav-brand" aria-label="Hamza Shaikh Homepage">
+        <svg class="nav-logo" viewBox="0 0 40 40" width="32" height="32" aria-hidden="true">
+          <rect width="40" height="40" rx="10" fill="#0e1119" stroke="rgba(56,189,248,0.3)" stroke-width="1.5"/>
+          <path d="M12 28V12h4v6h8v-6h4v16h-4v-6h-8v6z" fill="#f8fafc"/>
+        </svg>
+        <span class="nav-brand-text">Hamza Shaikh</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/agentforge/" class="nav-link active" aria-current="page">AgentForge</a>
+        <a href="/keplerbridge/" class="nav-link">KeplerBridge</a>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/agentforge/privacy/" class="nav-link">Privacy</a>
+        <a href="/agentforge/terms/" class="nav-link">Terms</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://github.com/HamzaShaikhAI/AgentForge" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="View AgentForge on GitHub">
+          GitHub (MIT) ↗
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container" style="max-width: var(--width); margin: 0 auto; padding: 0 1.5rem;">
+    
+    <!-- Hero Section -->
+    <section class="agentforge-hero" aria-labelledby="hero-title">
+      <div class="agentforge-logo-wrap">
+        <img src="/assets/agentforge-logo.png" alt="AgentForge Logo" width="82" height="82">
+      </div>
+      <h1 id="hero-title" style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 700; line-height: 1.15; margin-bottom: 0.8rem; background: var(--accent-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        AgentForge
+      </h1>
+      <p style="font-size: clamp(1.05rem, 2vw, 1.3rem); color: var(--text-soft); max-width: 760px; margin: 0 auto; line-height: 1.6;">
+        Local-First Model Context Protocol (MCP) Integration Harness &amp; Deterministic Safety Platform for Autonomous AI Coding Agents.
+      </p>
+
+      <div class="badge-strip">
+        <span class="badge" style="background: rgba(56, 189, 248, 0.12); color: var(--blue); border: 1px solid rgba(56, 189, 248, 0.3);">Open Source (MIT)</span>
+        <span class="badge" style="background: rgba(52, 211, 153, 0.12); color: var(--green); border: 1px solid rgba(52, 211, 153, 0.3);">Local-First &amp; Zero-Telemetry</span>
+        <span class="badge" style="background: rgba(129, 140, 248, 0.12); color: #818cf8; border: 1px solid rgba(129, 140, 248, 0.3);">5-Tier Permission Hierarchy</span>
+        <span class="badge" style="background: rgba(251, 191, 36, 0.12); color: var(--amber); border: 1px solid rgba(251, 191, 36, 0.3);">Windows DPAPI Encryption</span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="https://github.com/HamzaShaikhAI/AgentForge" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.75rem 1.75rem; font-weight: 600;">
+          Inspect Source on GitHub ↗
+        </a>
+        <a href="/agentforge/privacy/" class="btn btn-secondary" style="padding: 0.75rem 1.5rem;">
+          Privacy Policy
+        </a>
+        <a href="/agentforge/terms/" class="btn btn-secondary" style="padding: 0.75rem 1.5rem;">
+          Terms of Service
+        </a>
+      </div>
+    </section>
+
+    <!-- Product Overview -->
+    <section aria-labelledby="overview-title" style="padding: 3rem 0; border-top: 1px solid var(--border);">
+      <div style="max-width: 820px; margin: 0 auto;">
+        <span class="eyebrow" style="color: var(--blue); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Architecture &amp; Purpose</span>
+        <h2 id="overview-title" style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; margin: 0.5rem 0 1.25rem;">Why Autonomous AI Agents Need Deterministic Boundaries</h2>
+        <p style="color: var(--text-soft); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.25rem;">
+          Evaluating autonomous AI coding agents via post-hoc trace metrics misses the real operational hazard: if an unsupervised agent pushes breaking commits, executes destructive SQL migrations, or leaks local authentication secrets into public repositories, the damage is already done.
+        </p>
+        <p style="color: var(--text-soft); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.25rem;">
+          <strong>AgentForge</strong> solves this runtime vulnerability by introducing an architectural safety layer between autonomous AI engines (such as Google Antigravity and Claude Code) and external cloud APIs (Google Cloud, YouTube, GitHub, LinkedIn, X, and enterprise databases).
+        </p>
+      </div>
+    </section>
+
+    <!-- Core Pillars Grid -->
+    <section aria-labelledby="pillars-title" style="padding: 2rem 0;">
+      <h2 id="pillars-title" style="font-family: 'Space Grotesk', sans-serif; font-size: 1.85rem; text-align: center; margin-bottom: 2rem;">Engineered for Production Safety</h2>
+      
+      <div class="feature-grid">
+        <div class="feature-box">
+          <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🛡️</div>
+          <h3>Capability Truth Engine</h3>
+          <p>
+            Validates endpoint availability, active OAuth scopes, and operational quotas before an agent dispatches an action. If credentials or quotas fail, it unmasks the exact blocker reason immediately—halting hallucinated retry loops.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🔒</div>
+          <h3>OS-Level Credential Shield</h3>
+          <p>
+            Secrets and OAuth 2.0 refresh tokens live strictly on your local machine, encrypted via Windows Data Protection API (DPAPI) or OS Keychains. Credentials are injected at process boundaries and redacted from all prompts and logs.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">⚡</div>
+          <h3>Model Context Protocol (MCP)</h3>
+          <p>
+            Acts as a standards-compliant Model Context Protocol server exposing tool definitions, resources, and live bridges to Google Antigravity and any MCP-compatible coding agent.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5-Tier Permission Hierarchy -->
+    <section aria-labelledby="permissions-title" style="padding: 3rem 0; border-top: 1px solid var(--border);">
+      <div style="max-width: 860px; margin: 0 auto;">
+        <h2 id="permissions-title" style="font-family: 'Space Grotesk', sans-serif; font-size: 1.85rem; margin-bottom: 1rem;">The 5-Tier Deterministic Permission Hierarchy</h2>
+        <p style="color: var(--text-soft); font-size: 1.02rem; line-height: 1.6; margin-bottom: 1.5rem;">
+          Every action across all AgentForge bridges is strictly classified into a deterministic permission level:
+        </p>
+
+        <ul class="tier-list">
+          <li class="tier-item">
+            <span class="tier-pill tier-read">Level 1: Read</span>
+            <div>
+              <strong style="color: var(--text); display: block; margin-bottom: 0.25rem;">Autonomous Inspection</strong>
+              <span style="color: var(--text-soft); font-size: 0.92rem;">Fetching user profiles, searching repository issues, inspecting telemetry, reading public timelines. No side effects; executes without interruption.</span>
+            </div>
+          </li>
+          <li class="tier-item">
+            <span class="tier-pill tier-local">Level 2: Local-Write</span>
+            <div>
+              <strong style="color: var(--text); display: block; margin-bottom: 0.25rem;">Isolated Local Operations</strong>
+              <span style="color: var(--text-soft); font-size: 0.92rem;">Writing local configuration previews, creating draft JSON payloads, saving offline benchmarks. Confined strictly to the local workspace.</span>
+            </div>
+          </li>
+          <li class="tier-item">
+            <span class="tier-pill tier-external">Level 3: External-Write</span>
+            <div>
+              <strong style="color: var(--text); display: block; margin-bottom: 0.25rem;">Guarded External Side-Effects</strong>
+              <span style="color: var(--text-soft); font-size: 0.92rem;">Uploading video/image media files, opening pull requests, posting comments, sending notifications. Pauses deterministically for human review.</span>
+            </div>
+          </li>
+          <li class="tier-item">
+            <span class="tier-pill tier-publish">Level 4: Publish</span>
+            <div>
+              <strong style="color: var(--text); display: block; margin-bottom: 0.25rem;">Irreversible Public Releases</strong>
+              <span style="color: var(--text-soft); font-size: 0.92rem;">Publishing public YouTube videos, releasing npm packages, posting live tweets on X, creating production GitHub releases. Strict human sign-off required.</span>
+            </div>
+          </li>
+          <li class="tier-item">
+            <span class="tier-pill tier-destructive">Level 5: Destructive</span>
+            <div>
+              <strong style="color: var(--text); display: block; margin-bottom: 0.25rem;">High-Risk Deletion &amp; Revocation</strong>
+              <span style="color: var(--text-soft); font-size: 0.92rem;">Deleting database tables, removing git branches, deleting tweets or videos, revoking credentials. Hard-intercepted with elevated cryptographic confirmation.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Google OAuth & Third-Party Integration Details -->
+    <section aria-labelledby="integrations-title" style="padding: 3rem 0; border-top: 1px solid var(--border);">
+      <div style="max-width: 860px; margin: 0 auto;">
+        <span class="eyebrow" style="color: var(--green); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 600; text-transform: uppercase;">Google Cloud &amp; Platform Ecosystem</span>
+        <h2 id="integrations-title" style="font-family: 'Space Grotesk', sans-serif; font-size: 1.85rem; margin: 0.5rem 0 1rem;">Google API Services &amp; Supported Bridges</h2>
+        <p style="color: var(--text-soft); font-size: 1.02rem; line-height: 1.6; margin-bottom: 1.5rem;">
+          When you enable Google Cloud &amp; YouTube integrations in AgentForge, the platform uses Google OAuth 2.0 to perform actions on your behalf:
+        </p>
+
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem;">
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--text);">Google OAuth 2.0 Scopes Requested</h3>
+          <ul style="color: var(--text-soft); font-size: 0.95rem; line-height: 1.7; padding-left: 1.5rem;">
+            <li><code>https://www.googleapis.com/auth/youtube.upload</code> — Used solely when an agent executes an approved video publishing action (such as uploading an automated render from Remotion).</li>
+            <li><code>https://www.googleapis.com/auth/youtube.readonly</code> — Used to verify video upload status, inspect published video metadata, and verify channel identity.</li>
+            <li><code>https://www.googleapis.com/auth/userinfo.profile</code> — Used to display your authenticated channel name and avatar in the AgentForge local status dashboard.</li>
+          </ul>
+        </div>
+
+        <p style="color: var(--text-soft); font-size: 0.95rem; line-height: 1.6;">
+          <strong>Limited Use Disclosure:</strong> AgentForge's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer" style="color: var(--blue);">Google API Services User Data Policy</a>, including the Limited Use requirements.
+        </p>
+      </div>
+    </section>
+
+    <!-- Legal & Google Cloud Console Verification Callout -->
+    <section class="legal-callout" aria-labelledby="legal-title">
+      <h2 id="legal-title">Official Verification &amp; Legal Policies</h2>
+      <p style="color: var(--text-soft); max-width: 680px; margin: 0 auto; font-size: 1rem; line-height: 1.6;">
+        AgentForge is committed to absolute data transparency, local-first storage, and strict adherence to Google Cloud Platform developer standards.
+      </p>
+      
+      <div class="legal-links">
+        <a href="/agentforge/privacy/">📄 Read Privacy Policy</a>
+        <a href="/agentforge/terms/">⚖️ Read Terms of Service</a>
+        <a href="https://github.com/HamzaShaikhAI/AgentForge/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">📜 MIT License</a>
+        <a href="https://github.com/HamzaShaikhAI/AgentForge" target="_blank" rel="noopener noreferrer">💻 GitHub Repository</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" role="contentinfo" style="border-top: 1px solid var(--border); padding: 3rem 0; margin-top: 4rem;">
+    <div class="container" style="max-width: var(--width); margin: 0 auto; padding: 0 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem;">
+      <div>
+        <p style="color: var(--text); font-weight: 600; margin-bottom: 0.25rem;">AgentForge · Built by Hamza Shaikh (@HamzaShaikhAI)</p>
+        <p style="color: var(--muted); font-size: 0.85rem;">Local-First Model Context Protocol (MCP) AI Integration Platform. Open-source under MIT License.</p>
+      </div>
+      <div style="display: flex; gap: 1.25rem; font-size: 0.9rem;">
+        <a href="/agentforge/privacy/" style="color: var(--text-soft); text-decoration: none;">Privacy Policy</a>
+        <a href="/agentforge/terms/" style="color: var(--text-soft); text-decoration: none;">Terms of Service</a>
+        <a href="https://github.com/HamzaShaikhAI/AgentForge" target="_blank" rel="noopener noreferrer" style="color: var(--blue); text-decoration: none;">GitHub ↗</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
