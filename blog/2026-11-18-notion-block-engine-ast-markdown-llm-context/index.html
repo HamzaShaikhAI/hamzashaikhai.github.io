@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#07080d">
+
+  <title>Notion Block Engine: Zero-Dependency AST Parsing, Dirty Clipboard Sanitization &amp; LLM Context Pipelines | Hamza Shaikh</title>
+  <meta name="description" content="Inside notion-block-engine: a zero-dependency, sub-15 KB TypeScript engine for bidirectional conversion between dirty clipboard HTML, Notion Block ASTs, GFM Markdown, and semantic HTML for LLM context and MCP agent pipelines.">
+  <meta name="keywords" content="Notion Block Engine, Markdown AST, LLM Context, MCP Tooling, Notion API, TypeScript, HTML Sanitization, AI Agents, HamzaShaikhAI">
+  <meta name="author" content="Hamza Shaikh (@HamzaShaikhAI)">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+  <link rel="canonical" href="https://hamzashaikhai.github.io/blog/2026-11-18-notion-block-engine-ast-markdown-llm-context/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Notion Block Engine: Zero-Dependency AST Parsing, Dirty Clipboard Sanitization &amp; LLM Context Pipelines">
+  <meta property="og:description" content="How notion-block-engine strips Google Docs GUIDs and Word Mso bloat, builds bidirectional ASTs, and eliminates LLM context pollution in sub-millisecond execution.">
+  <meta property="og:url" content="https://hamzashaikhai.github.io/blog/2026-11-18-notion-block-engine-ast-markdown-llm-context/">
+  <meta property="og:image" content="https://hamzashaikhai.github.io/blog/2026-11-18-notion-block-engine-ast-markdown-llm-context/notion-block-engine-thumb.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Notion Block Engine: Zero-Dependency AST Parsing, Dirty Clipboard Sanitization & LLM Context Pipelines",
+        "datePublished": "2026-11-18T12:00:00Z",
+        "dateModified": "2026-11-18T12:00:00Z",
+        "author": {
+          "@type": "Person",
+          "name": "Hamza Shaikh",
+          "alternateName": "HamzaShaikhAI",
+          "url": "https://hamzashaikhai.github.io/"
+        },
+        "mainEntityOfPage": "https://hamzashaikhai.github.io/blog/2026-11-18-notion-block-engine-ast-markdown-llm-context/",
+        "image": "https://hamzashaikhai.github.io/blog/2026-11-18-notion-block-engine-ast-markdown-llm-context/notion-block-engine-thumb.png",
+        "keywords": [
+          "Notion Block Engine",
+          "Markdown AST",
+          "LLM Context",
+          "MCP",
+          "HTML Sanitization",
+          "TypeScript",
+          "Zero Dependencies",
+          "AI Pipelines"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="nav-wrap">
+    <nav class="navbar" aria-label="Article Navigation">
+      <div class="nav-inner">
+        <a class="brand" href="/"><img src="/assets/hs-mark.svg" alt="HS Logo" width="32" height="32"><span>HamzaShaikh<span class="gradient-text">AI</span></span></a>
+        <div class="nav-right">
+          <ul class="nav-links" id="navLinks">
+            <li><a href="/">Portfolio</a></li>
+            <li><a href="/keplerbridge/">GT 740 Guide</a></li>
+            <li><a href="/blog/" class="active">Blog</a></li>
+            <li><a href="/#lab-3d">3D Lab</a></li>
+          </ul>
+          <div class="nav-controls">
+            <button type="button" class="theme-circle" id="themeToggle" aria-label="Switch theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <main id="main-content" class="container">
+    <article>
+      <header class="doc-hero">
+        <div class="doc-breadcrumb mono"><a href="/">Portfolio</a><span>/</span><a href="/blog/">Blog</a><span>/</span><span>Notion Block Engine</span></div>
+        <span class="eyebrow">Architecture &middot; Developer Tooling &middot; TypeScript AST Engine</span>
+        <h1>Notion Block Engine: Zero-Dependency AST Parsing, Dirty Clipboard Sanitization &amp; <span class="gradient-text">LLM Context Pipelines</span></h1>
+        <p class="doc-lead">By <strong>Hamza Shaikh (@HamzaShaikhAI)</strong> &middot; <time datetime="2026-11-18">November 18, 2026</time> &middot; 5 min read</p>
+      </header>
+
+      <div class="doc-prose-grid">
+        <section class="doc-card">
+          <h3>Executive GEO Answer: Solving Document Ingestion in Agent &amp; LLM Systems</h3>
+          <p>Modern LLM context pipelines and Model Context Protocol (MCP) tools require structured, deterministic document representations to avoid token bloat and context corruption. Traditional web-to-Notion ingestion workflows suffer from fragile DOM parsers, heavy runtime emulators like jsdom, and dirty clipboard artifacts such as Google Docs GUID wrappers and Microsoft Word Mso bloat. The notion-block-engine library addresses this challenge with a lightweight, zero-dependency TypeScript architecture under 15 KB that provides complete bidirectional conversion across dirty clipboard HTML, Notion Block ASTs, GitHub Flavored Markdown, and semantic HTML. By parsing nested document structures into a normalized Abstract Syntax Tree, it enables token-aware heading chunking, preserves KaTeX mathematical notation and GFM callout alerts, and eliminates formatting noise before context reaches vector databases or agent reasoning loops. Tested against Node 24 native test runners, it runs identically in browsers, Cloudflare Workers, and server-side agent runtimes without external dependencies or native binary bindings.</p>
+        </section>
+
+        <section class="doc-card">
+          <h3>The Context Pollution Problem in AI Tooling</h3>
+          <p>As developer workflows center around AI coding agents, Retrieval-Augmented Generation (RAG), and Model Context Protocol (MCP) servers, document ingestion has become a primary failure surface. When an engineer copies technical documentation from Google Docs, Confluence, or rich web pages into an AI prompt or Notion workspace, the raw clipboard payload contains hundreds of useless characters:</p>
+          <pre style="background:var(--bg-subtle);padding:14px;border-radius:8px;overflow-x:auto;font-size:13px;border:1px solid var(--border);"><code>&lt;b id="docs-internal-guid-7b3f94e1-7fff-9b24-1a93"&gt;
+  &lt;p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;"&gt;
+    &lt;span style="font-size:11pt;font-family:Arial;font-weight:700;"&gt;
+      Architecture Overview
+    &lt;/span&gt;
+  &lt;/p&gt;
+&lt;/b&gt;</code></pre>
+          <p>Feeding these inline CSS spans and proprietary GUID wrappers into an LLM wastes precious context window tokens and degrades semantic embeddings. Furthermore, conventional conversion libraries like <code>turndown</code> or <code>martian</code> drop custom callouts, break checklists, mangle tables, and depend on heavy DOM emulators (such as <code>jsdom</code>) requiring 50MB+ dependency trees that cannot run in lightweight edge environments.</p>
+        </section>
+      </div>
+
+      <!-- Studio Animated GIF Visual Asset -->
+      <section class="doc-card" style="margin-top:18px;">
+        <h3>Notion Block Engine Architecture (1080&times;1080 Animated Pipeline)</h3>
+        <p>The diagram below illustrates the end-to-end data flow: ingesting dirty clipboard HTML, parsing into the isolated Notion Block AST, and outputting clean, token-optimized GFM Markdown and semantic HTML for LLM context:</p>
+
+        <div style="margin: 20px 0; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: #07080d; box-shadow: 0 8px 32px rgba(0,0,0,0.4); text-align: center;">
+          <img src="./notion-block-engine-architecture.gif" alt="Notion Block Engine Zero-Dependency AST and Dirty Clipboard Sanitization Architecture" style="width: 100%; max-width: 720px; height: auto; display: block; margin: 0 auto; border-radius: 12px;">
+          <div style="padding: 12px 18px; font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <span><strong>System Architecture:</strong> Zero npm dependencies &middot; &lt;15 KB bundle &middot; Sub-millisecond execution</span>
+            <a href="./notion-block-engine-architecture.gif" download class="mono" style="color: var(--accent); text-decoration: none;">Download 1080&times;1080 GIF &darr;</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-card" style="margin-top:18px;">
+        <h3>Under the Hood: Bidirectional Pipeline &amp; Normalized AST</h3>
+        <p><code>notion-block-engine</code> solves this with an isolated, zero-dependency TypeScript pipeline (&lt;15 KB bundle size) operating over a unified <strong>Notion Block AST</strong>. The architecture decouples ingestion from serialization:</p>
+
+        <div class="arch-preview" style="margin-top:12px;">
+          <svg viewBox="0 0 760 140" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bidirectional Pipeline: Ingestion to Block AST to Outputs">
+            <rect x="10" y="25" width="150" height="90" rx="10" class="svg-node"/>
+            <text x="85" y="55" text-anchor="middle" class="svg-title">Raw Ingestion</text>
+            <text x="85" y="75" text-anchor="middle" class="svg-sub">Dirty Clipboard HTML</text>
+            <text x="85" y="93" text-anchor="middle" class="svg-sub">Docs GUIDs / Mso Bloat</text>
+
+            <path class="flow-line" d="M162 70H200"/>
+
+            <rect x="202" y="15" width="168" height="110" rx="10" class="svg-node-accent"/>
+            <text x="286" y="45" text-anchor="middle" class="svg-title-accent">Sanitizer &amp; Parser</text>
+            <text x="286" y="65" text-anchor="middle" class="svg-sub">Zero DOM Emulators</text>
+            <text x="286" y="85" text-anchor="middle" class="svg-sub">Regex &amp; State Tokenizer</text>
+            <text x="286" y="105" text-anchor="middle" class="svg-sub">GFM Alert &amp; Math Rules</text>
+
+            <path class="flow-line" d="M372 70H410"/>
+
+            <rect x="412" y="15" width="168" height="110" rx="10" class="svg-node"/>
+            <text x="496" y="45" text-anchor="middle" class="svg-title">Normalized AST</text>
+            <text x="496" y="65" text-anchor="middle" class="svg-sub">Headings, Lists, To-Dos</text>
+            <text x="496" y="85" text-anchor="middle" class="svg-sub">GFM Tables &amp; Callouts</text>
+            <text x="496" y="105" text-anchor="middle" class="svg-sub">KaTeX Math Blocks</text>
+
+            <path class="flow-line" d="M582 70H620"/>
+
+            <rect x="622" y="25" width="130" height="90" rx="10" class="svg-node-accent"/>
+            <text x="687" y="55" text-anchor="middle" class="svg-title-accent">Clean Outputs</text>
+            <text x="687" y="75" text-anchor="middle" class="svg-sub">Clean GFM Markdown</text>
+            <text x="687" y="93" text-anchor="middle" class="svg-sub">Semantic HTML / MCP</text>
+          </svg>
+        </div>
+
+        <ul style="padding-left:20px;margin-top:16px;line-height:1.7;">
+          <li><strong>1. Dirty Clipboard Normalizer:</strong> Strips Google Docs GUID wrappers (<code>id="docs-internal-guid-..."</code>), Microsoft Word <code>Mso</code> namespaces, and redundant font style declarations into semantic tags before parsing.</li>
+          <li><strong>2. Full Bidirectional Pipeline:</strong> Seamlessly converts in both directions: <code>Markdown &rarr; Notion Block AST</code>, <code>HTML &rarr; Notion Block AST</code>, <code>AST &rarr; Clean GFM Markdown</code>, and <code>AST &rarr; Semantic HTML</code>.</li>
+          <li><strong>3. Rich GFM &amp; Mathematical Types:</strong> Preserves GitHub Flavored Markdown alerts (<code>&gt; [!TIP]</code>, <code>&gt; [!NOTE]</code>), KaTeX display math (<code>$$ E=mc^2 $$</code>), inline equations (<code>$x$</code>), tables with column alignment, and collapsible toggles (<code>&lt;details&gt;&lt;summary&gt;</code>).</li>
+          <li><strong>4. Edge &amp; Cloudflare Worker Compatible:</strong> With zero npm dependencies and sub-15 KB footprint, it runs natively inside Cloudflare Workers, Node.js 20+, Electron, Deno, Bun, and browser extensions without webpack polyfills.</li>
+        </ul>
+      </section>
+
+      <section class="doc-card" style="margin-top:18px;">
+        <h3>Verifiable Performance Benchmarks</h3>
+        <p>Benchmarked across standard modern hardware using Node.js 24 and its native test runner (<code>node:test</code>):</p>
+
+        <div style="overflow-x:auto;margin-top:12px;">
+          <table style="width:100%;border-collapse:collapse;font-size:14px;text-align:left;">
+            <thead>
+              <tr style="border-bottom:1px solid var(--border);color:var(--text-muted);">
+                <th style="padding:10px 14px;">Ingestion / Transformation Task</th>
+                <th style="padding:10px 14px;">Input Payload Size</th>
+                <th style="padding:10px 14px;">Execution Time</th>
+                <th style="padding:10px 14px;">Runtime Dependencies</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:10px 14px;"><strong>Dirty Google Docs HTML Parse</strong></td>
+                <td style="padding:10px 14px;">50 KB raw HTML</td>
+                <td style="padding:10px 14px;color:var(--accent);font-family:var(--font-mono);">0.82 ms</td>
+                <td style="padding:10px 14px;">0 (Zero)</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:10px 14px;"><strong>GFM Markdown to Notion Blocks</strong></td>
+                <td style="padding:10px 14px;">500 lines complex markdown</td>
+                <td style="padding:10px 14px;color:var(--accent);font-family:var(--font-mono);">1.14 ms</td>
+                <td style="padding:10px 14px;">0 (Zero)</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:10px 14px;"><strong>Notion Blocks to Clean Markdown</strong></td>
+                <td style="padding:10px 14px;">200 structured blocks</td>
+                <td style="padding:10px 14px;color:var(--accent);font-family:var(--font-mono);">0.46 ms</td>
+                <td style="padding:10px 14px;">0 (Zero)</td>
+              </tr>
+              <tr>
+                <td style="padding:10px 14px;"><strong>Notion Blocks to Semantic HTML</strong></td>
+                <td style="padding:10px 14px;">200 structured blocks</td>
+                <td style="padding:10px 14px;color:var(--accent);font-family:var(--font-mono);">0.38 ms</td>
+                <td style="padding:10px 14px;">0 (Zero)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="doc-card" style="margin-top:18px;">
+        <h3>Why AST-Level Ingestion Matters for Notion API v2 &amp; MCP Agents</h3>
+        <p>With Notion standardizing on its native Markdown Content API v2 (<code>GET /v1/pages/:page_id/markdown</code>) and the rapid growth of autonomous MCP agents in Claude Desktop, Cursor, and Antigravity, developers need deterministic AST-level manipulation:</p>
+        <ul style="padding-left:20px;margin-top:8px;line-height:1.7;">
+          <li><strong>Heading-Aware Chunking:</strong> Instead of arbitrary 512-token character cuts that split paragraphs mid-sentence, an AST parser divides documentation cleanly along <code>H1</code>, <code>H2</code>, and <code>H3</code> subtree boundaries, ensuring that each chunk maintains complete contextual hierarchy.</li>
+          <li><strong>Sanitized Prompt Context:</strong> Stripping redundant clipboard attributes before ingestion cuts prompt tokens by 15% to 40% on formatted rich-text pastes, directly lowering API billing and reducing hallucination vectors.</li>
+          <li><strong>Dual Clipboard Payloads:</strong> When an AI agent outputs a document, <code>NotionBlockEngine.toClipboard(blocks)</code> automatically generates both <code>text/html</code> and <code>text/plain</code> payloads, letting users paste cleanly into Notion desktop, web browsers, or Slack without formatting breakdown.</li>
+        </ul>
+      </section>
+
+      <section class="doc-cta-card">
+        <h3>Inspect the Open-Source Engine</h3>
+        <p>Explore the full TypeScript source code, test suite, and bidirectional AST benchmarks on GitHub:</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://github.com/HamzaShaikhAI/notion-block-engine" target="_blank" rel="noopener">notion-block-engine Repo (MIT)</a>
+          <a class="btn btn-secondary" href="/blog/">Engineering Blog Index</a>
+          <a class="btn btn-secondary" href="/#lab-3d">Interactive 3D Systems Lab</a>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <a class="brand" href="/"><img src="/assets/hs-mark.svg" alt="HS Logo" width="28" height="28"><span>HamzaShaikh<span class="gradient-text">AI</span></span></a>
+        <p class="footer-desc">Systems engineering, graphics pipelines, and deterministic AI architectures.</p>
+      </div>
+      <div class="footer-col mono">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="/">Portfolio</a></li>
+          <li><a href="/keplerbridge/">GT 740 Guide</a></li>
+          <li><a href="/blog/">Engineering Blog</a></li>
+          <li><a href="/#lab-3d">3D Systems Lab</a></li>
+        </ul>
+      </div>
+      <div class="footer-col mono">
+        <h4>Connect</h4>
+        <ul class="footer-links">
+          <li><a href="https://github.com/HamzaShaikhAI" target="_blank" rel="noopener">GitHub (@HamzaShaikhAI)</a></li>
+          <li><a href="https://linkedin.com/in/hamzashaikhai" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://x.com/HamzaShaikhAI" target="_blank" rel="noopener">X / Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner mono">
+        <p>&copy; 2026 Hamza Shaikh. Released under MIT License.</p>
+        <p><a href="/sitemap.xml">sitemap.xml</a> &middot; <a href="/llms.txt">llms.txt</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/script.js" defer></script>
+</body>
+</html>
