@@ -43,6 +43,12 @@
         "blogPost": [
           {
             "@type": "BlogPosting",
+            "headline": "MCP Tool Explosion & Code Execution: Eliminating Context Choking & Enforcing Deterministic Safety",
+            "url": "https://hamzashaikhai.github.io/blog/2026-11-19-mcp-code-execution-agentforge-context-efficiency/",
+            "datePublished": "2026-11-19T12:00:00Z"
+          },
+          {
+            "@type": "BlogPosting",
             "headline": "Notion Block Engine: Zero-Dependency AST Parsing, Dirty Clipboard Sanitization & LLM Context Pipelines",
             "url": "https://hamzashaikhai.github.io/blog/2026-11-18-notion-block-engine-ast-markdown-llm-context/",
             "datePublished": "2026-11-18T12:00:00Z"
@@ -151,16 +157,26 @@
 
       <div class="project-toolbar" style="margin-top:20px;">
         <div class="filter-bar" role="group" aria-label="Filter articles" style="margin-bottom:0;">
-          <button type="button" class="filter-btn" data-cat="all" aria-pressed="true">All Posts (10)</button>
+          <button type="button" class="filter-btn" data-cat="all" aria-pressed="true">All Posts (11)</button>
           <button type="button" class="filter-btn" data-cat="systems" aria-pressed="false">Systems &amp; GPU</button>
           <button type="button" class="filter-btn" data-cat="ai" aria-pressed="false">AI &amp; Multimedia</button>
         </div>
-        <input type="search" id="blogSearch" class="search-input" placeholder="Search articles (e.g. Notion, UAEF, AgentForge, Remotion, REA, GT 740, DXIL, MCP)…" aria-label="Search blog articles">
+        <input type="search" id="blogSearch" class="search-input" placeholder="Search articles (e.g. MCP, Notion, UAEF, AgentForge, Remotion, REA, GT 740, DXIL)…" aria-label="Search blog articles">
       </div>
     </section>
 
     <section class="section" style="padding-top:16px;">
       <div class="doc-prose-grid" id="blogGrid">
+        <article class="doc-card" data-cat="ai">
+          <div class="eyebrow mono">Nov 19, 2026 · AI &amp; Developer Tooling · Model Context Protocol</div>
+          <h3><a href="/blog/2026-11-19-mcp-code-execution-agentforge-context-efficiency/" style="color:var(--text);">MCP Tool Explosion &amp; Code Execution: Eliminating Context Choking &amp; Enforcing Deterministic Safety</a></h3>
+          <p>Why loading dozens of static MCP schemas chokes LLM context windows (up to 40% prompt tax), how programmatic code execution restores agent reasoning memory, and how AgentForge enforces deterministic 5-tier permission gates with DPAPI isolation.</p>
+          <div class="project-links" style="margin-top:14px;">
+            <a href="/blog/2026-11-19-mcp-code-execution-agentforge-context-efficiency/">Read Article &rarr;</a>
+            <a href="https://github.com/HamzaShaikhAI/AgentForge" target="_blank" rel="noopener">AgentForge Repo &nearr;</a>
+          </div>
+        </article>
+
         <article class="doc-card" data-cat="ai">
           <div class="eyebrow mono">Nov 18, 2026 · AI &amp; Developer Tooling · Zero-Dependency AST Engine</div>
           <h3><a href="/blog/2026-11-18-notion-block-engine-ast-markdown-llm-context/" style="color:var(--text);">Notion Block Engine: Zero-Dependency AST Parsing, Dirty Clipboard Sanitization &amp; LLM Context Pipelines</a></h3>

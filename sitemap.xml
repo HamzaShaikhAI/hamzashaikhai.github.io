@@ -32,8 +32,14 @@
   </url>
   <url>
     <loc>https://hamzashaikhai.github.io/blog/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://hamzashaikhai.github.io/blog/2026-11-19-mcp-code-execution-agentforge-context-efficiency/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
