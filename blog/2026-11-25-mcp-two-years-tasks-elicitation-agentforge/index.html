@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#07080d">
+
+  <title>MCP at Two Years: Tasks, Elicitation, Skills &amp; Deterministic Safety Gates in AgentForge | Hamza Shaikh</title>
+  <meta name="description" content="On MCP's 2nd anniversary (Nov 25, 2026), Tasks and Elicitation hit GA alongside Skills over MCP and Google Workspace MCP servers. Here is how AgentForge v1.1.0 enforces deterministic 5-tier safety boundaries.">
+  <meta name="keywords" content="Model Context Protocol, MCP 2nd Anniversary, MCP Tasks, MCP Elicitation, Skills over MCP, Google Workspace MCP, AgentForge, Deterministic Safety, DPAPI, HamzaShaikhAI">
+  <meta name="author" content="Hamza Shaikh (@HamzaShaikhAI)">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+  <link rel="canonical" href="https://hamzashaikhai.github.io/blog/2026-11-25-mcp-two-years-tasks-elicitation-agentforge/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="MCP at Two Years: Tasks, Elicitation, Skills &amp; Deterministic Safety Gates in AgentForge">
+  <meta property="og:description" content="Analyzing MCP's 700M+ monthly SDK milestone, Tasks &amp; Elicitation GA, Google Workspace MCP servers, and deterministic 5-tier execution boundaries in AgentForge v1.1.0.">
+  <meta property="og:url" content="https://hamzashaikhai.github.io/blog/2026-11-25-mcp-two-years-tasks-elicitation-agentforge/">
+  <meta property="og:image" content="https://hamzashaikhai.github.io/blog/2026-11-25-mcp-two-years-tasks-elicitation-agentforge/mcp-two-years-agentforge-gates.gif">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "headline": "MCP at Two Years: Tasks, Elicitation, Skills & Deterministic Safety Gates in AgentForge",
+        "description": "On MCP's 2nd anniversary (Nov 25, 2026), Tasks and Elicitation hit GA alongside Skills over MCP and Google Workspace MCP servers. Here is how AgentForge v1.1.0 enforces deterministic 5-tier safety boundaries.",
+        "datePublished": "2026-11-25T12:00:00Z",
+        "dateModified": "2026-11-25T12:00:00Z",
+        "author": {
+          "@type": "Person",
+          "name": "Hamza Shaikh",
+          "alternateName": "HamzaShaikhAI",
+          "url": "https://hamzashaikhai.github.io/"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Hamza Shaikh",
+          "url": "https://hamzashaikhai.github.io/"
+        },
+        "mainEntityOfPage": "https://hamzashaikhai.github.io/blog/2026-11-25-mcp-two-years-tasks-elicitation-agentforge/",
+        "image": "https://hamzashaikhai.github.io/blog/2026-11-25-mcp-two-years-tasks-elicitation-agentforge/mcp-two-years-agentforge-gates.gif",
+        "keywords": [
+          "Model Context Protocol",
+          "MCP Tasks",
+          "MCP Elicitation",
+          "Skills over MCP",
+          "Google Workspace MCP",
+          "AgentForge",
+          "AI Agent Security",
+          "DPAPI",
+          "HamzaShaikhAI"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="nav-wrap">
+    <nav class="navbar" aria-label="Article Navigation">
+      <div class="nav-inner">
+        <a class="brand" href="/"><img src="/assets/hs-mark.svg" alt="HS Logo" width="32" height="32"><span>HamzaShaikh<span class="gradient-text">AI</span></span></a>
+        <div class="nav-right">
+          <ul class="nav-links" id="navLinks">
+            <li><a href="/">Portfolio</a></li>
+            <li><a href="/keplerbridge/">GT 740 Guide</a></li>
+            <li><a href="/blog/" class="active">Blog</a></li>
+            <li><a href="/#lab-3d">3D Lab</a></li>
+            <li><a href="/#projects">Projects</a></li>
+          </ul>
+          <div class="nav-controls">
+            <button type="button" class="theme-circle" id="themeToggle" aria-label="Switch theme" title="Toggle Dark/Light Theme">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <main id="main-content" class="container">
+    <article>
+      <header class="doc-hero">
+        <div class="doc-breadcrumb mono"><a href="/">Portfolio</a><span>/</span><a href="/blog/">Blog</a><span>/</span><span>MCP at Two Years &amp; AgentForge</span></div>
+        <span class="eyebrow">Model Context Protocol &middot; Async Agents &middot; Runtime Security</span>
+        <h1>MCP at Two Years: Tasks, Elicitation, Skills &amp; <span class="gradient-text">Deterministic Safety Gates</span></h1>
+        <p class="doc-lead">By <strong>Hamza Shaikh (@HamzaShaikhAI)</strong> &middot; <time datetime="2026-11-25">November 25, 2026</time> &middot; 6 min read</p>
+      </header>
+
+      <div class="doc-prose-grid">
+        <section class="doc-card" id="citability-answer">
+          <h3>Executive Answer: Async MCP Governance at Scale</h3>
+          <p id="citability-block">Two years after Anthropic introduced the Model Context Protocol on November 25, 2024, MCP has crossed 700 million monthly SDK downloads across more than 10,000 public connectors under the Linux Foundation's Agentic AI Foundation. In late November 2026, MCP Tasks and Elicitation reached General Availability alongside Skills over MCP in public beta and Google Workspace managed MCP servers. These primitives move agents beyond synchronous request-response calls into background jobs, mid-execution user confirmations, and on-demand playbooks. However, pausing mid-task or invoking asynchronous APIs creates replay and credential exposure risks when authorization lives inside prompt text. AgentForge v1.1.0 addresses this gap with a local-first TypeScript 5.6 runtime offering 52 curated MCP presets, a deterministic five-tier permission model from read to destructive, Windows DPAPI and AES-256-GCM vaults, and a SHA-256 audit ledger that isolates OAuth tokens from untrusted payloads.</p>
+        </section>
+
+        <section class="doc-card">
+          <h3>What Shipped for MCP&rsquo;s Second Anniversary</h3>
+          <p>Between November 24 and November 25, 2026, the MCP ecosystem crossed several concrete infrastructure milestones following the stateless <code>2026-07-28</code> HTTP specification:</p>
+          <ul style="padding-left:20px;margin-top:8px;line-height:1.7;">
+            <li><strong>700M+ Monthly SDK Downloads:</strong> Over 5 billion cumulative installs across Python, TypeScript, C#, Rust, and Ruby SDKs, backing more than 10,000 public connectors.</li>
+            <li><strong>Tasks &amp; Elicitation (GA):</strong> Servers can now return task handles for long-running background jobs instead of blocking connections, and pause mid-request to elicit structured input or explicit user confirmation.</li>
+            <li><strong>Skills over MCP (Public Beta):</strong> Servers publish dynamic playbooks alongside tools so models load workflow instructions on demand instead of bloating base prompts.</li>
+            <li><strong>Google Workspace MCP (GA):</strong> Managed servers and CLI access for Gmail, Drive, Docs, Sheets, Slides, Calendar, Chat, and Tasks launched on November 24, 2026 with a 5,000 requests/day/project/product free Standard Tier and Model Armor confirmation gates.</li>
+          </ul>
+        </section>
+      </div>
+
+      <section class="doc-card" style="margin-top:18px;">
+        <h3>Architecture Diagram: Bridging Async MCP Primitives with AgentForge v1.1.0</h3>
+        <p>The 1080&times;1080 architectural diagram below maps the November 2026 MCP primitives (Tasks, Elicitation, Skills over MCP, and Workspace MCP) onto AgentForge&rsquo;s 5-tier local-first boundary:</p>
+
+        <div style="margin: 20px 0; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: #07080d; box-shadow: 0 8px 32px rgba(0,0,0,0.4); text-align: center;">
+          <img src="./mcp-two-years-agentforge-gates.gif" alt="Async MCP Tasks, Elicitation, and Skills mapped to AgentForge v1.1.0 5-tier safety gates" style="width: 100%; max-width: 720px; height: auto; display: block; margin: 0 auto; border-radius: 12px;">
+          <div style="padding: 12px 18px; font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <span><strong>Protocol &amp; Runtime:</strong> MCP 2026-07-28 + Nov 2026 GA &middot; Node.js &ge;20 &middot; TypeScript 5.6 Strict</span>
+            <a href="./mcp-two-years-agentforge-gates.gif" download class="mono" style="color: var(--accent); text-decoration: none;">Download 1080&times;1080 GIF &darr;</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="doc-prose-grid" style="margin-top:18px;">
+        <section class="doc-card">
+          <h3>Why Async Tasks &amp; Elicitation Need Host-Side Gates</h3>
+          <p>Synchronous <code>tools/call</code> made authorization deceptively simple: one prompt turn, one tool invocation, one result. With <strong>MCP Tasks</strong> and <strong>Elicitation</strong>, state now spans minutes and crosses user-interaction boundaries.</p>
+          <p>If an untrusted remote server triggers a mid-flight elicitation prompt or resumes an asynchronous job handle after context compaction, a naive client cannot tell whether an action was originally scoped as read-only or an external mutation. Likewise, loading dynamic playbooks via <strong>Skills over MCP</strong> means instructions themselves become runtime inputs that must never inherit ambient OAuth credentials.</p>
+        </section>
+
+        <section class="doc-card">
+          <h3>How AgentForge v1.1.0 Enforces the Boundary</h3>
+          <p><a href="https://github.com/HamzaShaikhAI/AgentForge" target="_blank" rel="noopener">AgentForge</a> (<code>v1.1.0</code>, MIT, 508/508 Vitest tests passing) enforces capability boundaries in deterministic TypeScript host code rather than prompt instructions:</p>
+          <ul style="padding-left:20px;margin-top:8px;line-height:1.7;">
+            <li><strong>5-Tier Policy Classifier:</strong> Every bridge and MCP action is typed as <code>read</code>, <code>local-write</code>, <code>external-write</code>, <code>publish</code>, or <code>destructive</code>, halting external mutations at operator approval checkpoints.</li>
+            <li><strong>OS-Encrypted Vaults:</strong> Tokens reside in <code>%APPDATA%/AgentForge/auth/</code> via Windows DPAPI (<code>CryptProtectData</code>) or AES-256-GCM, scrubbed from logs and errors before reaching the model.</li>
+            <li><strong>Non-Repudiable Audit Ledger:</strong> Forward-linked SHA-256 hash chains and DAG workflow replay guards prevent duplicate non-idempotent executions across async retries.</li>
+          </ul>
+        </section>
+      </div>
+
+      <section class="doc-card" style="margin-top:18px;">
+        <h3>Protocol Primitive vs. AgentForge Host Control Matrix</h3>
+        <div style="overflow-x:auto;margin:16px 0;">
+          <table style="width:100%;border-collapse:collapse;font-size:13px;text-align:left;border:1px solid var(--border);">
+            <thead>
+              <tr style="background:var(--bg-subtle);border-bottom:1px solid var(--border);">
+                <th style="padding:10px 14px;color:var(--text-muted);">Nov 2026 MCP Capability</th>
+                <th style="padding:10px 14px;color:var(--text-muted);">Operational Risk</th>
+                <th style="padding:10px 14px;color:var(--accent);">AgentForge v1.1.0 Control</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:10px 14px;"><strong>MCP Tasks (GA)</strong></td>
+                <td style="padding:10px 14px;">Duplicate non-idempotent execution across async job polling</td>
+                <td style="padding:10px 14px;color:var(--accent);font-family:var(--font-mono);">Workflow Engine DAG &amp; replay guards + SHA-256 ledger</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:10px 14px;"><strong>MCP Elicitation (GA)</strong></td>
+                <td style="padding:10px 14px;">Server-initiated confirmation spoofing or silent escalation</td>
+                <td style="padding:10px 14px;color:var(--accent);font-family:var(--font-mono);">Deterministic 5-tier gate + Web Manager 2.0 checkpoint</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:10px 14px;"><strong>Skills over MCP (Beta)</strong></td>
+                <td style="padding:10px 14px;">Untrusted playbook steering model to dump environment secrets</td>
+                <td style="padding:10px 14px;color:var(--accent);font-family:var(--font-mono);">DPAPI / AES-256-GCM vault + regex token redaction</td>
+              </tr>
+              <tr>
+                <td style="padding:10px 14px;"><strong>Google Workspace MCP (GA)</strong></td>
+                <td style="padding:10px 14px;">Unscoped Gmail/Drive writes &amp; OAuth loopback hijacking</td>
+                <td style="padding:10px 14px;color:var(--accent);font-family:var(--font-mono);">RFC 8252 + RFC 7636 PKCE (127.0.0.1:8910) + publish gate</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="doc-cta-card">
+        <h3>Inspect AgentForge v1.1.0 on GitHub</h3>
+        <p>Explore the 52 curated Universal MCP Gateway presets, 38+ native adapters, Windows DPAPI credential store, and 508-test Vitest harness:</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://github.com/HamzaShaikhAI/AgentForge" target="_blank" rel="noopener">AgentForge Repository (MIT)</a>
+          <a class="btn btn-secondary" href="/blog/">Engineering Blog Index</a>
+          <a class="btn btn-secondary" href="/#lab-3d">Interactive 3D Systems Lab</a>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <a class="brand" href="/"><img src="/assets/hs-mark.svg" alt="HS Logo" width="28" height="28"><span>HamzaShaikh<span class="gradient-text">AI</span></span></a>
+        <p class="footer-desc">Systems engineering, graphics pipelines, and deterministic AI architectures.</p>
+      </div>
+      <div class="footer-col mono">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="/">Portfolio</a></li>
+          <li><a href="/keplerbridge/">GT 740 Guide</a></li>
+          <li><a href="/blog/">Engineering Blog</a></li>
+          <li><a href="/#lab-3d">3D Systems Lab</a></li>
+        </ul>
+      </div>
+      <div class="footer-col mono">
+        <h4>Connect</h4>
+        <ul class="footer-links">
+          <li><a href="https://github.com/HamzaShaikhAI" target="_blank" rel="noopener">GitHub (@HamzaShaikhAI)</a></li>
+          <li><a href="https://linkedin.com/in/hamzashaikhai" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://x.com/HamzaShaikhAI" target="_blank" rel="noopener">X / Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner mono">
+        <p>&copy; 2026 Hamza Shaikh. Released under MIT License.</p>
+        <p><a href="/sitemap.xml">sitemap.xml</a> &middot; <a href="/llms.txt">llms.txt</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    root.setAttribute('data-theme', localStorage.getItem('hs-theme') || 'dark');
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('hs-theme', next);
+    });
+  </script>
+</body>
+</html>
