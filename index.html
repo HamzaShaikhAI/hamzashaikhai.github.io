@@ -112,6 +112,8 @@
           "Artificial Intelligence",
           "AI Agents",
           "Model Context Protocol (MCP)",
+          "Android Debug Bridge (ADB)",
+          "Android AI Optimizer",
           "C++20",
           "Direct3D 12",
           "Direct3D 11",
@@ -161,6 +163,21 @@
           {
             "@type": "ListItem",
             "position": 3,
+            "item": {
+              "@type": ["SoftwareApplication", "SoftwareSourceCode"],
+              "name": "Android AI Optimizer",
+              "url": "https://hamzashaikhai.com/android-ai-optimizer/",
+              "description": "Android AI Optimizer is a zero-dependency Python 3.10+ Model Context Protocol (MCP) stdio server and 5-stage ADB optimization pipeline authored by Hamza Shaikh (@HamzaShaikhAI) for Google Antigravity. With zero unrestricted shell access, 10 scoped tools, live UAD-NG dependency validation, offline bootloop blocklists, and 1-click rollback, it improves non-rooted Android performance (+525.7 MB free RAM and -393 ms YouTube cold start verified on Oppo A57 Android 14).",
+              "codeRepository": "https://github.com/HamzaShaikhAI/android-ai-optimizer",
+              "programmingLanguage": "Python 3.10+",
+              "runtimePlatform": "Python Stdlib / Android ADB",
+              "license": "https://opensource.org/licenses/MIT",
+              "author": { "@id": "https://hamzashaikhai.com/#person" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
             "item": {
               "@type": ["SoftwareApplication", "SoftwareSourceCode"],
               "name": "Remotion-For-Antigravity",
@@ -537,15 +554,15 @@
 
       <div class="project-toolbar">
         <div class="filter-bar" role="group" aria-label="Filter projects by domain" style="margin-bottom:0;">
-          <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All Projects (9)</button>
+          <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All Projects (10)</button>
           <button type="button" class="filter-btn" data-filter="systems" aria-pressed="false">Systems &amp; C++ (2)</button>
-          <button type="button" class="filter-btn" data-filter="ai" aria-pressed="false">AI &amp; Agents (4)</button>
+          <button type="button" class="filter-btn" data-filter="ai" aria-pressed="false">AI &amp; Agents (5)</button>
           <button type="button" class="filter-btn" data-filter="tooling" aria-pressed="false">TypeScript Tooling (1)</button>
           <button type="button" class="filter-btn" data-filter="apps" aria-pressed="false">Mobile &amp; Hardware (2)</button>
         </div>
         <input type="search" id="projectSearch" class="search-input" placeholder="Search stack, GPU, or tool (e.g. GT 740, MCP)…" aria-label="Search projects">
       </div>
-      <p id="filterStatus" class="eyebrow mono" style="margin-bottom:16px;" aria-live="polite">Showing 9 projects</p>
+      <p id="filterStatus" class="eyebrow mono" style="margin-bottom:16px;" aria-live="polite">Showing 10 projects</p>
 
       <div class="bento-grid">
         <!-- 1. KeplerBridge (Wide Bento Centerpiece) -->
@@ -621,6 +638,26 @@
           <div class="project-links">
             <a href="/agentforge/">AgentForge Platform →</a>
             <a href="https://github.com/HamzaShaikhAI/AgentForge" target="_blank" rel="noopener noreferrer">Repository ↗</a>
+          </div>
+        </article>
+
+        <!-- 3. Android AI Optimizer -->
+        <article class="project-card spotlight-card" data-category="ai">
+          <div class="project-top">
+            <div class="project-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+            </div>
+            <span class="status mono">Open Source · Python MCP</span>
+          </div>
+          <h3>Android AI Optimizer</h3>
+          <div class="project-type">Zero-Dependency MCP Server &amp; 5-Stage Non-Root ADB Pipeline</div>
+          <p>Android AI Optimizer equips Google Antigravity with 10 scoped JSON-RPC 2.0 tools (0 raw shell access) to safely audit, cross-check UAD-NG packages against bootloop blocklists, and tune Android 9–15 devices with 1-click undo (+525.7 MB RAM on Oppo A57).</p>
+          <div class="project-tech">
+            <span class="mono">Python 3.10+</span><span class="mono">MCP</span><span class="mono">ADB</span><span class="mono">UAD-NG</span><span class="mono">1-Click Rollback</span>
+          </div>
+          <div class="project-links">
+            <a href="/android-ai-optimizer/">Android Optimizer Guide →</a>
+            <a href="https://github.com/HamzaShaikhAI/android-ai-optimizer" target="_blank" rel="noopener noreferrer">Repository ↗</a>
           </div>
         </article>
 
@@ -798,6 +835,7 @@
           <div class="cli-tabs" role="group" aria-label="Select repository quick-start snippet">
             <button type="button" class="lab-btn cli-tab mono" data-cli="kepler" aria-pressed="true">KeplerBridge</button>
             <button type="button" class="lab-btn cli-tab mono" data-cli="agentforge" aria-pressed="false">AgentForge</button>
+            <button type="button" class="lab-btn cli-tab mono" data-cli="android" aria-pressed="false">Android AI Optimizer</button>
             <button type="button" class="lab-btn cli-tab mono" data-cli="remotion" aria-pressed="false">Remotion REA</button>
             <button type="button" class="lab-btn cli-tab mono" data-cli="notion" aria-pressed="false">Notion Block Engine</button>
           </div>
@@ -846,6 +884,14 @@
               <td>Active Development</td>
               <td>Local-first MCP bridges, approval gates, credential isolation</td>
               <td><a href="https://github.com/HamzaShaikhAI/AgentForge" target="_blank" rel="noopener noreferrer">AgentForge Repo ↗</a></td>
+            </tr>
+            <tr>
+              <td><strong>Android AI Optimizer</strong></td>
+              <td>Mobile / ADB MCP Automation</td>
+              <td class="mono">Python 3.10+ · 0-Deps</td>
+              <td>Open Source (<span class="mono">MIT</span>)</td>
+              <td>10 scoped MCP tools, UAD-NG, bootloop blocklist, 1-click undo</td>
+              <td><a href="https://github.com/HamzaShaikhAI/android-ai-optimizer" target="_blank" rel="noopener noreferrer">Android Optimizer Repo ↗</a></td>
             </tr>
             <tr>
               <td><strong>Remotion-For-Antigravity</strong></td>

@@ -62,6 +62,7 @@ Fiverr: https://www.fiverr.com/indefect
 # Flagship Architectures
 KeplerBridge: Open-source C++20 D3D12-to-D3D11 compatibility layer for NVIDIA GeForce GT 740 and Kepler GPUs
 AgentForge: Local-first TypeScript MCP AI agent workflow and security harness for Google Antigravity
+Android-AI-Optimizer: Zero-dependency Python 3.10+ MCP server & 5-stage non-root ADB optimizer with UAD-NG & 1-click rollback
 Remotion-For-Antigravity: Autonomous React motion graphics and video editing runtime for AI agents
 Notion-Block-Engine: Zero-dependency TypeScript bidirectional AST converter for HTML, Markdown, and Notion Blocks
 

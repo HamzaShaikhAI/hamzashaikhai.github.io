@@ -42,6 +42,14 @@
 - Status: Active Development
 - Summary: Local-first integration and workflow runtime for Google Antigravity with a built-in Manager UI dashboard. AgentForge provides Model Context Protocol (MCP) server presets, extensible service bridges, fine-grained permission boundaries, human-in-the-loop approval checkpoints, durable multi-step workflows, and credential isolation.
 
+### 3. Android AI Optimizer
+- Repository: https://github.com/HamzaShaikhAI/android-ai-optimizer
+- Dedicated Documentation Page: https://hamzashaikhai.com/android-ai-optimizer/
+- License: MIT
+- Category: Non-Root Android Optimization / Model Context Protocol (MCP)
+- Primary Language: Python 3.10+ (0 external pip dependencies, stdlib JSON-RPC 2.0)
+- Summary: Scoped MCP server (10 input-validated tools, zero raw shell access) and 5-stage ADB optimizer for non-rooted Android 9–15 devices (ColorOS, MIUI/HyperOS, One UI, AOSP). Verified on Oppo A57 (Android 14): +525.7 MB free RAM (+47.0%), 36/37 bloated apps removed, and -393 ms YouTube cold-start latency with 1-click `--undo-all` rollback.
+
 ### 3. Remotion-For-Antigravity
 - Repository: https://github.com/HamzaShaikhAI/Remotion-For-Antigravity
 - License: MIT

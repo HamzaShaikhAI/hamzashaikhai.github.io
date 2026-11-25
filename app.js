@@ -288,6 +288,7 @@
   const cliSnippets = {
     kepler: "git clone https://github.com/HamzaShaikhAI/KeplerBridge.git\n# Place d3d12.dll + kepler_bridge.ini next to your 64-bit game .exe (MIT)",
     agentforge: "git clone https://github.com/HamzaShaikhAI/AgentForge.git && cd AgentForge\nnpm install && npm run build   # Node.js >=20 · TypeScript 5.6",
+    android: "git clone https://github.com/HamzaShaikhAI/android-ai-optimizer.git && cd android-ai-optimizer\npython scripts/audit_device.py   # Zero pip deps · 10 scoped MCP tools · 1-click undo",
     remotion: "git clone https://github.com/HamzaShaikhAI/Remotion-For-Antigravity.git\ncd Remotion-For-Antigravity && npm install\nnpx rea --help   # Autonomous React video engine for Google Antigravity 2.0",
     notion: "git clone https://github.com/HamzaShaikhAI/notion-block-engine.git\n# Zero runtime dependencies (<15 KB): HTML / Markdown <-> Notion Block AST"
   };
