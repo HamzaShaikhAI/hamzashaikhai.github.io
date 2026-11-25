@@ -1,57 +1,11 @@
 # robots.txt for https://hamzashaikhai.github.io/
-# Global search engines and AI search crawlers permitted
+# Mirror domain consolidated via canonical + redirect to https://hamzashaikhai.com/
+# Crawling remains allowed so search engines & AI agents observe canonical/redirect directives.
 
 User-agent: *
 Allow: /
 
-# Primary Web Crawlers
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Applebot
-Allow: /
-
-# Major AI Agents & LLM Indexers
-User-agent: GPTBot
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: GoogleOther
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-User-agent: Amazonbot
-Allow: /
-
-User-agent: FacebookBot
-Allow: /
-
-User-agent: DuckAssistBot
-Allow: /
-
-Sitemap: https://hamzashaikhai.github.io/sitemap.xml
-# AI context index: https://hamzashaikhai.github.io/llms.txt
-# AI permissions and crawler directives: https://hamzashaikhai.github.io/.well-known/ai.txt
-
+Sitemap: https://hamzashaikhai.com/sitemap.xml
+# Canonical Flagship Host: https://hamzashaikhai.com/
+# AI context index: https://hamzashaikhai.com/llms.txt
+# AI permissions and crawler directives: https://hamzashaikhai.com/ai.txt

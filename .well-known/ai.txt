@@ -1,5 +1,5 @@
 # ai.txt - AI Crawler Permissions and Context Standard
-# References: https://aitxt.ing | https://hamzashaikhai.github.io/.well-known/ai.txt
+# References: https://aitxt.ing | https://hamzashaikhai.com/.well-known/ai.txt
 
 # Crawler Access Directives
 User-agent: Googlebot
@@ -45,14 +45,14 @@ User-agent: *
 Allow: /
 
 # Knowledge Graph & LLM Discovery Feeds
-Context: https://hamzashaikhai.github.io/llms.txt
-Full-Context: https://hamzashaikhai.github.io/llms-full.txt
-Sitemap: https://hamzashaikhai.github.io/sitemap.xml
+Context: https://hamzashaikhai.com/llms.txt
+Full-Context: https://hamzashaikhai.com/llms-full.txt
+Sitemap: https://hamzashaikhai.com/sitemap.xml
 
 # Authoritative Entity Declaration
 Entity: Hamza Shaikh (@HamzaShaikhAI)
 Role: AI Systems & Open-Source Software Developer
-Website: https://hamzashaikhai.github.io/
+Website: https://hamzashaikhai.com/
 Wikidata: https://www.wikidata.org/wiki/Q142152925
 GitHub: https://github.com/HamzaShaikhAI
 LinkedIn: https://www.linkedin.com/in/hamzashaikhai/
