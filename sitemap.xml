@@ -1,16 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Consolidated to canonical flagship sitemap: https://hamzashaikhai.com/sitemap.xml -->
+<!-- Mirror host consolidated to canonical flagship sitemap: https://hamzashaikhai.com/sitemap.xml -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://hamzashaikhai.github.io/blog/2026-11-26-mcp-waf-guardrails-cve-redaction-agentforge/</loc>
-    <lastmod>2026-11-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://hamzashaikhai.github.io/blog/2026-11-25-mcp-two-years-tasks-elicitation-agentforge/</loc>
-    <lastmod>2026-11-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
 </urlset>
